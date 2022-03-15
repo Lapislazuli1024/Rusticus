@@ -19,24 +19,22 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        @guest
+                       @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">Login</a>
                             </li>
+
+                            @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">Register</a>
-                            </li>
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Products</a>
+                                <a class="nav-link" href="#">Bauern</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"></a>
+                                <a class="nav-link" href="#">Produkte</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="">Logout</a>
                             </li>
-                        @endguest
+                            @endguest
                     </ul>
                 </div>
             </div>

@@ -12,5 +12,14 @@
     margin: 0 auto;
 }
 body{
-    background-image: url('/pictures/background.png')
+   background-image: url('/pictures/background.png')
+}
+h1{
+    font-size: 100px;
+    color:#022A54;
+
+
+}
+nav{
+    background-color:#214B78M;
 }
