@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('image', 30);
             $table->decimal('price', 8, 2);
             $table->foreignId('fk_user_id')->constrained('users');
-            $table->foreignId('fk_category_id')->constrained('main_category');
+            $table->foreignId('fk_sub_category_id')->constrained('sub_categorys');
             $table->timestamps();
         });
     }
