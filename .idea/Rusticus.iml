@@ -118,6 +118,9 @@
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/psr/event-dispatcher" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/psr/http-client" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/psr/http-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel/storage/app" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel/storage/framework" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/_laravel_idea" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
