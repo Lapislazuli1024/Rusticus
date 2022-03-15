@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sessioncart', function (Blueprint $table) {
-            $table->increments('sessioncart_id');
-            $table->foreignId('fk_user_id')->constrained('users');
+        Schema::create('sub_category', function (Blueprint $table) {
+            $table->increments('sub_category_id');
+            $table->text('description');
+            $table->foreign('fk_main_category_id')->references('main_category_id')->on('main_category')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sessioncart');
+        Schema::dropIfExists('sub_categorys');
     }
 };

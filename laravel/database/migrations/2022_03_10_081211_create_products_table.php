@@ -21,8 +21,8 @@ return new class extends Migration
             $table->enum('product_hint', ['', 'vegan', 'vegetarian']);
             $table->string('image', 30);
             $table->decimal('price', 8, 2);
-            $table->foreignId('fk_user_id')->constrained('users');
-            $table->foreignId('fk_sub_category_id')->constrained('sub_categorys');
+            $table->foreign('fk_user_id')->references('user_id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('fk_sub_category_id')->references('sub_category_id')->on('sub_category')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

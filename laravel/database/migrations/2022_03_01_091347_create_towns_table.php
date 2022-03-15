@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
-            $table->foreignId('fk_admin_id')->constrained('users');
-            $table->integer('level_of_authorization');
+        Schema::create('towns', function (Blueprint $table) {
+            $table->increments('town_id');
+            $table->string('name', 30);
+            $table->string('postal_code', 6);
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('towns');
     }
 };
