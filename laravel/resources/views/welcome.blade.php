@@ -10,7 +10,10 @@
                 <div class="input-group">
                     <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
                            aria-describedby="search-addon"/>
-                    <input type="submit" class="btn btn-primary" value="Search">
+                    <input type="submit" class="btn btn-primary" value="Search" >
+                    <p>
+                               <a href="{{route('products')}}">Produkte anzeigen!</a>
+                    </p>
                 </div>
             </form>
         </div>
