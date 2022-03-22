@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +25,4 @@ Route::get('/', function () {
 //Auth Routes
 Route::get('register' ,[RegisterController::class, 'show'])->name('register');
 Route::get('login',[LoginController::class,'show'])->name('login');
+Route::get('products',[ProductsController::class,'show'])->name('products');
