@@ -1,5 +1,4 @@
-<x-layout>
-    </head>
+<x-layout >
     <div class="container content"></div>
     <div class="container">
 

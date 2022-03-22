@@ -11,6 +11,6 @@ class FarmerController extends Controller
 
     }
     public function show($id){
-        return view('farmer.farmer');
+        return view('farmer.farmer',['id'=>$id]);
     }
 }
