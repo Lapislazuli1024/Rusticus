@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class session_has_product extends Model
+class Admin extends Model
 {
     use HasFactory;
 }

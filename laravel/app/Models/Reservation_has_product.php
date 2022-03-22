@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class adress extends Model
+class Reservation_has_product extends Model
 {
     use HasFactory;
 }
