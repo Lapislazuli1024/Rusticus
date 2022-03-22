@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('main_categorys');
+        Schema::dropIfExists('main_category');
     }
 };
