@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('sessioncarts', function (Blueprint $table) {
-            $table->increments('sessioncart_id');
+            $table->id('sessioncart_id');
             $table->foreignId('fk_user_id');
             $table->timestamps();
         });

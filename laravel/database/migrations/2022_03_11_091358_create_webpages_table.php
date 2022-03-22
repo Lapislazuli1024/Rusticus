@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('webpages', function (Blueprint $table) {
-            $table->increments('webpage_id');
+            $table->id('webpage_id');
             $table->string('image', 30);
             $table->string('title', 40);
             $table->text('description');
