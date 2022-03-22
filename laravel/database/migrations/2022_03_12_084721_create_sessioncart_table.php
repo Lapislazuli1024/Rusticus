@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('sessioncarts', function (Blueprint $table) {
             $table->increments('sessioncart_id');
-            $table->foreign('fk_user_id')->references('user_id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('fk_user_id');
             $table->timestamps();
         });
     }

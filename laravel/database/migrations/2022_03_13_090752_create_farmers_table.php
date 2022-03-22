@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('farmers', function (Blueprint $table) {
-            $table->foreign('fk_farmer_id')->references('user_id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('fk_adress_id')->references('adress_id')->on('adresses')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('fk_webpage_id')->references('webpage_id')->on('webpages')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('fk_farmer_id');
+            $table->foreignId('fk_adress_id');
+            $table->foreignId('fk_webpage_id');
             $table->timestamps();
         });
     }

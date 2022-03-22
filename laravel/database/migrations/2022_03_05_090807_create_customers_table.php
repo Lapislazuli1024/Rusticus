@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->foreign('fk_customer_id')->references('user_id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('fk_customer_id');
             $table->string('nickname', 20);
             $table->timestamps();
         });

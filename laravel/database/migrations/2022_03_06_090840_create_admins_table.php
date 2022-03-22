@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('admins', function (Blueprint $table) {
-            $table->foreign('fk_admin_id')->references('user_id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('fk_admin_id');
             $table->integer('level_of_authorization');
             $table->timestamps();
         });

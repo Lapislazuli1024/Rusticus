@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('adress_id');
             $table->string('street', 30);
             $table->integer('house_number');
-            $table->foreign('fk_town_id')->references('town_id')->on('towns')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('fk_town_id');
             $table->timestamps();
         });
     }

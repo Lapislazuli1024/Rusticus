@@ -17,8 +17,8 @@ return new class extends Migration
             $table->increments('reservation_has_product_id');
             $table->double('amount', 6, 2);
             $table->date('pickup_date');
-            $table->foreign('fk_product_id')->references('product_id')->on('products')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('fk_reservation_id')->references('reservation_id')->on('reservations')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('fk_product_id');
+            $table->foreignId('fk_reservation_id');
             $table->timestamps();
         });
     }

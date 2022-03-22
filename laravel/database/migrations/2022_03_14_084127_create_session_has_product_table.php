@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('session_has_product', function (Blueprint $table) {
             $table->increments('session_has_product_id');
             $table->double('amount', 6, 2);
-            $table->foreign('fk_sessioncart_id')->references('sessioncart_id')->on('sessioncart')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('fk_product_id')->references('product_id')->on('products')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('fk_sessioncart_id');
+            $table->foreignId('fk_product_id');
             $table->timestamps();
         });
     }

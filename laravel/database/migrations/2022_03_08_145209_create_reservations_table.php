@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('reservation_date');
             $table->boolean('confirmation');
             $table->timestamps();
-            $table->foreign('fk_user_id')->references('user_id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('fk_user_id');
         });
     }
 

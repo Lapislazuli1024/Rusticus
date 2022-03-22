@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('sub_category', function (Blueprint $table) {
             $table->increments('sub_category_id');
             $table->text('description');
-            $table->foreign('fk_main_category_id')->references('main_category_id')->on('main_category')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('fk_main_category_id');
             $table->timestamps();
         });
     }
