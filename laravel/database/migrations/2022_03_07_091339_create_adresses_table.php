@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('adresses', function (Blueprint $table) {
-            $table->increments('adress_id');
+            $table->id('adress_id');
             $table->string('street', 30);
             $table->integer('house_number');
             $table->foreignId('fk_town_id');

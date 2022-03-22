@@ -9,9 +9,34 @@ class User extends Model
 {
     use HasFactory;
 
-    public function customers()
+    //hasOne, hasMany, belongsTo, belongsToMany
+    function customers()
     {
-        // hasOne, hasMany, belongsTo, belongsToMany
         return $this->hasMany(Customer::class);
+    }
+
+    function farmers()
+    {
+        return $this->hasMany(Farmer::class);
+    }
+
+    function admins()
+    {
+        return $this->hasMany(Admin::class);
+    }
+
+    function sessioncart()
+    {
+        return $this->hasOne(Sessioncart::class);
+    }
+
+    function reservation()
+    {
+        return $this->hasOne(Reservation::class);
+    }
+
+    function products()
+    {
+        return $this->hasMany(Product::class);
     }
 }

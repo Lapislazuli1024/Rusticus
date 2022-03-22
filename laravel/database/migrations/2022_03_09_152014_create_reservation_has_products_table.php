@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('reservation_has_product', function (Blueprint $table) {
-            $table->increments('reservation_has_product_id');
+            $table->id('reservation_has_product_id');
             $table->double('amount', 6, 2);
             $table->date('pickup_date');
             $table->foreignId('fk_product_id');
