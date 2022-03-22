@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('admins', function (Blueprint $table) {
-            $table->foreignId('fk_admin_id');
+            $table->foreignId('fk_user_id');
             $table->integer('level_of_authorization');
             $table->timestamps();
         });

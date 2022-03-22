@@ -9,7 +9,7 @@ class User extends Model
 {
     use HasFactory;
 
-    public function customer()
+    public function customers()
     {
         // hasOne, hasMany, belongsTo, belongsToMany
         return $this->hasMany(Customer::class);
