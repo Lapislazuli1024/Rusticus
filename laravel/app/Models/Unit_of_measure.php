@@ -5,12 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Main_category extends Model
+class Unit_of_measure extends Model
 {
     use HasFactory;
-    
-    function sub_category()
-    {
-        return $this->hasMany(Sub_category::class);
-    }
 }

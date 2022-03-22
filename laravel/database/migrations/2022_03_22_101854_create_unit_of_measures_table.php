@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('farmers', function (Blueprint $table) {
-            $table->foreignId('fk_user_id');
-            $table->foreignId('fk_webpage_id');
+        Schema::create('unit_of_measures', function (Blueprint $table) {
+            $table->id('unit_of_measure_id');
+            $table->string('description', 30);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('farmers');
+        Schema::dropIfExists('unit_of_measures');
     }
 };

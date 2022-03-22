@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Reservation_has_product extends Model
 {
     use HasFactory;
+
+    function product()
+    {
+        return $this->belongsToMany(Product::class);
+    }
 }
