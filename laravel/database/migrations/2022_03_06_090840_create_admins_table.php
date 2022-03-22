@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sub_categorys', function (Blueprint $table) {
-            $table->increments('sub_category_id');
-            $table->text('description');
-            $table->foreignId('fk_main_category_id')->constrained('main_categorys');
+        Schema::create('admins', function (Blueprint $table) {
+            $table->foreignId('fk_user_id');
+            $table->integer('level_of_authorization');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sub_categorys');
+        Schema::dropIfExists('admins');
     }
 };

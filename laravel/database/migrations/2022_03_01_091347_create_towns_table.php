@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('towns', function (Blueprint $table) {
             $table->increments('town_id');
             $table->string('name', 30);
-            $table->string('PLZ', 6);
+            $table->string('postal_code', 6);
             $table->timestamps();
         });
     }

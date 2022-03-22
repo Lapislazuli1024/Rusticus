@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('session_has_product', function (Blueprint $table) {
-            $table->increments('session_has_product_id');
+        Schema::create('reservation_has_product', function (Blueprint $table) {
+            $table->increments('reservation_has_product_id');
             $table->double('amount', 6, 2);
-            $table->foreignId('fk_sessioncart_id')->constrained('sessioncart');
-            $table->foreignId('fk_product_id')->constrained('products');
+            $table->date('pickup_date');
+            $table->foreignId('fk_product_id');
+            $table->foreignId('fk_reservation_id');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('session_has_product');
+        Schema::dropIfExists('reservation_has_product');
     }
 };

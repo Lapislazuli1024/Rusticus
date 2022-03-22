@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('adresses', function (Blueprint $table) {
-            $table->increments('adress_id');
-            $table->string('street', 30);
-            $table->integer('house_number');
-            $table->foreignId('fk_town_id')->constrained('towns');
+        Schema::create('main_category', function (Blueprint $table) {
+            $table->increments('main_category_id');
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('adresses');
+        Schema::dropIfExists('main_category');
     }
 };

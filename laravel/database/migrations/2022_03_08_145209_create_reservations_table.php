@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('farmers', function (Blueprint $table) {
-            $table->foreignId('fk_farmer_id')->constrained('users');
-            $table->foreignId('fk_adress_id')->constrained('adresses');
-            $table->foreignId('fk_webpage_id')->constrained('webpages');
+        Schema::create('reservations', function (Blueprint $table) {
+            $table->increments('reservation_id');
+            $table->date('reservation_date');
+            $table->boolean('confirmation');
             $table->timestamps();
+            $table->foreignId('fk_user_id');
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('farmers');
+        Schema::dropIfExists('reservations');
     }
 };
