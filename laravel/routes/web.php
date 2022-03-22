@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
-
+use \App\Http\Controllers\FarmerController;
+use \App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,4 +25,10 @@ Route::get('/', function () {
 //Auth Routes
 Route::get('register' ,[RegisterController::class, 'show'])->name('register');
 Route::get('login',[LoginController::class,'show'])->name('login');
-Route::get('products',[ProductsController::class,'show'])->name('products');
+
+//Farmer Routes
+Route::get('bauern',[FarmerController::class,'showAll'])->name('farmers');
+Route::get('bauer/{farmer:id}',[FarmerController::class,'show'])->name('farmer');
+
+//Product Routes
+Route::get('produkte',[ProductController::class,'showAll'])->name('products');
