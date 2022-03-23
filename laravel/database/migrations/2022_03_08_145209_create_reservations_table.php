@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id('reservation_id');
             $table->date('reservation_date');
             $table->boolean('confirmation');
-            $table->timestamps();
             $table->foreignId('fk_user_id');
+            $table->timestamps();
         });
     }
 
