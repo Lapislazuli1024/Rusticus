@@ -25,6 +25,8 @@ Route::get('/', function () {
 //Auth Routes
 Route::get('register' ,[RegisterController::class, 'show'])->name('register');
 Route::get('login',[LoginController::class,'show'])->name('login');
+Route::post('auth/login',[LoginController::class,'auth'])->name('login.auth');
+Route::post('auth/register',[RegisterController::class,'auth'])->name('register.auth');
 
 //Farmer Routes
 Route::get('bauern',[FarmerController::class,'showAll'])->name('farmers');

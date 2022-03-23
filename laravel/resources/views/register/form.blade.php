@@ -6,7 +6,7 @@
                     <div class="card">
                         <h3 class="card-header text-center">Register User</h3>
                         <div class="card-body">
-                            <form method="POST" action="#">
+                            <form method="POST" action="{{route('register.auth')}}">
                                 <div class="row g-2">
                                     <div class="form-floating col mb-3">
                                         <input type="text" class="form-control" placeholder="First name" name="firstName" id="firstName" required autofocus>
