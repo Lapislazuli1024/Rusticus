@@ -18,7 +18,7 @@ class TownFactory extends Factory
     {
         return [
             'name' => $this->faker->city(),
-            'postal_code' => $this->faker->postcode(),
+            'postal_code' => $this->faker->buildingNumber(),
         ];
     }
 }

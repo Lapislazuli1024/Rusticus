@@ -18,7 +18,7 @@ class AdminFactory extends Factory
     public function definition()
     {
         return [
-            'level_of_authorization' => $this->faker->name(),
+            'level_of_authorization' => $this->faker->randomDigit(),
             'fk_user_id' => User::factory(),
         ];
     }
