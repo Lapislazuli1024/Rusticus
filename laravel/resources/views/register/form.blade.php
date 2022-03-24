@@ -8,6 +8,9 @@
                         <div class="card-body">
                             <form method="POST" action="{{route('register.auth')}}">
                                 <div class="row g-2">
+                                    @foreach($errors as $error)
+                                        <p>{{$error}}</p>
+                                    @endforeach
                                     <div class="form-floating col mb-3">
                                         <input type="text" class="form-control" placeholder="First name" name="firstName" id="firstName" required autofocus>
                                         <label for="floatingInput">First name</label>
@@ -72,14 +75,20 @@
                                     @endif
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="password" placeholder="Password Confirmation" class="form-control"id="password_confirmation" name="password_confirmation">
+                                    <input type="password" placeholder="Password Confirmation" class="form-control"id="password_confirmation" name="password_confirmation" required>
                                     <label for="floatingInput">Password Confirmation</label>
                                 </div>
-                                <div class="form-group mb-3">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember"> Remember Me
-                                        </label>
+                                <div class="form-floating mb-3">
+                                    <input type="checkbox" placeholder="Sind sie ein Bauer?" value=0 onChange=expandform() class="form-check"id="farmer" name="farmer">
+                                    <label for="floatingInput">Sind sie ein Bauer?</label>
+                                </div>
+                                <div id="hidden" class="expandform">
+                                    <div class="form-floating mb-3">
+                                        <input type="url" placeholder="Ihre Webpage" class="form-control"id="webpage" name="webpage">
+                                        <label for="floatingInput">Ihre Webpage (URL)</label>
+                                        @if($errors->has('webpage'))
+                                            <span class="text-danger">{{$errors->first('webpage')}}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="d-grid mx-auto">

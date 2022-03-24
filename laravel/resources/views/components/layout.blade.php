@@ -53,6 +53,7 @@
             {{ $slot }}
         </div>
         <script src="{{asset('js/app.js')}}"></script>
+        <script src="{{asset('js/expandform.js')}}"></script>
     </body>
     <footer class="page-footer font-small blue fixed-bottom">
         <div class="footer-copyright text-center py-3">© 2020 Copyright:

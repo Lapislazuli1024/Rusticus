@@ -25,3 +25,6 @@ h1{
 #profiledetails {
     margin-top: 100px;
 }
+.expandform{
+    display:none;
+}

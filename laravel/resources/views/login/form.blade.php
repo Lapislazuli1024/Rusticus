@@ -22,6 +22,21 @@
                                         <span class="text-danger">{{ $errors->first('password') }}</span>
                                     @endif
                                 </div>
+                                <div class="form-floating mb-3">
+                                    <input list="roles" placeholder="Role" class="form-control" id="role" name="role">
+                                    <label for="floatingInput">Role</label>
+                                    <datalist id="roles">
+                                        <option>
+                                            Kunde
+                                        </option>
+                                        <option>
+                                            Bauer
+                                        </option>
+                                        <option>
+                                            Admin
+                                        </option>
+                                    </datalist>
+                                </div>
                                 <div class="d-grid mx-auto">
                                     <button type="submit" class="btn btn-dark btn-block">Signin</button>
                                 </div>
