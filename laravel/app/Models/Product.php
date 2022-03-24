@@ -21,7 +21,7 @@ class Product extends Model
 
     function sub_category()
     {
-        return $this->belongsToMany(Sub_category::class);
+        return $this->belongsTo(Sub_category::class);
     }
     
     function unit_of_measure()

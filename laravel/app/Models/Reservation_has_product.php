@@ -11,6 +11,11 @@ class Reservation_has_product extends Model
 
     function product()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsTo(Product::class);
+    }
+
+    function reservation()
+    {
+        return $this->belongsTo(Reservation::class);
     }
 }
