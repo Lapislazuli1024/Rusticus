@@ -15,9 +15,6 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        Admin::create([
-            'fk_user_id' => '1',
-            'level_of_authorization' => 2
-        ]);
+        Admin::factory()->count(10)->create();
     }
 }

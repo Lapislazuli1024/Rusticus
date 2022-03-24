@@ -9,8 +9,8 @@ class Town extends Model
 {
     use HasFactory;
 
-    function adress()
+    function address()
     {
-        return $this->hasMany(Adress::class);
+        return $this->hasMany(Address::class);
     }
 }

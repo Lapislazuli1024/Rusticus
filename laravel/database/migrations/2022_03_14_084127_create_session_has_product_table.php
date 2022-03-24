@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('session_has_product', function (Blueprint $table) {
+        Schema::create('session_has_products', function (Blueprint $table) {
             $table->id('session_has_product_id');
             $table->double('amount', 6, 2);
             $table->foreignId('fk_sessioncart_id');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('session_has_product');
+        Schema::dropIfExists('session_has_products');
     }
 };

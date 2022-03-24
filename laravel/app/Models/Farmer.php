@@ -14,9 +14,9 @@ class Farmer extends Model
     {
         return $this->belongsTo(User::class);
     }
-    function adress()
+    function address()
     {
-        return $this->hasOne(Adress::class);
+        return $this->hasOne(Address::class);
     }
     function webpage()
     {

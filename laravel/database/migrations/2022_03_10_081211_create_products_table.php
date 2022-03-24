@@ -19,7 +19,7 @@ return new class extends Migration
             $table->double('stock_quantity', 6, 2);
             $table->text('description');
             $table->enum('product_hint', ['', 'vegan', 'vegetarian']);
-            $table->string('image', 30);
+            $table->string('image');
             $table->decimal('price', 8, 2);
             $table->foreignId('fk_user_id');
             $table->foreignId('fk_sub_category_id');

@@ -16,9 +16,6 @@ class CustomerSeeder extends Seeder
      */
     public function run()
     {
-        Customer::create([
-            'fk_user_id' => 1,
-            'nickname' => 'lapis'
-        ]);
+        Customer::factory()->count(10)->create();
     }
 }

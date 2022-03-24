@@ -16,9 +16,6 @@ class FarmerSeeder extends Seeder
      */
     public function run()
     {
-        Farmer::create([
-            'fk_user_id' => 1,
-            'fk_webpage_id' => 1
-        ]);
+        Farmer::factory()->count(50)->create();
     }
 }

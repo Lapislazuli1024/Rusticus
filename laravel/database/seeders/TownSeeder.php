@@ -15,9 +15,6 @@ class TownSeeder extends Seeder
      */
     public function run()
     {
-        Town::create([
-            'name' => 'Luzern',
-            'postal_code' => 6002
-        ]);
+        Town::factory()->count(10)->create();
     }
 }
