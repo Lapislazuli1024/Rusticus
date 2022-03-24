@@ -11,9 +11,12 @@
     margin: 0 auto;
 }
 body{
+    /* padding-top: 3%;  */
     background-image: url('../pictures/background.png');
-    background-repeat:no-repeat;
-    background-size: cover;
+    background-position: bottom center; 
+	background-repeat: no-repeat; 
+	background-size:cover; 
+	background-attachment:fixed;
 }
 h1{
     font-size: 100px;
