@@ -15,10 +15,6 @@ class WebpageSeeder extends Seeder
      */
     public function run()
     {
-        Webpage::create([
-            'image' => '/images/web.png',
-            'title' => 'Webpage of John',
-            'description' => 'lorem ipsum'
-        ]);
+        Webpage::factory()->count(10)->create();
     }
 }

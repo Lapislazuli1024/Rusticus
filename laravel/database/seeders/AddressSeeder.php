@@ -4,10 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Adress;
+use App\Models\Address;
 
 
-class AdressSeeder extends Seeder
+class AddressSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,11 +16,6 @@ class AdressSeeder extends Seeder
      */
     public function run()
     {
-        Adress::create([
-            'street' => 'Lapis street',
-            'house_number' => 69,
-            'fk_farmer_id' => 1,
-            'fk_town_id' => 1
-        ]);
+        Address::factory()->count(10)->create();
     }
 }

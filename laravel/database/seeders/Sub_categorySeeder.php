@@ -15,9 +15,6 @@ class Sub_categorySeeder extends Seeder
      */
     public function run()
     {
-        Sub_category::create([
-            'description' => 'Schafskäse',
-            'fk_main_category_id' => 1
-        ]);
+        Sub_category::factory()->count(10)->create();
     }
 }

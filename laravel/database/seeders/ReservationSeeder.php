@@ -15,10 +15,6 @@ class ReservationSeeder extends Seeder
      */
     public function run()
     {
-        Reservation::create([
-            'reservation_date' => 28-03-2022,
-            'confirmation' => true,
-            'fk_user_id' => 1
-        ]);
+        Reservation::factory()->count(10)->create();
     }
 }

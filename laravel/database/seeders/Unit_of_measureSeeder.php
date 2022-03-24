@@ -15,8 +15,6 @@ class Unit_of_measureSeeder extends Seeder
      */
     public function run()
     {
-        Unit_of_measure::create([
-            'description' => 'Meter'
-        ]);
+        Unit_of_measure::factory()->count(10)->create();
     }
 }

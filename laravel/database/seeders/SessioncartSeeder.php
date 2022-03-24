@@ -15,8 +15,6 @@ class SessioncartSeeder extends Seeder
      */
     public function run()
     {
-        Sessioncart::create([
-            'fk_user_id' => 1
-        ]);
+        Sessioncart::factory()->count(10)->create();
     }
 }

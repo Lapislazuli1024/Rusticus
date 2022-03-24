@@ -16,8 +16,6 @@ class Main_categorySeeder extends Seeder
      */
     public function run()
     {
-        Main_category::create([
-            'description' => 'Käse'
-        ]);
+        Main_category::factory()->count(10)->create();
     }
 }

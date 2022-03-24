@@ -15,16 +15,6 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        Product::create([
-            'name' => 'Käse Schaf',
-            'stock_quantity' => 12.4,
-            'description' => 'Schafskäse aus eigener produktion',
-            'product_hint' => 'vegetarian',
-            'image' => '/bilder/kaese.png',
-            'price' => 2.50,
-            'fk_user_id' => 1,
-            'fk_sub_category_id' => 1,
-            'fk_unit_of_measure_id' => 1
-        ]);
+        Product::factory()->count(10)->create();
     }
 }

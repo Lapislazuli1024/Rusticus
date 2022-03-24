@@ -15,10 +15,6 @@ class Session_has_productSeeder extends Seeder
      */
     public function run()
     {
-        Session_has_product::create([
-            'amount' => 2.30,
-            'fk_sessioncart_id' => 1,
-            'fk_product_id' => 1
-        ]);
+        Session_has_product::factory()->count(10)->create();
     }
 }
