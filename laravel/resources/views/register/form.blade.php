@@ -42,10 +42,10 @@
                                     @endif
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" placeholder="Adress" id="adress" class="form-control" name="adress" required autofocus>
-                                           <label for="floatingInput">Adress</label>
-                                    @if ($errors->has('adress'))
-                                        <span class="text-danger">{{ $errors->first('adress') }}</span>
+                                    <input type="text" placeholder="Address" id="address" class="form-control" name="address" required autofocus>
+                                           <label for="floatingInput">Adresse</label>
+                                    @if ($errors->has('address'))
+                                        <span class="text-danger">{{ $errors->first('address') }}</span>
                                     @endif
                                 </div>
                                 <div class="row g-2">

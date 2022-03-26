@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('webpages', function (Blueprint $table) {
             $table->id('webpage_id');
-            $table->string('image', 30);
+            $table->string('image');
             $table->string('title', 40);
             $table->text('description');
             $table->timestamps();
