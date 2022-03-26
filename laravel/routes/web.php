@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\FarmerController;
 use \App\Http\Controllers\ProductController;
+use \App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,12 +16,10 @@ use \App\Http\Controllers\ProductController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Home
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome.welcome');
 });
-
-
 
 //Auth Routes
 Route::get('register' ,[RegisterController::class, 'show'])->name('register');
@@ -34,3 +33,7 @@ Route::get('bauer/{farmer:id}',[FarmerController::class,'show'])->name('farmer')
 
 //Product Routes
 Route::get('produkte',[ProductController::class,'showAll'])->name('products');
+
+//Search
+Route::post('/search',[SearchController::class,'index'])->name('search.results');
+Route::post('/livesearch',[SearchController::class,'livesearch'])->name('livesearch');

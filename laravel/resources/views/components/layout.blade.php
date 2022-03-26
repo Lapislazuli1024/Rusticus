@@ -7,6 +7,7 @@
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="csrf_token" content="{{csrf_token()}}">
         <title>Rusticus</title>
 
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -54,6 +55,7 @@
             {{ $slot }}
         </div>
         <script src="{{asset('js/app.js')}}"></script>
+
     </body>
     <footer class="page-footer font-small blue fixed-bottom">
         <div class="footer-copyright text-center py-3">© 2020 Copyright:

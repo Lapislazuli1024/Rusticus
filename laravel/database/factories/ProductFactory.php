@@ -2,9 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Sub_category;
-use App\Models\Unit_of_measure;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,15 +17,15 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word(),
-            'stock_quantity' => $this->faker->randomFloat(2,0,100),
-            'description' => $this->faker->text(),
-            'product_hint' => 'vegan',
-            'image' => $this->faker->sentence(),
-            'price' => $this->faker->randomFloat(2,1,1000),
-            'fk_user_id' => User::factory(),
-            'fk_sub_category_id' => Sub_category::factory(),
-            'fk_unit_of_measure_id' => Unit_of_measure::factory(),
-            ];
+            'name'=>$this->faker->name(),
+            'stock_quantity'=>$this->faker->randomDigit(),
+            'product_hint'=>'',
+            'description'=>$this->faker->text(100),
+            'price'=>$this->faker->randomFloat(2,0.1,1000),
+            'fk_user_id'=>1,
+            'fk_sub_category_id'=>1,
+            'fk_unit_of_measure_id'=>1,
+            'image'=>$this->faker->filePath()
+        ];
     }
 }

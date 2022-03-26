@@ -16,13 +16,13 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+
         return [
-            'name' => $this->faker->firstName(),
-            'surname' => $this->faker->lastName(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'password' => bcrypt($this->faker->password(6,20)),
-            'salt' => $this->faker->sentence(),
-            'remember_token' => $this->faker->sentence(),
+            'surname'=>$this->faker->lastName(),
+            'name'=>$this->faker->firstName(),
+            'email'=>$this->faker->email(),
+            'password'=>$this->faker->password(),
+            'remember_token'=>$this->faker->text(5)
         ];
     }
 }
