@@ -22,9 +22,9 @@ class ProductFactory extends Factory
             'product_hint'=>'',
             'description'=>$this->faker->text(100),
             'price'=>$this->faker->randomFloat(2,0.1,1000),
-            'fk_user_id'=>1,
-            'fk_sub_category_id'=>1,
-            'fk_unit_of_measure_id'=>1,
+            'user_id'=>1,
+            'sub_category_id'=>1,
+            'unit_of_measure_id'=>1,
             'image'=>$this->faker->filePath()
         ];
     }

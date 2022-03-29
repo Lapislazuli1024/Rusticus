@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\FarmerController;
 use \App\Http\Controllers\ProductController;
 use \App\Http\Controllers\SearchController;
+use \App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,3 +38,7 @@ Route::get('produkte',[ProductController::class,'showAll'])->name('products');
 //Search
 Route::post('/search',[SearchController::class,'index'])->name('search.results');
 Route::post('/livesearch',[SearchController::class,'livesearch'])->name('livesearch');
+
+//Cart
+Route::get('cart',[CartController::class,'showCart'])->name('cart');
+Route::get('addToCart/{product:id}', [CartController::class,'addToCart'])->name('addToCart');

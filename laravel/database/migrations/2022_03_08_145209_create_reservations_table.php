@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('reservations', function (Blueprint $table) {
-            $table->id('reservation_id');
+            $table->id();
             $table->date('reservation_date');
             $table->boolean('confirmation');
-            $table->foreignId('fk_user_id');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

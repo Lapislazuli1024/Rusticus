@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('farmers', function (Blueprint $table) {
-            $table->foreignId('fk_user_id');
-            $table->foreignId('fk_webpage_id');
+            $table->foreignId('user_id');
+            $table->foreignId('webpage_id');
             $table->timestamps();
         });
     }

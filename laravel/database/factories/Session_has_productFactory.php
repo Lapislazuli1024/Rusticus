@@ -20,8 +20,8 @@ class Session_has_productFactory extends Factory
     {
         return [
             'amount' => $this->faker->randomFloat(2, 1, 100),
-            'fk_sessioncart_id' => Sessioncart::factory(),
-            'fk_product_id' => Product::factory(),
+            'sessioncart_id' => Sessioncart::factory(),
+            'product_id' => Product::factory(),
         ];
     }
 }
