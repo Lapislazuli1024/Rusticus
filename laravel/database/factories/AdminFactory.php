@@ -19,7 +19,7 @@ class AdminFactory extends Factory
     {
         return [
             'level_of_authorization' => $this->faker->randomDigit(),
-            'fk_user_id' => User::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

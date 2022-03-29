@@ -18,7 +18,7 @@ class SessioncartFactory extends Factory
     public function definition()
     {
         return [
-            'fk_user_id' => User::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

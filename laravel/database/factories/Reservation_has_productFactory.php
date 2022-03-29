@@ -21,8 +21,8 @@ class Reservation_has_productFactory extends Factory
         return [
             'amount' => $this->faker->randomFloat(2, 1, 100),
             'pickup_date' => $this->faker->date(),
-            'fk_product_id' => Product::factory(),
-            'fk_reservation_id' => Reservation::factory(),
+            'product_id' => Product::factory(),
+            'reservation_id' => Reservation::factory(),
         ];
     }
 }

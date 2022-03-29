@@ -20,7 +20,7 @@ class ReservationFactory extends Factory
         return [
             'reservation_date' => $this->faker->date(),
             'confirmation' => $this->faker->boolean(),
-            'fk_user_id' => User::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

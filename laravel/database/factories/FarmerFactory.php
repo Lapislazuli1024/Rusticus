@@ -19,8 +19,8 @@ class FarmerFactory extends Factory
     public function definition()
     {
        return [
-        'fk_user_id' => User::factory(),
-        'fk_webpage_id' => Webpage::factory(),
+        'user_id' => User::factory(),
+        'webpage_id' => Webpage::factory(),
         ];
     }
 }

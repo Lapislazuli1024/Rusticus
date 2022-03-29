@@ -19,7 +19,7 @@ class Sub_categoryFactory extends Factory
     {
         return [
             'description' => $this->faker->word(),
-            'fk_main_category_id' => Main_category::factory()
+            'main_category_id' => Main_category::factory()
         ];
     }
 }

@@ -19,7 +19,7 @@ class CustomerFactory extends Factory
     {
         return [
             'nickname' => $this->faker->firstName(),
-            'fk_user_id' => User::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

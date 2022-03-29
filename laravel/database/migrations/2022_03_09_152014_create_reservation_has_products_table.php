@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('reservation_has_products', function (Blueprint $table) {
-            $table->id('reservation_has_product_id');
+            $table->id();
             $table->double('amount', 6, 2);
             $table->date('pickup_date');
-            $table->foreignId('fk_product_id');
-            $table->foreignId('fk_reservation_id');
+            $table->foreignId('product_id');
+            $table->foreignId('reservation_id');
             $table->timestamps();
         });
     }
