@@ -9,6 +9,10 @@ class Sessioncart extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+    ];
+
     function session_has_product()
     {
         return $this->hasMany(Session_has_product::class);

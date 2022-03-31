@@ -9,6 +9,12 @@ class Session_has_product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'amount',
+        'product_id',
+        'sessioncart_id',
+    ];
+
     function product()
     {
         return $this->belongsTo(Product::class);

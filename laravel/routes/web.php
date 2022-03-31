@@ -7,6 +7,8 @@ use \App\Http\Controllers\FarmerController;
 use \App\Http\Controllers\ProductController;
 use \App\Http\Controllers\SearchController;
 use \App\Http\Controllers\CartController;
+use App\Http\Controllers\ReservationController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,4 +43,8 @@ Route::post('/livesearch',[SearchController::class,'livesearch'])->name('livesea
 
 //Cart
 Route::get('cart',[CartController::class,'showCart'])->name('cart');
-Route::get('addToCart/{product:id}', [CartController::class,'addToCart'])->name('addToCart');
+Route::get('addtocart/{product:id}', [CartController::class,'addToCart'])->name('addtocart');
+
+//Reservation
+Route::get('reservation',[ReservationController::class,'showReservation'])->name('reservation');
+Route::get('checkout',[ReservationController::class,'checkout'])->name('checkout');

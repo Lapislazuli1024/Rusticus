@@ -5,7 +5,7 @@
                 <h3>Produkte</h3>
             </div>
             <div class="card-body">
-                @foreach($sessionProducts as $product)
+                <!-- @foreach($reservationProducts as $product)
                 <div class="card">
                     <div class="card-header">
                         <h5>{{$product->product()->first()->name}}</h5>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
+                @endforeach -->
 
                 <a href="/checkout">Checkout</a>
             </div>
