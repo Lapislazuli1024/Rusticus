@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Session_has_product;
 use App\Models\Sessioncart;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class CartController extends Controller
 {
@@ -14,39 +16,84 @@ class CartController extends Controller
         $sessioncart = Sessioncart::where('user_id', '=', $userId)->first();
 
         if ($sessioncart == null) {
-            return redirect ('/');
+            return redirect('/');
         }
 
         $sessionProducts = Sessioncart::where('user_id', '=', $userId)->first()->session_has_product()->get();
         return view('cart.cart', ['sessionProducts' => $sessionProducts]);
     }
 
-    public function storeToCart($productId)
+    public function storeCartIncrement($productId)
+    {
+        $sessionProduct = Session_has_product::where('sessioncart_id', '=', $this->getSessionCart()->id)->where('product_id', '=', $productId)
+            ->first();
+
+        if ($sessionProduct != null) {
+            $sessionProduct->increment('amount', 1);
+        }
+
+        return $this->createCart();
+    }
+
+    public function storeCartDecrement($productId)
+    {
+        $sessionProduct = Session_has_product::where('sessioncart_id', '=', $this->getSessionCart()->id)->where('product_id', '=', $productId)
+            ->first();
+
+        if ($sessionProduct != null) {
+            if ($sessionProduct->amount > 0) {
+                $sessionProduct->decrement('amount', 1);
+            }
+
+            if ($sessionProduct->amount == 0) {
+                $this->storeCartRemove($productId);
+            }
+        }
+
+        return $this->createCart();
+    }
+
+    public function storeCartRemove($productId)
+    {
+        $sessionProduct = Session_has_product::where('sessioncart_id', '=', $this->getSessionCart()->id)->where('product_id', '=', $productId)
+            ->first();
+
+        if ($sessionProduct != null) {
+            $sessionProduct->delete();
+        }
+
+        return $this->createCart();
+    }
+
+    public function storeCartAdd($productId)
     {
         // Add Product to DB
         $userId = 1; // TODO: get userid form Data
-        $sessionProduct = null;
-        $amount = 10; // TODO: get amount
 
-
-        if (Sessioncart::where('user_id', '=', $userId)->first() === null) {
+        $sessioncart = $this->getSessionCart();
+        if ($sessioncart === null) {
             // Create Sessioncart and save it
-            Sessioncart::create([
+            $sessioncart = Sessioncart::create([
                 'user_id' => $userId,
             ]);
         }
-        $sessioncart = Sessioncart::where('user_id', '=', $userId)->first();
 
-        if (Session_has_product::where('sessioncart_id', '=', $sessioncart['id'])->where('product_id', '=', $productId)->first() === null) {
+        if (Session_has_product::where('sessioncart_id', '=', $sessioncart->id)->where('product_id', '=', $productId)->first() === null) {
             // Create Session_has_Product and save it
             Session_has_product::create([
-                'amount' => 0,
+                'amount' => 1,
                 'product_id' => $productId,
                 'sessioncart_id' => $sessioncart->id,
             ]);
+        } else {
+            return redirect("/cart/show");
         }
-        Session_has_product::where('sessioncart_id', '=', $sessioncart->id)->where('product_id', '=', $productId)
-            ->first()->increment('amount', $amount);
-        return redirect('/');
+        return Redirect::back();
+    }
+
+    private function getSessionCart()
+    {
+        $userId = 1; // TODO: get userid form Data
+        return Sessioncart::where('user_id', '=', $userId)->first();
     }
 }
