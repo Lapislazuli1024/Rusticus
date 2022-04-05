@@ -38,8 +38,8 @@ Route::get('/farmer/{farmer:id}',[FarmerController::class,'createOneFarmer'])->n
 Route::get('/products',[ProductController::class,'createAllProduct'])->name('products');
 
 //Search
-Route::post('/search',[SearchController::class,'createSearch'])->name('search.results');
-Route::post('/livesearch',[SearchController::class,'createLivesearch'])->name('livesearch');
+Route::post('/search',[SearchController::class,'index'])->name('search.results');
+Route::post('/livesearch',[SearchController::class, 'livesearch'])->name('livesearch');
 
 //Cart
 Route::get('/cart/show',[CartController::class,'createCart'])->name('cart');

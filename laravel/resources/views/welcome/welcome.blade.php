@@ -8,7 +8,7 @@
             <form method="post" action="{{route('search.results')}}">
                 @csrf
                 <div class="input-group">
-                    <input type="search" class="form-control rounded" name="searchinput" id="searchinput" onkeyup="livesearch()" placeholder="Search" list="livesearch" aria-label="Search"
+                    <input type="search" autocomplete="off" class="form-control rounded" name="searchinput" id="searchinput" onkeyup="livesearch()" placeholder="Search" list="livesearch" aria-label="Search"
                            aria-describedby="search-addon"/>
                     <datalist id="livesearch">
                         <option id="hallo"> Hallo</option>
