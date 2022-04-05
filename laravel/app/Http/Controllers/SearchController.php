@@ -18,21 +18,52 @@ class SearchController extends Controller
                     array_push($hint,$product->name);
                 }
             }
-            foreach(Main_category::all() as $main_category){
-                if(str_contains(strtolower($main_category->descripton),$q)){
-                    array_push($hint,$main_category->description);
+            foreach (Main_category::all() as $main_category) {
+                if (str_contains(strtolower($main_category->description), $q)) {
+                    array_push($hint, $main_category->description);
                 }
             }
-            foreach(Sub_category::all() as $sub_category){
-                if(str_contains(strtolower($sub_category->description),$q)){
-                    array_push($hint,$sub_category->description);
+            foreach (Sub_category::all() as $sub_category) {
+                if (str_contains(strtolower($sub_category->description), $q)) {
+                    array_push($hint, $sub_category->description);
                 }
             }
         }
 
-        return response()->json(['result'=>$hint]);
+        return response()->json(['result' => $hint]);
     }
 
+    public function index(Request $request)
+    {
+        $input = strtolower($request->searchinput);
+        if (strlen($input) > 0) {
+            $hint = array();
+            foreach (Product::all() as $product) {
+                if (str_contains(strtolower($product->name), $input)) {
+                    array_push($hint, $product);
+                }
+            }
+            foreach (Main_category::all() as $main_category) {
+                if (str_contains(strtolower($main_category->description), $input)) {
+                    $m_subcategories = Main_category::find($main_category->id)->sub_category;
+                    foreach ($m_subcategories as $m_subcategory) {
+
+                        array_push($hint, $m_subcategory->product);
+                    }
+                }
+            }
+            foreach (Sub_category::all() as $sub_category) {
+                if (str_contains(strtolower($sub_category->description), $input)) {
+                    foreach ($sub_category->product as $sproduct)
+                        array_push($hint, $sproduct);
+                }
+            }
+        }
+
+        return view('search.search', [
+            'results' => $hint
+        ]);
+    }
 
 
 }
