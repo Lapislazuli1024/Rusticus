@@ -43,7 +43,11 @@ Route::post('/livesearch',[SearchController::class, 'livesearch'])->name('livese
 
 //Cart
 Route::get('/cart/show',[CartController::class,'createCart'])->name('cart');
-Route::get('/cart/add/{product:id}', [CartController::class,'storeToCart'])->name('addtocart');
+Route::get('/cart/add/{product:id}', [CartController::class,'storeCartAdd'])->name('addtocart');
+Route::get('/cart/remove/{product:id}', [CartController::class,'storeCartRemove'])->name('removefromcart');
+Route::get('/cart/increment/{product:id}', [CartController::class,'storeCartIncrement'])->name('incrementincart');
+Route::get('/cart/decrement/{product:id}', [CartController::class,'storeCartDecrement'])->name('decrementincart');
+
 
 //Reservation
 Route::get('/reservation/show',[ReservationController::class,'createReservation'])->name('reservation');

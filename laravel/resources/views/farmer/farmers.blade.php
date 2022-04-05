@@ -8,7 +8,7 @@
                     </div>
                     <div class="card-body">
                         <div class="container">{{$farmer['name']}}</div>
-                        <a href="/bauer/{{$farmer['name']}}" class="btn btn-dark float-end">Mehr</a>
+                        <a href="/farmer/{{$farmer['name']}}" class="btn btn-dark float-end">Mehr</a>
                     </div>
                 </div>
             </li>
