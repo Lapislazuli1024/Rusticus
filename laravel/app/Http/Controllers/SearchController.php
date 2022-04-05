@@ -9,7 +9,7 @@ use \App\Models\Sub_category;
 
 class SearchController extends Controller
 {
-    public function livesearch(Request $request){
+    public function createLivesearch(Request $request){
         $q=strtolower($request->q);
         if(strlen($q)>0){
             $hint=array();
@@ -33,7 +33,7 @@ class SearchController extends Controller
         return response()->json(['result' => $hint]);
     }
 
-    public function index(Request $request)
+    public function createSearch(Request $request)
     {
         $input = strtolower($request->searchinput);
         if (strlen($input) > 0) {
