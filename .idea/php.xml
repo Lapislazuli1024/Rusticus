@@ -113,6 +113,7 @@
       <path value="$PROJECT_DIR$/laravel/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/laravel/vendor/psr/http-factory" />
       <path value="$PROJECT_DIR$/laravel/vendor/_laravel_idea" />
+      <path value="$PROJECT_DIR$/laravel/vendor/predis/predis" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />
