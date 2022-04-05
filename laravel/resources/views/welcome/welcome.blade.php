@@ -4,7 +4,7 @@
 
     </div>
         <div class="container search">
-            <h1>Rusticus</h1>
+            <h1 class="title">Rusticus</h1>
             <form method="post" action="{{route('search.results')}}">
                 @csrf
                 <div class="input-group">
