@@ -6,6 +6,7 @@ use App\Models\Session_has_product;
 use App\Models\Sessioncart;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class CartController extends Controller
 {
@@ -84,8 +85,10 @@ class CartController extends Controller
                 'product_id' => $productId,
                 'sessioncart_id' => $sessioncart->id,
             ]);
+        } else {
+            return redirect("/cart/show");
         }
-        return redirect('/');
+        return Redirect::back();
     }
 
     private function getSessionCart()
