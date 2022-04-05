@@ -8,15 +8,20 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function showCart()
+    public function createCart()
     {
         $userId = 1; // TODO: get userid
+        $sessioncart = Sessioncart::where('user_id', '=', $userId)->first();
+
+        if ($sessioncart == null) {
+            return redirect ('/');
+        }
 
         $sessionProducts = Sessioncart::where('user_id', '=', $userId)->first()->session_has_product()->get();
         return view('cart.cart', ['sessionProducts' => $sessionProducts]);
     }
 
-    public function addToCart($productId)
+    public function storeToCart($productId)
     {
         // Add Product to DB
         $userId = 1; // TODO: get userid form Data
@@ -40,7 +45,7 @@ class CartController extends Controller
                 'sessioncart_id' => $sessioncart->id,
             ]);
         }
-        Session_has_product::where('sessioncart_id', '=', $sessioncart['id'])->where('product_id', '=', $productId)
+        Session_has_product::where('sessioncart_id', '=', $sessioncart->id)->where('product_id', '=', $productId)
             ->first()->increment('amount', $amount);
         return redirect('/');
     }

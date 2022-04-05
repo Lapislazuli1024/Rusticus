@@ -25,26 +25,26 @@ Route::get('/', function () {
 });
 
 //Auth Routes
-Route::get('register' ,[RegisterController::class, 'show'])->name('register');
-Route::get('login',[LoginController::class,'show'])->name('login');
-Route::post('auth/login',[LoginController::class,'auth'])->name('login.auth');
-Route::post('auth/register',[RegisterController::class,'auth'])->name('register.auth');
+Route::get('/user/register' ,[RegisterController::class, 'show'])->name('register');
+Route::get('/user/login',[LoginController::class,'show'])->name('login');
+Route::post('/user/auth/login',[LoginController::class,'auth'])->name('login.auth');
+Route::post('/user/auth/register',[RegisterController::class,'auth'])->name('register.auth');
 
-//Farmer Routes
-Route::get('bauern',[FarmerController::class,'showAll'])->name('farmers');
-Route::get('bauer/{farmer:id}',[FarmerController::class,'show'])->name('farmer');
+//Farmer Routes //create //store
+Route::get('/farmers',[FarmerController::class,'createAllFarmer'])->name('farmers');
+Route::get('/farmer/{farmer:id}',[FarmerController::class,'createOneFarmer'])->name('farmer');
 
 //Product Routes
-Route::get('produkte',[ProductController::class,'showAll'])->name('products');
+Route::get('/products',[ProductController::class,'createAllProduct'])->name('products');
 
 //Search
-Route::post('/search',[SearchController::class,'index'])->name('search.results');
-Route::post('/livesearch',[SearchController::class,'livesearch'])->name('livesearch');
+Route::post('/search',[SearchController::class,'createSearch'])->name('search.results');
+Route::post('/livesearch',[SearchController::class,'createLivesearch'])->name('livesearch');
 
 //Cart
-Route::get('cart',[CartController::class,'showCart'])->name('cart');
-Route::get('addtocart/{product:id}', [CartController::class,'addToCart'])->name('addtocart');
+Route::get('/cart/show',[CartController::class,'createCart'])->name('cart');
+Route::get('/cart/add/{product:id}', [CartController::class,'storeToCart'])->name('addtocart');
 
 //Reservation
-Route::get('reservation',[ReservationController::class,'showReservation'])->name('reservation');
-Route::get('checkout',[ReservationController::class,'checkout'])->name('checkout');
+Route::get('/reservation/show',[ReservationController::class,'createReservation'])->name('reservation');
+Route::get('/reservation/checkout',[ReservationController::class,'storeCheckout'])->name('checkout');

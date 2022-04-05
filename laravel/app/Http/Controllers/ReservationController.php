@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
-    public function showReservation()
+    public function createReservation()
     {
         $userId = 1; // TODO: get userid
         if (Reservation::where('user_id', '=', $userId)->first()) {
@@ -17,7 +17,7 @@ class ReservationController extends Controller
         return view('reservation.reservation');
     }
 
-    public function checkout()
+    public function storeCheckout()
     {
     }
 }
