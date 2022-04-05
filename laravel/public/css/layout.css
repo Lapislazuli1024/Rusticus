@@ -12,21 +12,26 @@
   margin: 0 auto;
   background-color: transparent;
 }
-
-body {
+.backgroundPictures {
   background-image: url('../pictures/background.png');
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  /* opacity: 0.9; */
+  opacity: 0.9;
 }
+
+.container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  }
 
 h1 {
   font-size: 100px;
-  color: #022A54;
-  -webkit-text-stroke: 1px #fdfdfddd;
-  /* text-shadow: 0 0 5px #fdfdfddd; */
+  color: #ffffff;
+  /* -webkit-text-stroke: 1px #1a1a1add; */
+  text-shadow: 0 0 5px #000000dd;
 }
 
 #profiledivider {

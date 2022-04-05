@@ -50,7 +50,7 @@
             </div>
         </nav>
     </head>
-    <body>
+    <body class="backgroundPictures">
         <div class="container p-5 my-5">
             {{ $slot }}
         </div>
