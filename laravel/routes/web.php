@@ -36,6 +36,7 @@ Route::get('/farmer/{farmer:id}',[FarmerController::class,'createOneFarmer'])->n
 
 //Product Routes
 Route::get('/products',[ProductController::class,'createAllProduct'])->name('products');
+Route::get('/product/{product:id}',[ProductController::class,'createOneProduct'])->name('product');
 
 //Search
 Route::post('/search',[SearchController::class,'index'])->name('search.results');
