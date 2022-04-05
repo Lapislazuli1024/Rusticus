@@ -14,13 +14,11 @@
                         <option id="hallo"> Hallo</option>
                     </datalist>
                     <input type="submit" class="btn btn-primary" value="Search" >
-
                     </div>
                 </div>
             </form>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{{asset('js/search.js')}}"></script>
 
 </x-layout>

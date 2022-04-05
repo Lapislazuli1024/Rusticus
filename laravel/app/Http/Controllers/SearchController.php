@@ -63,6 +63,8 @@ class SearchController extends Controller
         }
 
         return view('search.search', [
+            'main_categories'=>Main_category::all(),
+            'sub_categories'=>Sub_category::all(),
             'result' => $hint,
             'search' => $input
         ]);
