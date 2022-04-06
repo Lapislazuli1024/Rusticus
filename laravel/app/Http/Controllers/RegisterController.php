@@ -8,7 +8,7 @@ use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
-    public function create(){
+    public function show(){
         return view('register.form');
     }
     public function auth(Request $request){
