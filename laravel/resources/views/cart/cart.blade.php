@@ -2,7 +2,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3>Produkte</h3>
+                <h3>Warenkorb</h3>
             </div>
             <div class="card-body">
                 @foreach($sessionProducts as $product)
@@ -45,7 +45,6 @@
                     </div>
                 </div>
                 @endforeach
-
                 <a href="/reservation/checkout">Checkout</a>
             </div>
         </div>

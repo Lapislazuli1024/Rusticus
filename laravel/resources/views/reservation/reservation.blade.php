@@ -2,10 +2,11 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3>Produkte</h3>
+                <h3>Reservationen</h3>
             </div>
             <div class="card-body">
-                <!-- @foreach($reservationProducts as $product)
+                @if($reservationProducts != null)
+                @foreach($reservationProducts as $product)
                 <div class="card">
                     <div class="card-header">
                         <h5>{{$product->product()->first()->name}}</h5>
@@ -29,9 +30,8 @@
                         </div>
                     </div>
                 </div>
-                @endforeach -->
-
-                <a href="/checkout">Checkout</a>
+                @endforeach
+                @endif
             </div>
         </div>
     </div>
