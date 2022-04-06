@@ -6,7 +6,7 @@
                     <div class="card">
                         <h3 class="card-header text-center">Login</h3>
                         <div class="card-body">
-                            <form method="POST" action="{{route('login.auth')}}" class="needs-validation" novalidate>
+                            <form method="POST" action="{{route('store.register')}}" class="needs-validation" novalidate>
                                 @csrf
                                 <div class="form-floating mb-3">
                                     <input type="text" placeholder="Email" id="email" class="form-control" name="email" required autofocus>
@@ -42,7 +42,7 @@
                                 </div>
                             </form>
                            <p>
-                               <a href="{{route('register')}}">Ich habe noch keinen Account.</a>
+                               <a href="{{route('create.register')}}">Ich habe noch keinen Account.</a>
                            </p>
                         </div>
                     </div>

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\FarmerController;
@@ -8,6 +7,7 @@ use \App\Http\Controllers\ProductController;
 use \App\Http\Controllers\SearchController;
 use \App\Http\Controllers\CartController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\SessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +24,14 @@ Route::get('/', function () {
     return view('welcome.welcome');
 });
 
-//Auth Routes
-Route::get('/user/register' ,[RegisterController::class, 'show'])->name('register');
-Route::get('/user/login',[LoginController::class,'show'])->name('login');
-Route::post('/user/auth/login',[LoginController::class,'auth'])->name('login.auth');
-Route::post('/user/auth/register',[RegisterController::class,'auth'])->name('register.auth');
+//Authentication Routes
+// => Register
+Route::get('/user/register', [RegisterController::class, 'create'])->name('create.register');
+Route::post('/user/register', [RegisterController::class, 'store'])->name('store.register');
+// => Login/Session
+Route::get('/user/login', [SessionController::class, 'create'])->name('create.login');
+Route::post('/user/login', [SessionController::class, 'store'])->name('store.login');
+Route::post('/user/logout', [SessionController::class, 'destroy'])->name('destroy.session');
 
 //Farmer Routes //create //store
 Route::get('/farmers',[FarmerController::class,'createAllFarmer'])->name('farmers');
