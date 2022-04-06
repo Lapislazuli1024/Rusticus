@@ -8,10 +8,10 @@ use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
-    public function show(){
+    public function create(){
         return view('register.form');
     }
-    public function auth(Request $request){
+    public function store(Request $request){
         $validator=Validator::make($request->all(),[
             'surname'=>['alpha','required', 'unique:users,surname'],
             'name'=>['alpha','required','unique:users,name'],
