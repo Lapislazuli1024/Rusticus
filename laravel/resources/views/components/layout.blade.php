@@ -50,7 +50,7 @@
             </div>
         </nav>
     </head>
-    <body class="backgroundPictures">
+    <body class="d-flex flex-column backgroundPictures">
         <div class="container p-5 my-5">
             {{ $slot }}
         </div>
@@ -62,7 +62,7 @@
     <!-- <video class="myVideo" autoplay muted loop id="myVideo">
         <source src="{{asset('/pictures/windmull-mountan.mp4')}}" type="video/mp4">
     </video> -->
-<footer class="footer--light">
+<footer>
   <div class="footer-big">
     <div class="container">
       <div class="row">

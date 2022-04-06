@@ -6,7 +6,8 @@
     <div class="container search">
 
         <form method="post" action="{{route('search.results')}}" >
-            <div class="container">
+        @csrf
+            <div class="container-mid">
                 <div class="row">
                     <div class="col">
                         <h1 class="text-center">Rusticus</h1>
@@ -22,8 +23,7 @@
                             <input type="submit" class="btn btn-primary" value="Search">
                         </div>
                     </div>
-                </div>
-                @csrf
+                </div>    
             </div>
         </form>
     </div>
