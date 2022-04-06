@@ -6,44 +6,37 @@
                     <div class="card">
                         <h3 class="card-header text-center">Login</h3>
                         <div class="card-body">
-                            <form method="POST" action="{{route('login.auth')}}" class="needs-validation" novalidate>
+                            <form method="POST" action="{{route('store.login')}}" class="needs-validation" novalidate>
                                 @csrf
                                 <div class="form-floating mb-3">
                                     <input type="text" placeholder="Email" id="email" class="form-control" name="email" required autofocus>
-                                           <label for="floatingInput">Email</label>
+                                    <label for="floatingInput">Email</label>
                                     @if ($errors->has('email'))
-                                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
                                     @endif
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input type="password" placeholder="Password" id="password" class="form-control" name="password" required>
                                     <label for="floatingInput">Password</label>
                                     @if ($errors->has('password'))
-                                        <span class="text-danger">{{ $errors->first('password') }}</span>
+                                    <span class="text-danger">{{ $errors->first('password') }}</span>
                                     @endif
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input list="roles" placeholder="Role" class="form-control" id="role" name="role">
                                     <label for="floatingInput">Role</label>
                                     <datalist id="roles">
-                                        <option>
-                                            Kunde
-                                        </option>
-                                        <option>
-                                            Bauer
-                                        </option>
-                                        <option>
-                                            Admin
-                                        </option>
+                                        <option>Kunde</option>
+                                        <option>Bauer</option>
                                     </datalist>
                                 </div>
                                 <div class="d-grid mx-auto">
                                     <button type="submit" class="btn btn-dark btn-block">Signin</button>
                                 </div>
                             </form>
-                           <p>
-                               <a href="{{route('register')}}">Ich habe noch keinen Account.</a>
-                           </p>
+                            <p>
+                                <a href="{{route('create.register')}}">Ich habe noch keinen Account.</a>
+                            </p>
                         </div>
                     </div>
                 </div>
