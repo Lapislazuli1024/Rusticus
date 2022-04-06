@@ -56,10 +56,63 @@
     <script src="{{asset('js/expandform.js')}}"></script>
 
 </body>
-<footer class="page-footer font-small blue fixed-bottom">
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        Nalis1000
+<footer>
+  <div class="footer-big">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-12">
+          <img  class="pictures" src="{{asset('pictures/Rusticus-Logo.png')}}">
+        </div>
+        <div class="col-md-3 col-sm-4">
+              <h4>Popular Category</h4>
+              <ul>
+                <li>
+                  <a href="#">Wordpress</a>
+                </li>
+                <li>
+                  <a href="#">Plugins</a>
+                </li>
+              </ul>
+        </div>
+        <div class="col-md-3 col-sm-4">
+              <h4>Our Company</h4>
+              <ul>
+                <li>
+                  <a href="#">About Us</a>
+                </li>
+                <li>
+                  <a href="#">How It Works</a>
+                </li>
+              </ul>
+        </div>
+        <div class="col-md-3 col-sm-4">
+              <h4>Help Support</h4>
+              <ul>
+                <li>
+                  <a href="#">Support Forum</a>
+                </li>
+                <li>
+                  <a href="#">Terms &amp; Conditions</a>
+                </li>
+              </ul>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="mini-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="copyright-text">
+            <p>© 2022
+              <a href="#">Rusticus</a>. All rights reserved. Created by
+              <a href="#">Rusticus</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
 </html>

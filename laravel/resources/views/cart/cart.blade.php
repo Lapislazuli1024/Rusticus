@@ -13,17 +13,32 @@
                     <div class="card-body">
                         <div class="container">
                             <div class="row">
-                                <div class="col">
+                                <div class="col-sm-2">
+                                    <img width="100%" class="img-thumbnail" src="{{asset($product->product()->first()->image)}}">
+                                </div>
+                                <div class="col-sm-10">
                                     <div class="list-group-item">
-                                        Menge: {{$product->amount}}
+                                        <div class="row">
+                                            <div class="col-sm-1">
+                                                <button onclick="window.location.href= '/cart/increment/{{$product->product()->first()->id}}'">+</button>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                Menge:
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input type="number" value="{{$product->amount}}" name="ProductAmount" disabled>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <button onclick="window.location.href= '/cart/decrement/{{$product->product()->first()->id}}'">-</button>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <button onclick="window.location.href= '/cart/remove/{{$product->product()->first()->id}}'">Remove</button>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="list-group-item">
                                         Preis pro kg: {{$product->product()->first()->price}}
                                     </div>
-                                </div>
-                                <div class="col-1 vr"></div>
-                                <div class="col">
-                                    <img width="15%" class="img-thumbnail" src="{{asset($product->product()->first()->image)}}">
                                 </div>
                             </div>
                         </div>
@@ -31,7 +46,7 @@
                 </div>
                 @endforeach
 
-                <a href="/checkout">Checkout</a>
+                <a href="/reservation/checkout">Checkout</a>
             </div>
         </div>
     </div>

@@ -38,15 +38,19 @@ Route::get('/farmers', [FarmerController::class, 'createAllFarmer'])->name('farm
 Route::get('/farmer/{farmer:id}', [FarmerController::class, 'createOneFarmer'])->name('farmer');
 
 //Product Routes
-Route::get('/products', [ProductController::class, 'createAllProduct'])->name('products');
+Route::get('/products',[ProductController::class,'createAllProduct'])->name('products');
+Route::get('/product/{product:id}',[ProductController::class,'createOneProduct'])->name('product');
 
 //Search
-Route::post('/search', [SearchController::class, 'createSearch'])->name('search.results');
-Route::post('/livesearch', [SearchController::class, 'createLivesearch'])->name('livesearch');
+Route::post('/search',[SearchController::class,'index'])->name('search.results');
+Route::post('/livesearch',[SearchController::class, 'livesearch'])->name('livesearch');
 
 //Cart
-Route::get('/cart/show', [CartController::class, 'createCart'])->name('cart');
-Route::get('/cart/add/{product:id}', [CartController::class, 'storeToCart'])->name('addtocart');
+Route::get('/cart/show',[CartController::class,'createCart'])->name('cart');
+Route::get('/cart/add/{product:id}', [CartController::class,'storeCartAdd'])->name('addtocart');
+Route::get('/cart/remove/{product:id}', [CartController::class,'storeCartRemove'])->name('removefromcart');
+Route::get('/cart/increment/{product:id}', [CartController::class,'storeCartIncrement'])->name('incrementincart');
+Route::get('/cart/decrement/{product:id}', [CartController::class,'storeCartDecrement'])->name('decrementincart');
 
 //Reservation
 Route::get('/reservation/show', [ReservationController::class, 'createReservation'])->name('reservation');

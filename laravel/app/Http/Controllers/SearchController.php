@@ -9,13 +9,14 @@ use \App\Models\Sub_category;
 
 class SearchController extends Controller
 {
-    public function createLivesearch(Request $request){
-        $q=strtolower($request->q);
-        if(strlen($q)>0){
-            $hint=array();
-            foreach(Product::all() as $product){
-                if(str_contains(strtolower($product->name),$q)){
-                    array_push($hint,$product->name);
+    public function livesearch(Request $request)
+    {
+        $q = strtolower($request->q);
+        if (strlen($q) > 0) {
+            $hint = array();
+            foreach (Product::all() as $product) {
+                if (str_contains(strtolower($product->name), $q)) {
+                    array_push($hint, $product->name);
                 }
             }
             foreach (Main_category::all() as $main_category) {
@@ -33,7 +34,7 @@ class SearchController extends Controller
         return response()->json(['result' => $hint]);
     }
 
-    public function createSearch(Request $request)
+    public function index(Request $request)
     {
         $input = strtolower($request->searchinput);
         if (strlen($input) > 0) {
@@ -47,8 +48,9 @@ class SearchController extends Controller
                 if (str_contains(strtolower($main_category->description), $input)) {
                     $m_subcategories = Main_category::find($main_category->id)->sub_category;
                     foreach ($m_subcategories as $m_subcategory) {
-
-                        array_push($hint, $m_subcategory->product);
+                        foreach ($m_subcategory->product as $product) {
+                            array_push($hint, $product);
+                        }
                     }
                 }
             }
@@ -61,7 +63,10 @@ class SearchController extends Controller
         }
 
         return view('search.search', [
-            'results' => $hint
+            'main_categories'=>Main_category::all(),
+            'sub_categories'=>Sub_category::all(),
+            'result' => $hint,
+            'search' => $input
         ]);
     }
 
