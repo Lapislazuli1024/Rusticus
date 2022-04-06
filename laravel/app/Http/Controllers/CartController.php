@@ -68,7 +68,7 @@ class CartController extends Controller
     public function storeCartAdd($productId)
     {
         // Add Product to DB
-        $userId = 1; // TODO: get userid form Data
+        $userId = 1; // TODO: get userid form Data auth()->userId
 
         $sessioncart = $this->getSessionCart();
         if ($sessioncart === null) {
