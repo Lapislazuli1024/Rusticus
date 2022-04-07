@@ -24,7 +24,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  opacity: 0.9;
+  
 }
 
 .container-mid {
@@ -52,7 +52,17 @@ h1 {
   display: none;
 }
 
-
+/* input[type=text] {
+  padding:10px;
+  border:0;
+  box-shadow:0 0 15px 15px rgba(0,0,0,0.06);
+} */
+.formStyle input
+{
+  padding:10px;
+  border:0;
+  box-shadow:0 0 15px 15px rgba(0,0,0,0.06);
+}
 
 
 /* FOOOTER */

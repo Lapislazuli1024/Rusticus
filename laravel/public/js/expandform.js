@@ -1,30 +1,28 @@
-function expandform(){
-    let check=document.getElementById('hidden');
-    if(check.className==='expandform'){
-        check.className='';
-    }
-    else{
-        check.className='expandform';
-    }
+function expandform() {
+  let check = document.getElementById('hidden');
+  if (check.className === 'expandform') {
+    check.className = '';
+  }
+  else {
+    check.className = 'expandform';
+  }
 }
 
-function openCity(evt, cityName) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
-  
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-  
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-  
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-  } 
+function selectRegisterForm(evt) {
+
+  if (evt.target.id === "customerTab") {
+    document.getElementById("divCustomerForm").style.display = "block";
+    document.getElementById("customerTab").classList.add("active");
+
+    document.getElementById("divFarmerForm").style.display = "none";
+    document.getElementById("farmerTab").classList.remove("active");
+  }
+
+  if (evt.target.id === 'farmerTab') {
+    document.getElementById("divCustomerForm").style.display = "none";
+    document.getElementById("customerTab").classList.remove("active");
+
+    document.getElementById("divFarmerForm").style.display = "block";
+    document.getElementById("farmerTab").classList.add("active");
+  }
+} 
