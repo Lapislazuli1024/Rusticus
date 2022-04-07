@@ -27,11 +27,12 @@ Route::get('/', function () {
 //Authentication Routes
 // => Register
 Route::get('/user/register', [RegisterController::class, 'create'])->name('create.register');
-Route::post('/user/register', [RegisterController::class, 'store'])->name('store.register');
+Route::post('/user/registerCustomer', [RegisterController::class, 'storeCustomer'])->name('storeCustomer.register');
+Route::post('/user/registerFarmer', [RegisterController::class, 'storeFarmer'])->name('storeFarmer.register');
 // => Login/Session
 Route::get('/user/login', [SessionController::class, 'create'])->name('create.login');
 Route::post('/user/login', [SessionController::class, 'store'])->name('store.login');
-Route::post('/user/logout', [SessionController::class, 'destroy'])->name('destroy.session');
+Route::get('/user/logout', [SessionController::class, 'destroy'])->name('destroy.session');
 
 //Farmer Routes //create //store
 Route::get('/farmers',[FarmerController::class,'createAllFarmer'])->name('farmers');

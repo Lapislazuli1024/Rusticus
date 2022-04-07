@@ -9,6 +9,13 @@ class User extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'surname',
+        'name',
+        'email',
+        'password'
+    ];
+
     //hasOne, hasMany, belongsTo, belongsToMany
     function customers()
     {

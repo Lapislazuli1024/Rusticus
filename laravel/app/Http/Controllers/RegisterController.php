@@ -2,26 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
-    public function create(){
+    public function create()
+    {
         return view('register.form');
     }
-    public function store(Request $request){
-        $validator=Validator::make($request->all(),[
-            'surname'=>['alpha','required', 'unique:users,surname'],
-            'name'=>['alpha','required','unique:users,name'],
-            'email'=>['email','required', 'unique:users,email'],
-            'password'=>['required','confirmed'],
-            //'webpage'=> ['required_if:farmer,1']
+    
+    public function store(Request $request)
+    {
+        $usrData = $request->validate([
+            'surname' => ['required', 'alpha', 'min:3', 'max:255'],
+            'name' => ['required', 'alpha', 'min:3', 'max:255'],
+            'email' => ['required', 'email', 'unique:users,email'],
+            'username' => ['required', 'alpha'],
+            'password' => ['required', 'min:6', 'max:255'],
+            'password_confirmation' => ['required', 'min:6', 'max:255'],
         ]);
-        if($validator->fails()){
-            return redirect('/register')->withErrors($validator);
-        }
 
+        User::create([
+            'surname' => $usrData['surname'],
+            'name' => $usrData['name'],
+            'email' => $usrData['email'],
+            'password' => $usrData['password'],
+        ]);
     }
 }
