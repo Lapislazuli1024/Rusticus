@@ -4,26 +4,77 @@
             <div class="row justify-content-center">
                 <div class="col-md-4">
                     <div class="card">
-                        <h3 class="card-header text-center">Register User</h3>
+                        <h3 class="card-header text-center">Registrierung</h3>
                         <div class="card-body">
                             <ul class="nav nav-tabs mb-3" id="myTab0" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active tablinks" id="home-tab0" data-mdb-toggle="tab" data-mdb-target="#home0" type="button" role="tab" aria-controls="home" aria-selected="true" onclick="openCity(event, 'Kunde')">
+                                    <button class="nav-link active" id="customerTab" onclick="selectRegisterForm(event)">
                                         Kunde
                                     </button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link tablinks" id="profile-tab0" data-mdb-toggle="tab" data-mdb-target="#profile0" type="button" role="tab" aria-controls="profile" aria-selected="false" onclick="openCity(event, 'Bauer')">
+                                    <button class="nav-link" id="farmerTab" onclick="selectRegisterForm(event)">
                                         Bauer
                                     </button>
                                 </li>
                             </ul>
-                            <div class="tabcontent" id="myTabContent0">
-                                <div class="tabcontent tab-pane fade show active" id="Kunde" role="tabpanel" aria-labelledby="home-tab0">
-                                    Tab 1 content.
+                            <div class="tabcontent">
+                                <div class="tabcontent" id="divCustomerForm" role="tabpanel" aria-labelledby="home-tab0">
+                                    <form method="POST" action="{{route('store.register')}}" class="formStyle">
+                                        @csrf
+                                        <div class="row g-2">
+                                            <div class="form-floating col mb-3">
+                                                <input type="text" class="form-control" name="name" id="name" placeholder="Vorname" required autofocus>
+                                                <label for="name">Vorname</label>
+                                                @error('name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            <div class="form-floating col mb-3">
+                                                <input type="text" class="form-control" name="surname" id="surname" placeholder="Nachname" required>
+                                                <label for="surname">Nachname</label>
+                                                @error('surname')
+                                                <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+                                            <label for="username">Username</label>
+                                            @error('surname')
+                                            <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" placeholder="Email" id="email" class="form-control" name="email" required>
+                                            <label for="floatingInput">Email</label>
+                                            @if ($errors->has('email'))
+                                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                            @endif
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="password" placeholder="Password" id="password" class="form-control" name="password" required>
+                                            <label for="floatingInput">Password</label>
+
+                                            @if ($errors->has('password'))
+                                            <span class="text-danger">{{ $errors->first('password') }}</span>
+                                            @endif
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="password" placeholder="Password Confirmation" class="form-control" id="password_confirmation" name="password_confirmation" required>
+                                            <label for="floatingInput">Password Confirmation</label>
+                                            <div id="passwordHelpBlock" class="form-text">
+                                                Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                                            </div>
+                                        </div>
+                                        <div class="d-grid mx-auto">
+                                            <button type="submit" class="btn btn-dark btn-block">Signin</button>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="tabcontent tab-pane fade" id="Bauer" role="tabpanel" aria-labelledby="profile-tab0">
-                                    <form method="POST" action="{{route('store.register')}}">
+                                <div class="tabcontent" id="divFarmerForm" role="tabpanel" aria-labelledby="profile-tab0" style="display:none;">
+
+                                    <form method="POST" action="{{route('store.register')}}" class="formStyle">
                                         <div class="row g-2">
                                             @foreach($errors as $error)
                                             <p>{{$error}}</p>
@@ -84,9 +135,7 @@
                                         <div class="form-floating mb-3">
                                             <input type="password" placeholder="Password" id="password" class="form-control" name="password" required>
                                             <label for="floatingInput">Password</label>
-                                            <div id="passwordHelpBlock" class="form-text">
-                                                Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                                            </div>
+
                                             @if ($errors->has('password'))
                                             <span class="text-danger">{{ $errors->first('password') }}</span>
                                             @endif
@@ -94,32 +143,17 @@
                                         <div class="form-floating mb-3">
                                             <input type="password" placeholder="Password Confirmation" class="form-control" id="password_confirmation" name="password_confirmation" required>
                                             <label for="floatingInput">Password Confirmation</label>
-                                        </div>
-                                        <div class="form-floating mb-3">
-                                            <input type="checkbox" placeholder="Sind sie ein Bauer?" value=0 onChange=expandform() class="form-check" id="farmer" name="farmer">
-                                            <label for="floatingInput">Sind sie ein Bauer?</label>
-                                        </div>
-                                        <div id="hidden" class="expandform">
-                                            <div class="form-floating mb-3">
-                                                <input type="url" placeholder="Ihre Webpage" class="form-control" id="webpage" name="webpage">
-                                                <label for="floatingInput">Ihre Webpage (URL)</label>
-                                                @if($errors->has('webpage'))
-                                                <span class="text-danger">{{$errors->first('webpage')}}</span>
-                                                @endif
+                                            <div id="passwordHelpBlock" class="form-text">
+                                                Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
                                             </div>
                                         </div>
                                         <div class="d-grid mx-auto">
                                             <button type="submit" class="btn btn-dark btn-block">Signin</button>
                                         </div>
                                     </form>
+
                                 </div>
                             </div>
-
-
-
-
-
-
 
                         </div>
                     </div>
