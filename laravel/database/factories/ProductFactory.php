@@ -25,7 +25,7 @@ class ProductFactory extends Factory
             'user_id'=>1,
             'sub_category_id'=>1,
             'unit_of_measure_id'=>1,
-            'image'=>$this->faker->filePath()
+            'image'=>'/pictures/products/product1.png'
         ];
     }
 }
