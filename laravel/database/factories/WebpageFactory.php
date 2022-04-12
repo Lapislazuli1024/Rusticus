@@ -19,6 +19,7 @@ class WebpageFactory extends Factory
         return [
             'image' => $this->faker->url(),
             'title' => $this->faker->title(),
+            'webpage_url' => 'www.startpage.com',
             'description' => $this->faker->text(),
         ];
     }

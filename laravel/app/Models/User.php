@@ -17,19 +17,19 @@ class User extends Model
     ];
 
     //hasOne, hasMany, belongsTo, belongsToMany
-    function customers()
+    function customer()
     {
-        return $this->hasMany(Customer::class);
+        return $this->hasOne(Customer::class);
     }
 
-    function farmers()
+    function farmer()
     {
-        return $this->hasMany(Farmer::class);
+        return $this->hasOne(Farmer::class);
     }
 
-    function admins()
+    function admin()
     {
-        return $this->hasMany(Admin::class);
+        return $this->hasOne(Admin::class);
     }
 
     function sessioncart()

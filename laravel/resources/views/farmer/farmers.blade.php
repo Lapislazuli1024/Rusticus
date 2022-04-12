@@ -4,11 +4,11 @@
             <li class="list-group-item">
                 <div class="card">
                     <div class="card-header">
-                        {{$farmer['name']}}     {{$farmer['name']}}
+                        {{$farmer->user->name}}     {{$farmer->user->surname}}
                     </div>
                     <div class="card-body">
-                        <div class="container">{{$farmer['name']}}</div>
-                        <a href="/farmer/{{$farmer['name']}}" class="btn btn-dark float-end">Mehr</a>
+                        <div class="container">{{$farmer->webpage->description}}</div>
+                        <a href="/farmer/{{$farmer->user_id}}" class="btn btn-dark float-end">Mehr</a>
                     </div>
                 </div>
             </li>

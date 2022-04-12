@@ -37,6 +37,8 @@ class ReservationController extends Controller
             
         }
 
+        // TODO DA: Produkte aus Kart in Bestellungen einlesen und abschliessen
+
         // if (Session_has_product::where('sessioncart_id', '=', $sessioncart->id)->where('product_id', '=', $productId)->first() === null) {
         //     // Create Session_has_Product and save it
         //     Session_has_product::create([

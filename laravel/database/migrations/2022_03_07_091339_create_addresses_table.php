@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('street', 30);
             $table->integer('house_number');
-            $table->foreignId('farmer_id');
             $table->foreignId('town_id');
             $table->timestamps();
         });
