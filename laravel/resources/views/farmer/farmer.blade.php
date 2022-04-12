@@ -10,20 +10,19 @@
                         <div class="col-sm">
                         <ul class="list-group">
                             <li class="list-group-item">
-                                Name:
+                                Name: {{$user->name}} {{$user->surname}}
                             </li>
                             <li class="list-group-item">
-                                Adresse:
+                                Adresse: {{$user->farmer->address->street}} {{$user->farmer->address->house_number}}
                             </li>
+                            @if($user->farmer->webpage->webpage_url != null)
                             <li class="list-group-item">
-                                Betriebsart:
+                                Website: <a href="https://{{$user->farmer->webpage->webpage_url}}">{{$user->name}}s Webpage</a>
                             </li>
-                            <li class="list-group-item">
-                                Website:
-                            </li>
+                            @endif
                         </ul>
-                            <div class="card-text list-group-item" id="profiledetails">
-                                Details:
+                            <div url="card-text list-group-item" id="profiledetails">
+                                Details: {{$user->farmer->webpage->description}}
                             </div>
                         </div>
                         <div class="vr" id="profiledivider"></div>

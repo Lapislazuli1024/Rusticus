@@ -53,7 +53,6 @@ Route::get('/cart/remove/{product:id}', [CartController::class,'storeCartRemove'
 Route::get('/cart/increment/{product:id}', [CartController::class,'storeCartIncrement'])->name('incrementincart');
 Route::get('/cart/decrement/{product:id}', [CartController::class,'storeCartDecrement'])->name('decrementincart');
 
-
 //Reservation
 Route::get('/reservation/show',[ReservationController::class,'createReservation'])->name('reservation');
 Route::get('/reservation/checkout',[ReservationController::class,'storeCheckout'])->name('checkout');

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Address;
 use App\Models\User;
 use App\Models\Webpage;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -21,6 +22,7 @@ class FarmerFactory extends Factory
        return [
         'user_id' => User::factory(),
         'webpage_id' => Webpage::factory(),
+        'address_id' => Address::factory(),
         ];
     }
 }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('title', 40);
             $table->text('description');
+            $table->string('webpage_url');
             $table->timestamps();
         });
     }

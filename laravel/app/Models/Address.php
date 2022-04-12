@@ -12,7 +12,7 @@ class Address extends Model
     //hasOne, hasMany, belongsTo, belongsToMany
     function farmer()
     {
-        return $this->hasOne(Farmer::class);
+        return $this->belongsTo(Farmer::class);
     }
     function town()
     {
