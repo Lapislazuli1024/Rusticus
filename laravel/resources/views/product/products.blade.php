@@ -1,38 +1,26 @@
 <x-layout>
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <h3>Produkte</h3>
-            </div>
-            <div class="card-body">
-                @foreach($products as $product)
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>{{$product->name}}</h5>
+    <div class="container-background">
+        <h2 class="text-center">Produkte</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach($products as $product)
+            <div class="col">
+                <div class="card h-100">
+                    <img class="img-thumbnail" src="{{asset($product->image)}}">
+                    <div class="card-header">
+                        <h5 class="card-title">{{$product->name}}</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group list-group-flush">
+                            <p> Menge: {{$product->stock_quantity}}</p>
+                            <p> Preis pro {{$product->unit_of_measure->description}}: {{$product->price}}</p>
                         </div>
-                        <div class="card-body">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="list-group-item">
-                                            Menge: {{$product->stock_quantity}}
-                                        </div>
-                                        <div class="list-group-item">
-                                            Preis pro {{$product->unit_of_measure->description}}: {{$product->price}}
-                                        </div>
-                                    </div>
-                                    <div class="col-1 vr"></div>
-                                    <div class="col">
-                                        <img class="img-thumbnail"src="{{asset($product->image)}}">
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            <a href="/product/{{$product->id}}" class="btn btn-dark float-end">Mehr</a>
+                        <div class="card text-center">
+                            <a href="/product/{{$product->id}}" class="btn btn-success float-end">Mehr</a>
                         </div>
                     </div>
-                @endforeach
+                </div>
             </div>
+            @endforeach
         </div>
     </div>
 </x-layout>
