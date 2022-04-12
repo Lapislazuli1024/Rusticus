@@ -6,7 +6,7 @@
                     <div class="card">
                         <h3 class="card-header text-center">Login</h3>
                         <div class="card-body">
-                            <form method="POST" action="{{route('store.register')}}" class="needs-validation" novalidate>
+                            <form method="POST" action="{{route('store.login')}}" class="needs-validation"  novalidate>
                                 @csrf
                                 <div class="form-floating mb-3">
                                     <input type="text" placeholder="Email" id="email" class="form-control" name="email" required autofocus>
@@ -21,15 +21,6 @@
                                     @if ($errors->has('password'))
                                         <span class="text-danger">{{ $errors->first('password') }}</span>
                                     @endif
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input list="roles" placeholder="Role" class="form-control" id="role" name="role">
-                                    <label for="floatingInput">Role</label>
-                                    <datalist id="roles">
-                                        <option>Kunde</option>
-                                        <option>Bauer</option>
-                                        <option>Admin</option>
-                                    </datalist>
                                 </div>
                                 <div class="d-grid mx-auto">
                                     <button type="submit" class="btn btn-dark btn-block">Signin</button>
