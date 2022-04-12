@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Session_has_product;
 use App\Models\Sessioncart;
 use App\Models\User;
+use Hamcrest\Type\IsNumeric;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -67,6 +70,15 @@ class CartController extends Controller
 
     public function storeCartAdd($productId)
     {
+        // Trim input from user
+        $productId = trim($productId, " \t\n\r");
+        // dd(is_numeric($productId), Product::find($productId), $productId);
+
+        // Validate if ProductId is number and in DB
+        if (is_numeric($productId) == false || Product::find($productId) == null) {
+            return Redirect::back()->with('error', 'Dieses Produkt scheint nicht in der Datenbank vorhanden.');
+        }
+
         // Add Product to DB
         $userId = 1; // TODO: get userid form Data auth()->userId
 

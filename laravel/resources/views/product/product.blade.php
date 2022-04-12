@@ -3,6 +3,11 @@
         <div class="card">
             <div class="card-header">
                 <h3> Produkt: {{$product->name}}</h3>
+                @if(session()->has('error'))
+                <div class="alert alert-warning">
+                    <strong>Warnung!</strong> {{session()->get('error')}}
+                </div>
+                @endif
             </div>
             <div class="card-body">
                 <div clas="container">
@@ -32,6 +37,7 @@
                         </div>
                     </div>
                 </div>
+                <a href="{{URL::previous()}}" class="btn btn-dark float-start">Zurück</a>
                 <a href="/cart/add/{{$product->id}}" class="btn btn-dark float-end">🛒</a>
             </div>
         </div>
