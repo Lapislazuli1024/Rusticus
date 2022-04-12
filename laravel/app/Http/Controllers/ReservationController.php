@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
+use App\Models\Reservation_has_product;
 use App\Models\Session_has_product;
 use App\Models\Sessioncart;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class ReservationController extends Controller
     {
         $userId = 1; // TODO: get userid
         if (Reservation::where('user_id', '=', $userId)->first() != null) {
-            $reservationProducts = Reservation::where('user_id', '=', $userId)->first()->reservation_has_product()->get();
+            $reservationProducts = Reservation::where('user_id', '=', $userId)->get();
             return view('reservation.reservation', ['reservationProducts' => $reservationProducts]);
         }
         return view('reservation.reservation', ['reservationProducts' => null]);
@@ -24,37 +25,50 @@ class ReservationController extends Controller
     {
         // 
         $userId = 1; // TODO: Get userId
+        $confirmed = false; // TODO: get confirmed somehow
 
         $sessioncart = $this->getSessionCart();
 
         if ($sessioncart === null) {
             // Throw Error because there is no session cart
+            return redirect('/');
         }
 
         $sessionHasProducts = $sessioncart->session_has_product()->get();
-        dd($sessionHasProducts);
-        foreach($sessionHasProducts as $product){
-            
+
+
+        // $reservation = $this->getReservation();
+        // if ($reservation === null) {
+        $reservation = Reservation::create([
+            'user_id' => $userId,
+            'confirmation' => $confirmed,
+        ]);
+        // }
+
+        // dd($sessionHasProducts);
+        foreach ($sessionHasProducts as $product) {
+            Reservation_has_product::create([
+                'amount' => $product->amount,
+                'pickup_date' => date('Y-m-d'),
+                'product_id' => $product->id,
+                'reservation_id' => $reservation->id,
+            ]);
         }
 
-        // TODO DA: Produkte aus Kart in Bestellungen einlesen und abschliessen
+        $sessioncart->delete();
 
-        // if (Session_has_product::where('sessioncart_id', '=', $sessioncart->id)->where('product_id', '=', $productId)->first() === null) {
-        //     // Create Session_has_Product and save it
-        //     Session_has_product::create([
-        //         'amount' => 1,
-        //         'product_id' => $productId,
-        //         'sessioncart_id' => $sessioncart->id,
-        //     ]);
-        // } else {
-        //     return redirect("/cart/show");
-        // }
-        return Redirect::back();
+        return $this->createReservation();
     }
 
     private function getSessionCart()
     {
         $userId = 1; // TODO: get userid form Data
         return Sessioncart::where('user_id', '=', $userId)->first();
+    }
+
+    private function getReservation()
+    {
+        $userId = 1; // TODO: get userid form Data
+        return Reservation::where('user_id', '=', $userId)->first();
     }
 }
