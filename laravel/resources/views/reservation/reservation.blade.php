@@ -4,9 +4,12 @@
             <div class="card-header">
                 <h3>Reservationen</h3>
             </div>
+            @if($reservationProducts != null)
             <div class="card-body">
-                @if($reservationProducts != null)
-                @foreach($reservationProducts as $product)
+                @foreach($reservationProducts as $reservation)
+                <p>Bestelldatum: {{$reservation->updated_at}}</p>
+                <h3>Produkte</h3>
+                @foreach($reservation->reservation_has_product()->get() as $product)
                 <div class="card">
                     <div class="card-header">
                         <h5>{{$product->product()->first()->name}}</h5>
@@ -31,8 +34,9 @@
                     </div>
                 </div>
                 @endforeach
-                @endif
+                @endforeach
             </div>
+            @endif
         </div>
     </div>
 </x-layout>

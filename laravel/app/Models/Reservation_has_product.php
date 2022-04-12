@@ -9,6 +9,13 @@ class Reservation_has_product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'amount',
+        'pickup_date',
+        'product_id',
+        'reservation_id',
+    ];
+
     function product()
     {
         return $this->belongsTo(Product::class);

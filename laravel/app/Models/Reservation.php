@@ -9,6 +9,11 @@ class Reservation extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'confirmation',
+    ];
+
     function reservation_has_product()
     {
         return $this->hasMany(Reservation_has_product::class);
