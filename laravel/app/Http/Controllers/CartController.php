@@ -72,7 +72,6 @@ class CartController extends Controller
     {
         // Trim input from user
         $productId = trim($productId, " \t\n\r");
-        // dd(is_numeric($productId), Product::find($productId), $productId);
 
         // Validate if ProductId is number and in DB
         if (is_numeric($productId) == false || Product::find($productId) == null) {
@@ -97,10 +96,8 @@ class CartController extends Controller
                 'product_id' => $productId,
                 'sessioncart_id' => $sessioncart->id,
             ]);
-        } else {
-            return redirect("/cart/show");
         }
-        return Redirect::back();
+        return $this->createCart();
     }
 
     private function getSessionCart()

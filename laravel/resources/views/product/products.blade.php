@@ -19,7 +19,7 @@
                             <p> Preis pro {{$product->unit_of_measure->description}}: {{$product->price}}</p>
                         </div>
                         <div class="card text-center">
-                            <a href="/product/{{$product->id}}" class="btn btn-success float-end">Mehr</a>
+                            <a href="/product/show/{{$product->id}}" class="btn btn-success float-end">Mehr</a>
                         </div>
                     </div>
                 </div>

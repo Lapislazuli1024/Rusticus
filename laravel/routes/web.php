@@ -40,7 +40,11 @@ Route::get('/farmer/{farmer:id}',[FarmerController::class,'createOneFarmer'])->n
 
 //Product Routes
 Route::get('/products',[ProductController::class,'createAllProduct'])->name('products');
-Route::get('/product/{product:id}',[ProductController::class,'createOneProduct'])->name('product');
+Route::get('/product/show/{product:id}',[ProductController::class,'createOneProduct'])->name('product');
+Route::get('/product/register',[ProductController::class,'createRegisterProduct'])->name('create.product');
+Route::post('/product/register',[ProductController::class,'storeRegisterProduct'])->name('store.product');
+Route::get('/product/edit',[ProductController::class,'createEditProduct'])->name('create.product.edit');
+Route::post('/product/edit',[ProductController::class,'storeEditProduct'])->name('store.product.edit');
 
 //Search
 Route::post('/search',[SearchController::class,'index'])->name('search.results');
