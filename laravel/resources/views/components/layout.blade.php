@@ -31,19 +31,23 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('create.register') }}">Register</a>
           </li>
-          <li class="nav-item dropdown">
+        </ul>
+       
+          <li class="nav-item dropdown ms-auto">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Benutzer
               <!-- <img class="navbar-icon" src="{{asset('pictures/User.png')}}"> -->
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
               <li><a class="dropdown-item" href="#">Einstellungen</a></li>
+              <li><a class="dropdown-item" href="{{ route('cart') }}">Warenkorb</a></li>
               <li><a class="dropdown-item" href="{{ route('destroy.session') }}">Logout</a></li>
               <li><a class="dropdown-item" href="#">Hilfe</a></li>
             </ul>
           </li>
-          @endguest
-        </ul>
+     
+        @endguest
+
       </div>
     </div>
   </nav>

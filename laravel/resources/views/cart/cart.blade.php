@@ -14,7 +14,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-2">
-                                    <img width="100%" class="img-thumbnail" src="{{asset($product->product()->first()->image)}}">
+                                    <img width="100%" class="" src="{{asset($product->product()->first()->image)}}">
                                 </div>
                                 <div class="col-sm-10">
                                     <div class="list-group-item">
