@@ -11,6 +11,6 @@ class Webpage extends Model
 
     function farmer()
     {
-        return $this->hasOne(Farmer::class);
+        return $this->belongsTo(Farmer::class);
     }
 }

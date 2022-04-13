@@ -18,7 +18,6 @@ class ReservationFactory extends Factory
     public function definition()
     {
         return [
-            'reservation_date' => $this->faker->date(),
             'confirmation' => $this->faker->boolean(),
             'user_id' => User::factory(),
         ];

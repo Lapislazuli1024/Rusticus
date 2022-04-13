@@ -21,7 +21,6 @@ class AddressFactory extends Factory
         return [
             'street' => $this->faker->streetName(),
             'house_number' => $this->faker->buildingNumber(),
-            'farmer_id' => Farmer::factory(),
             'town_id' => Town::factory(),
         ];
     }

@@ -3,7 +3,11 @@
         <h2 class="text-center">Produkte</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach($products as $product)
+            @if($product->stock_quantity <= 0)
+            <div class="col no-quantity">
+            @else
             <div class="col">
+            @endif
                 <div class="card h-100">
                     <img  src="{{asset($product->image)}}">
                     <div class="card-header">

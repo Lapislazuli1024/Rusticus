@@ -14,10 +14,12 @@ class Farmer extends Model
     {
         return $this->belongsTo(User::class);
     }
+
     function address()
     {
-        return $this->hasOne(Address::class);
+        return $this->belongsTo(Address::class);
     }
+
     function webpage()
     {
         return $this->belongsTo(Webpage::class);
