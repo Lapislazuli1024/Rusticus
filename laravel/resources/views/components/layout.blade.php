@@ -2,13 +2,23 @@
 <html lang="en">
 
 <head>
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/layout.css')}}" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="csrf_token" content="{{csrf_token()}}">
+
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/layout.css')}}" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="{{asset('js/app.js')}}"></script>
+  <script src="{{asset('js/expandform.js')}}"></script>
+  <script src="{{asset('js/registerproduct.js')}}"></script>
+
   <title>Rusticus</title>
+
+</head>
+
+<body class="d-flex flex-column backgroundPictures">
 
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
@@ -32,40 +42,31 @@
             <a class="nav-link" href="{{ route('create.register') }}">Register</a>
           </li>
         </ul>
-       
-          <li class="nav-item dropdown ms-auto">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Benutzer
-              <!-- <img class="navbar-icon" src="{{asset('pictures/User.png')}}"> -->
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Einstellungen</a></li>
-              <li><a class="dropdown-item" href="{{ route('cart') }}">Warenkorb</a></li>
-              <li><a class="dropdown-item" href="{{ route('destroy.session') }}">Logout</a></li>
-              <li><a class="dropdown-item" href="#">Hilfe</a></li>
-            </ul>
-          </li>
-     
+
+        <li class="nav-item dropdown ms-auto">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Benutzer
+            <!-- <img class="navbar-icon" src="{{asset('pictures/User.png')}}"> -->
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Einstellungen</a></li>
+            <li><a class="dropdown-item" href="{{ route('cart') }}">Warenkorb</a></li>
+            <li><a class="dropdown-item" href="{{ route('destroy.session') }}">Logout</a></li>
+            <li><a class="dropdown-item" href="#">Hilfe</a></li>
+          </ul>
+        </li>
+
         @endguest
 
       </div>
     </div>
   </nav>
-</head>
 
-<body class="d-flex flex-column backgroundPictures">
   <div class="container p-5 my-5">
     {{ $slot }}
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="{{asset('js/app.js')}}"></script>
-  <script src="{{asset('js/expandform.js')}}"></script>
-  <script src="{{asset('js/registerproduct.js')}}"></script>
-
 </body>
-<!-- <video class="myVideo" autoplay muted loop id="myVideo">
-        <source src="{{asset('/pictures/windmull-mountan.mp4')}}" type="video/mp4">
-    </video> -->
+
 <footer>
   <div class="footer-big">
     <div class="container">
@@ -124,5 +125,11 @@
     </div>
   </div>
 </footer>
+
+@if (session('acc_created'))
+<div>
+  <span>{{ session()->get('acc_created') }}</span>
+</div>
+@endif
 
 </html>
