@@ -102,24 +102,24 @@
                                     @enderror
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="address" name="address" placeholder="Adresse" value="{{ old('address') }}" required>
-                                    <label for="address">Adresse</label>
-                                    @error('address')
+                                    <input type="text" class="form-control" id="street" name="street" placeholder="Strasse" value="{{ old('street') }}" required>
+                                    <label for="street">Strasse</label>
+                                    @error('street')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                                <div class="row g-2">
-                                    <div class="form-floating col mb-3">
-                                        <input type="text" class="form-control" id="postalcode" name="postalcode" placeholder="PLZ" value="{{ old('postalcode') }}" required>
-                                        <label for="postalcode">PLZ</label>
-                                        @error('postalcode')
-                                        <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
+                                <div class="row g-2">                                    
                                     <div class="form-floating col mb-3">
                                         <input type="text" class="form-control" id="place" name="place" placeholder="Ort" value="{{ old('place') }}" required>
                                         <label for="place">Ort</label>
                                         @error('place')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-floating col mb-3">
+                                        <input type="text" class="form-control" id="postalcode" name="postalcode" placeholder="PLZ" value="{{ old('postalcode') }}" required>
+                                        <label for="postalcode">PLZ</label>
+                                        @error('postalcode')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -134,7 +134,7 @@
                                 <div class="form-floating mb-3">
                                     <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Passwort wiederholen" required>
                                     <label for="password_confirmation">Passwort wiederholen</label>
-                                    @error('pw_farmer_not_identical')
+                                    @error('pw_farmer')
                                     <span class="text-danger">{{ $message }}</span>
                                     @endif
                                     <div class="form-text">
