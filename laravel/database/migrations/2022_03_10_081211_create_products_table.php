@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name', 40);
             $table->double('stock_quantity', 6, 2);
             $table->text('description');
-            $table->enum('product_hint', ['', 'vegan', 'vegetarian']);
+            $table->enum('product_hint', ['neither', 'vegan', 'vegetarian']);
             $table->string('image');
             $table->decimal('price', 8, 2);
             $table->foreignId('user_id');

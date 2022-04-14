@@ -9,6 +9,18 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'stock_quantity',
+        'description',
+        'product_hint',
+        'image',
+        'price',
+        'user_id',
+        'sub_category_id',
+        'unit_of_measure_id',
+    ];
+
     function reservation_has_product()
     {
         return $this->hasMany(Reservation_has_product::class);
@@ -23,7 +35,7 @@ class Product extends Model
     {
         return $this->belongsTo(Sub_category::class);
     }
-    
+
     function unit_of_measure()
     {
         return $this->belongsTo(Unit_of_measure::class);
