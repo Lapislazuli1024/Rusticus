@@ -16,7 +16,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" name="stock_quantity" id="stock_quantity" placeholder="Lagermenge" value="{{ old('stock_quantity') }}" required>
+                                    <input type="text" class="form-control" name="stock_quantity" id="stock_quantity" placeholder="Lagermenge" value="{{ old('stock_quantity') }}" required>
                                     <label for="stock_quantity">Menge an Lager</label>
                                     @error('stock_quantity')
                                     <span class="text-danger">{{ $message }}</span>
@@ -45,7 +45,7 @@
                                     <input type="file" class="custom-file-input form-control" id="product_image" name="product_image">
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" name="price" id="price" placeholder="Preis" value="{{ old('price') }}" required>
+                                    <input type="text" class="form-control" name="price" id="price" placeholder="Preis" value="{{ old('price') }}" required>
                                     <label for="price">Preis pro Einheit</label>
                                     @error('price')
                                     <span class="text-danger">{{ $message }}</span>
@@ -64,19 +64,6 @@
                                     @enderror
                                 </div>
                                 <div class=" form-floating mb-3">
-                                    <select class="custom-select form-control" id="main_category" name="main_category" placeholder="Hauptkategorie" value="{{ old('main_category') }}" onchange="loadSub_categories(this)" required>
-                                        <option selected>Choose...</option>
-                                        @foreach($main_categories as $category)
-                                        <option value="{{$category->id}}">{{$category->description}}</option>
-                                        @endforeach
-                                    </select>
-                                    <label for="main_category">Hauptkategorie</label>
-                                    @error('main_category')
-                                    <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                @if($sub_categories != null)
-                                <div class=" form-floating mb-3">
                                     <select class="custom-select form-control" id="sub_category" name="sub_category" placeholder="Hauptkategorie" value="{{ old('sub_category') }}" required>
                                         <option selected>Choose...</option>
                                         @foreach($sub_categories as $category)
@@ -88,7 +75,6 @@
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                                @endif
                                 <div class="d-grid mx-auto">
                                     <button type="submit" class="btn btn-dark btn-block">Produkt Registrieren</button>
                                 </div>
