@@ -64,7 +64,7 @@
                                     @enderror
                                 </div>
                                 <div class=" form-floating mb-3">
-                                    <select class="custom-select form-control" id="main_category" name="main_category" placeholder="Hauptkategorie" value="{{ old('main_category') }}" required>
+                                    <select class="custom-select form-control" id="main_category" name="main_category" placeholder="Hauptkategorie" value="{{ old('main_category') }}" onchange="loadSub_categories(this)" required>
                                         <option selected>Choose...</option>
                                         @foreach($main_categories as $category)
                                         <option value="{{$category->id}}">{{$category->description}}</option>
@@ -75,7 +75,20 @@
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-
+                                @if($sub_categories != null)
+                                <div class=" form-floating mb-3">
+                                    <select class="custom-select form-control" id="sub_category" name="sub_category" placeholder="Hauptkategorie" value="{{ old('sub_category') }}" required>
+                                        <option selected>Choose...</option>
+                                        @foreach($sub_categories as $category)
+                                        <option value="{{$category->id}}">{{$category->description}}</option>
+                                        @endforeach
+                                    </select>
+                                    <label for="sub_category">Uterkategorie</label>
+                                    @error('sub_category')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                @endif
                                 <div class="d-grid mx-auto">
                                     <button type="submit" class="btn btn-dark btn-block">Produkt Registrieren</button>
                                 </div>

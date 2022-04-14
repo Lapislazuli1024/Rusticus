@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Main_category;
 use App\Models\Product;
+use App\Models\Sub_category;
 use App\Models\Unit_of_measure;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -38,9 +39,10 @@ class ProductController extends Controller
         $user = User::find($userId);
         $units = Unit_of_measure::get();
         $main_categories = Main_category::get();
+        $sub_categories = null;
 
         if($user->farmer != null){
-            return view('product.registerProduct', ['user' => $user, 'units' => $units, 'main_categories' => $main_categories]);
+            return view('product.registerProduct', ['user' => $user, 'units' => $units, 'main_categories' => $main_categories, 'sub_categories' => $sub_categories]);
         }
         return redirect('/');
     }
