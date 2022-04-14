@@ -20,7 +20,6 @@ class AddressFactory extends Factory
     {
         return [
             'street' => $this->faker->streetName(),
-            'house_number' => $this->faker->buildingNumber(),
             'town_id' => Town::factory(),
         ];
     }

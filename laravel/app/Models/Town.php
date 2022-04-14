@@ -9,6 +9,12 @@ class Town extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'postal_code',
+    ];
+
+
     function address()
     {
         return $this->hasMany(Address::class);
