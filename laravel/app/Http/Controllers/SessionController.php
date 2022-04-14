@@ -25,7 +25,7 @@ class SessionController extends Controller
             return redirect('/');
         }
 
-        Farmer::find(1);
+        //Farmer::find(1);
 
         return redirect('/login');
     }
@@ -33,7 +33,7 @@ class SessionController extends Controller
     public function destroy()
     {
 
-        //auth()->logout();
+        auth()->logout();
 
         return redirect('/');
     }

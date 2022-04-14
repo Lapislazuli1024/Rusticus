@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->foreignId('user_id');
-            $table->string('nickname', 20);
+            $table->string('username', 20);
             $table->timestamps();
         });
     }
