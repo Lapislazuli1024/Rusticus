@@ -59,6 +59,9 @@
                                     <div class="form-text">
                                         Das Passwort muss mind. 6 Zeichen lang sein, sowie Buchstaben und Zahlen beinhalten.
                                     </div>
+                                    @if (session('password_confirmation'))
+                                    <span class="text-danger">{{ session('password_confirmation') }}</span>
+                                    @endif
                                 </div>
                                 <div class="d-grid mx-auto">
                                     <button type="submit" class="btn btn-dark btn-block">Registrieren</button>
@@ -131,6 +134,9 @@
                                 <div class="form-floating mb-3">
                                     <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Passwort wiederholen" required>
                                     <label for="password_confirmation">Passwort wiederholen</label>
+                                    @error('pw_farmer_not_identical')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @endif
                                     <div class="form-text">
                                         Das Passwort muss mind. 6 Zeichen lang sein, sowie Buchstaben und Zahlen beinhalten.
                                     </div>
