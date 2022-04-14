@@ -26,3 +26,5 @@ function selectRegisterForm(evt) {
     document.getElementById("farmerTab").classList.add("active");
   }
 } 
+
+
