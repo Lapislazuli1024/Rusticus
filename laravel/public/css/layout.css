@@ -24,7 +24,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  
+
 }
 
 .container-mid {
@@ -39,6 +39,7 @@ h1 {
   /* -webkit-text-stroke: 1px #1a1a1add; */
   text-shadow: 0 0 5px #000000dd;
 }
+
 h2 {
   font-size: 5vw;
   color: #000000;
@@ -64,16 +65,21 @@ h2 {
   border:0;
   box-shadow:0 0 15px 15px rgba(0,0,0,0.06);
 } */
-.formStyle input
-{
-  padding:10px;
-  border:0;
-  box-shadow:0 0 15px 15px rgba(0,0,0,0.06);
+.formStyle input {
+  padding: 10px;
+  border: 0;
+  box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.06);
 }
+
 .container-background {
   background-color: #e7e8ed9c;
   padding: 3%;
 }
+
+.text-margin {
+  font-size: 0.8vw;
+}
+
 
 /* FOOOTER */
 
@@ -86,7 +92,7 @@ footer {
   background: #e7e8ed;
   color: #898b96;
   margin-top: auto;
-  
+
 
 }
 
@@ -104,4 +110,48 @@ footer a:hover {
   color: aliceblue;
   text-align: center;
   padding: 1% 0;
+}
+
+
+/*Warenkorb*/
+hr {
+  margin-top: 1.25rem
+}
+
+.card {
+  margin: auto;
+
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+  border: transparent
+}
+
+.cart {
+  background-color: #fff;
+  padding: 4vh 5vh;
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem
+}
+
+.summary {
+  background-color: #ddd;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 4vh;
+  color: rgb(65, 65, 65)
+}
+
+.items-border {
+  margin: 0;
+  padding: 2vh 0;
+  width: 100%
+}
+
+.back-to-shop {
+  margin-top: 4.5rem;
+}
+
+.checkout {
+  position: absolute;
+  bottom: 2rem;
 }
