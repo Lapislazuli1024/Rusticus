@@ -1,51 +1,61 @@
 <x-layout>
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <h3>Warenkorb</h3>
-            </div>
-            <div class="card-body">
-                @foreach($sessionProducts as $product)
-                <div class="card">
-                    <div class="card-header">
-                        <h5>{{$product->product()->first()->name}}</h5>
+
+    <style>
+        img {
+            width: 8rem
+        }
+    </style>
+    <div class="card">
+        <div class="row">
+            <div class="col-md-8 cart">
+
+                <div class="row">
+                    <div class="col">
+                        <h3>Warenkorb</h2>
                     </div>
-                    <div class="card-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-2">
-                                    <img width="100%" class="" src="{{asset($product->product()->first()->image)}}">
-                                </div>
-                                <div class="col-sm-10">
-                                    <div class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-sm-1">
-                                                <button onclick="window.location.href= '/cart/increment/{{$product->product()->first()->id}}'">+</button>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                Menge:
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <input type="number" value="{{$product->amount}}" name="ProductAmount" disabled>
-                                            </div>
-                                            <div class="col-sm-1">
-                                                <button onclick="window.location.href= '/cart/decrement/{{$product->product()->first()->id}}'">-</button>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <button onclick="window.location.href= '/cart/remove/{{$product->product()->first()->id}}'">Remove</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item">
-                                        Preis pro kg: {{$product->product()->first()->price}}
-                                    </div>
-                                </div>
+                    <div class="col align-self-center text-right text-muted">3 items</div>
+                </div>
+
+
+                @foreach($sessionProducts as $product)
+
+                <div class="row border-top border-bottom">
+                    <div class="row items-border align-items-center">
+                        <div class="col-3"><img class="img-fluid" src="{{asset($product->product()->first()->image)}}"></div>
+                        <div class="col-3">
+                            {{$product->product()->first()->name}}
+                        </div>
+                        <div class="col-3">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-success" onclick="window.location.href= '/cart/increment/{{$product->product()->first()->id}}'">+</button>
+                                <button type="button" class="btn btn-light"> {{$product->amount}}</button>
+                                <button type="button" class="btn btn-warning" onclick="window.location.href= '/cart/decrement/{{$product->product()->first()->id}}'">-</button>
+
                             </div>
                         </div>
+                        <div class="col-2">&yen; {{$product->product()->first()->price * $product->amount}} </div>
+                        <div class="col-1"><button type="button" class="btn-close btn-danger" aria-label="Close" onclick="window.location.href= '/cart/remove/{{$product->product()->first()->id}}'"></button></div>
                     </div>
                 </div>
                 @endforeach
-                <a href="/reservation/checkout">Checkout</a>
+
+                <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+            </div>
+            <div class="col-md-4 summary">
+                <h5><b>Summary</b></h5>
+                <hr>
+                <div class="row">
+                    <div class="col text-left">ITEMS</div>
+                    <div class="col text-right">{{$product->product()->first()->id * $product->amount}}</div>
+                </div>
+                <div class="row">
+                    <div class="col">TOTAL PRICE</div>
+                    <div class="col text-right">&yen; {{$product->product()->first()->price * $product->amount}}</div>
+                </div>
+                <hr>
+                <div class="row checkout">                    
+                        <a href="/reservation/checkout" class="btn btn-primary">CHECKOUT</a>      
+                </div>
             </div>
         </div>
     </div>
