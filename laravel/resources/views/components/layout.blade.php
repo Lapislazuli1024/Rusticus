@@ -76,36 +76,24 @@
         </div>
         <div class="col-md-3 col-sm-4">
           <h4>Popular Category</h4>
-          <ul>
-            <li>
-              <a href="#">Wordpress</a>
-            </li>
-            <li>
-              <a href="#">Plugins</a>
-            </li>
-          </ul>
+          <div class="d-grid gap-3">
+            <button class="btn btn-outline-link" type="button">KingDave23</button>
+            <button class="btn btn-outline-link" type="button">1IvoHD</button>
+          </div>
         </div>
         <div class="col-md-3 col-sm-4">
           <h4>Our Company</h4>
-          <ul>
-            <li>
-              <a href="#">About Us</a>
-            </li>
-            <li>
-              <a href="#">How It Works</a>
-            </li>
-          </ul>
+          <div class="d-grid gap-3">
+            <button class="btn btn-outline-link" type="button">F for Lapis</button>
+            <button class="btn btn-outline-link" type="button">NALIS/ATLAS</button>
+          </div>
         </div>
         <div class="col-md-3 col-sm-4">
           <h4>Help Support</h4>
-          <ul>
-            <li>
-              <a href="#">Support Forum</a>
-            </li>
-            <li>
-              <a href="#">Terms &amp; Conditions</a>
-            </li>
-          </ul>
+          <div class="d-grid gap-3">
+            <button class="btn btn-outline-link" type="button">GG</button>
+            <button class="btn btn-outline-link" type="button">DARIOOO</button>
+          </div>
         </div>
       </div>
     </div>

@@ -1,18 +1,25 @@
 <x-layout>
-    @foreach($farmers as $farmer)
-        <ul class="list-group">
-            <li class="list-group-item">
-                <div class="card">
-                    <div class="card-header">
-                        {{$farmer->user->name}}     {{$farmer->user->surname}}
-                    </div>
-                    <div class="card-body">
-                        <div class="container">{{$farmer->webpage->description}}</div>
-                        <a href="/farmer/{{$farmer->user_id}}" class="btn btn-dark float-end">Mehr</a>
+    <div class="container-background">
+        <h2 class="text-center">Bauern</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach($farmers as $farmer)
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{{asset('pictures/User.png')}}">
+                        <div class="card-header">
+                            <h5 class="card-title">{{$farmer->user->name}} {{$farmer->user->surname}}</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-group list-group-flush">
+                                {{$farmer->webpage->description}}
+                            </div>
+                            <div class="card text-center">
+                                <a href="/farmer/{{$farmer->user_id}}" class="btn btn-dark float-end">Mehr</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </li>
-        </ul>
-
-    @endforeach
+                @endforeach         
+        </div>
+    </div>
 </x-layout>
