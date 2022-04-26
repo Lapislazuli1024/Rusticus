@@ -115,7 +115,8 @@ footer a:hover {
 
 /*Warenkorb*/
 hr {
-  margin-top: 1.25rem
+  margin-bottom: 1.25rem;
+  margin-top: 1.25rem;
 }
 
 .card {
@@ -123,7 +124,8 @@ hr {
 
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 1rem;
-  border: transparent
+  border: transparent;
+  margin-top: 1.25rem;
 }
 
 .cart {
@@ -154,4 +156,8 @@ hr {
 .checkout {
   position: absolute;
   bottom: 2rem;
+}
+
+.warenkorb-img{
+  width: 8rem
 }

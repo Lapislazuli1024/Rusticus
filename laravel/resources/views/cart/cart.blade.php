@@ -1,10 +1,4 @@
 <x-layout>
-
-    <style>
-        img {
-            width: 8rem
-        }
-    </style>
     <div class="card">
         <div class="row">
             <div class="col-md-8 cart">
@@ -15,13 +9,10 @@
                     </div>
                     <div class="col align-self-center text-right text-muted">3 items</div>
                 </div>
-
-
                 @foreach($sessionProducts as $product)
-
                 <div class="row border-top border-bottom">
                     <div class="row items-border align-items-center">
-                        <div class="col-3"><img class="img-fluid" src="{{asset($product->product()->first()->image)}}"></div>
+                        <div class="col-3"><img class="img-fluid warenkorb-img" src="{{asset($product->product()->first()->image)}}"></div>
                         <div class="col-3">
                             {{$product->product()->first()->name}}
                         </div>
