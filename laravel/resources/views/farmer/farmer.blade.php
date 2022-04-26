@@ -1,38 +1,49 @@
 <x-layout>
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <h3> Bauer:</h3>
-            </div>
-            <div class="card-body">
-                <div clas="container">
-                    <div class="row">
-                        <div class="col-sm">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                Name: {{$user->name}} {{$user->surname}}
-                            </li>
-                            <li class="list-group-item">
-                                Adresse: {{$user->farmer->address->street}} {{$user->farmer->address->house_number}}
-                            </li>
-                            @if($user->farmer->webpage->webpage_url != null)
-                            <li class="list-group-item">
-                                Website: <a href="https://{{$user->farmer->webpage->webpage_url}}">{{$user->name}}s Webpage</a>
-                            </li>
-                            @endif
-                        </ul>
-                            <div url="card-text list-group-item" id="profiledetails">
-                                Details: {{$user->farmer->webpage->description}}
-                            </div>
+    <div class="card md-3">
+        <div class="row g-0">
+
+            <div class="col-md-6">
+                <div class="card-header">
+                    <h3> Name: {{$user->name}} {{$user->surname}}</h3>
+                    @if(session()->has('error'))
+                    <div class="alert alert-warning">
+                        <strong>Warnung!</strong> {{session()->get('error')}}
+                    </div>
+                    @endif
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        Name: {{$user->name}} {{$user->surname}}
+                    </li>
+                    <li class="list-group-item">
+                        Adresse: {{$user->farmer->address->street}} {{$user->farmer->address->house_number}}
+                    </li>
+                    @if($user->farmer->webpage->webpage_url != null)
+                    <li class="list-group-item">
+                        Website: <a href="https://{{$user->farmer->webpage->webpage_url}}">{{$user->name}}s Webpage</a>
+                    </li> 
+                    <li class="list-group-item">   
+                            Details: {{$user->farmer->webpage->description}}
+                    </li>
+                    @endif
+                </ul>
+                <div class="card-body">
+                    <div class="text-center">
+
+                        <div class="btn-group me-2">
+                            <a href="{{URL::previous()}}" class="btn btn-dark float-start">Zurück</a>
                         </div>
-                        <div class="vr" id="profiledivider"></div>
-                        <div class="col  float-end">
-                            <img class="img-thumbnail"src="{{asset('pictures/User.png')}}">
+                        <div class="btn-group me-2">
+                            <a href="#" class="btn btn-success float-end">Meine Produkte 🛒</a>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="img-fluid">
+                    <img class="img-fluid rounded start" src="{{asset('pictures/User.png')}}">
+                </div>
+            </div>
         </div>
     </div>
-
 </x-layout>

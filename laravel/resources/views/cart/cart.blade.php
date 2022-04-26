@@ -2,12 +2,10 @@
     <div class="card">
         <div class="row">
             <div class="col-md-8 cart">
-
                 <div class="row">
                     <div class="col">
                         <h3>Warenkorb</h2>
                     </div>
-                    <div class="col align-self-center text-right text-muted">3 items</div>
                 </div>
                 @foreach($sessionProducts as $product)
                 <div class="row border-top border-bottom">
@@ -21,7 +19,6 @@
                                 <button type="button" class="btn btn-success" onclick="window.location.href= '/cart/increment/{{$product->product()->first()->id}}'">+</button>
                                 <button type="button" class="btn btn-light"> {{$product->amount}}</button>
                                 <button type="button" class="btn btn-warning" onclick="window.location.href= '/cart/decrement/{{$product->product()->first()->id}}'">-</button>
-
                             </div>
                         </div>
                         <div class="col-2">&yen; {{$product->product()->first()->price * $product->amount}} </div>
