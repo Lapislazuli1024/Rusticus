@@ -9,6 +9,12 @@ class Farmer extends Authenticatable
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'webpage_id',
+        'address_id'
+    ];
+
     //hasOne, hasMany, belongsTo, belongsToMany
     function user()
     {

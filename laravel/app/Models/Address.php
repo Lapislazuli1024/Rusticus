@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Address extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'street',
+        'town_id',
+    ];
+
     
     //hasOne, hasMany, belongsTo, belongsToMany
     function farmer()

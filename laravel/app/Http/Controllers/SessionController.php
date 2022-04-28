@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Farmer;
 use Illuminate\Http\Request;
 
 class SessionController extends Controller
@@ -15,7 +14,7 @@ class SessionController extends Controller
 
     public function store(Request $request)
     {
-        
+
         $attributes = $request->validate([
             'email' => 'required|email|max:255',
             'password' => 'required|min:6|max:255',
@@ -25,14 +24,12 @@ class SessionController extends Controller
             return redirect('/');
         }
 
-        //Farmer::find(1);
-
-        return redirect('/login');
+        session()->flash('login_error', 'Die E-Mail und das Passwort stimmen nicht überein!');
+        return back();
     }
 
     public function destroy()
     {
-
         auth()->logout();
 
         return redirect('/');

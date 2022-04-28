@@ -9,7 +9,6 @@ use App\Models\Town;
 use App\Models\User;
 use App\Models\Webpage;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -93,7 +92,6 @@ class RegisterController extends Controller
                 'webpage_url' => 'http://www.ggasparri.net',
             ]);
 
-
             Farmer::create([
                 'user_id' =>  $user->id,
                 'address_id' => $address->id,
@@ -102,10 +100,9 @@ class RegisterController extends Controller
 
             auth()->login($user);
         } else {
-            session()->flash('pw_farmer', 'Die Passwörter stimmen nicht überein!');
+            session()->flash('pwd_farmer', 'Die Passwörter stimmen nicht überein!');
             return back()->withInput();
         }
-
 
         return redirect('/');
     }

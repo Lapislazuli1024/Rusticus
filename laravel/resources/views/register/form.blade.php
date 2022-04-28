@@ -59,8 +59,8 @@
                                     <div class="form-text">
                                         Das Passwort muss mind. 6 Zeichen lang sein, sowie Buchstaben und Zahlen beinhalten.
                                     </div>
-                                    @if (session('password_confirmation'))
-                                    <span class="text-danger">{{ session('password_confirmation') }}</span>
+                                    @if (session()->has('pwd_customer'))
+                                    <span class="text-danger">{{ session()->get('pwd_customer') }}</span>
                                     @endif
                                 </div>
                                 <div class="d-grid mx-auto">
@@ -134,8 +134,8 @@
                                 <div class="form-floating mb-3">
                                     <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Passwort wiederholen" required>
                                     <label for="password_confirmation">Passwort wiederholen</label>
-                                    @error('pw_farmer')
-                                    <span class="text-danger">{{ $message }}</span>
+                                    @if (session()->has('pwd_farmer'))
+                                    <span class="text-danger">{{ session()->get('pwd_farmer') }}</span>
                                     @endif
                                     <div class="form-text">
                                         Das Passwort muss mind. 6 Zeichen lang sein, sowie Buchstaben und Zahlen beinhalten.
