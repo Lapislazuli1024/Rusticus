@@ -9,6 +9,13 @@ class Webpage extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'image',
+        'title',
+        'description',
+        'webpage_url'
+    ];
+
     function farmer()
     {
         return $this->belongsTo(Farmer::class);
