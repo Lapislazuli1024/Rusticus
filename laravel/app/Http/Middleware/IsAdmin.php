@@ -17,9 +17,14 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!Admin::where('user_id', auth()->user()->id)->exists()){
-            return redirect('/');
+        if(auth()->check()){
+            if(!Admin::where('user_id', auth()->user()->id)->exists()){
+                return redirect('/');
+            }
+        } else {
+            return redirect()->route('create.login');
         }
+        
 
         return $next($request);
     }
