@@ -5,7 +5,7 @@
     </div>
     <div class="container search">
 
-        <form method="post" action="{{route('search.results')}}" >
+        <form method="post" action="{{route('search.main.results')}}" >
         @csrf
             <div class="container-mid">
                 <div class="row">
