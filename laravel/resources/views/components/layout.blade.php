@@ -75,21 +75,21 @@
           <img class="pictures" src="{{asset('pictures/Rusticus-Logo.png')}}">
         </div>
         <div class="col-md-3 col-sm-4">
-          <h4>Popular Category</h4>
+          <h4 class="text-center">Popular Category</h4>
           <div class="d-grid gap-3">
             <button class="btn btn-outline-link" type="button">KingDave23</button>
             <button class="btn btn-outline-link" type="button">1IvoHD</button>
           </div>
         </div>
         <div class="col-md-3 col-sm-4">
-          <h4>Our Company</h4>
+          <h4 class="text-center">Our Company</h4>
           <div class="d-grid gap-3">
             <button class="btn btn-outline-link" type="button">F for Lapis</button>
             <button class="btn btn-outline-link" type="button">NALIS/ATLAS</button>
           </div>
         </div>
         <div class="col-md-3 col-sm-4">
-          <h4>Help Support</h4>
+          <h4 class="text-center">Help Support</h4>
           <div class="d-grid gap-3">
             <button class="btn btn-outline-link" type="button">GG</button>
             <button class="btn btn-outline-link" type="button">DARIOOO</button>

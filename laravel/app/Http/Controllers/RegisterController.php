@@ -99,6 +99,7 @@ class RegisterController extends Controller
             ]);
 
             auth()->login($user);
+            
         } else {
             session()->flash('pwd_farmer', 'Die Passwörter stimmen nicht überein!');
             return back()->withInput();
