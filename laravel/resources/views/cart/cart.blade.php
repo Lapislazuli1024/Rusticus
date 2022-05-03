@@ -31,16 +31,19 @@
             </div>
             <div class="col-md-4 summary">
                 <h5><b>Summary</b></h5>
+                @if($totalItems != 0)
                 <hr>
                 <div class="row">
                     <div class="col text-left">ITEMS</div>
-                    <div class="col text-right">{{$product->product()->first()->id * $product->amount}}</div>
+                    <div class="col text-right">{{$totalItems}}</div>
+                    
                 </div>
                 <div class="row">
                     <div class="col">TOTAL PRICE</div>
-                    <div class="col text-right">&yen; {{$product->product()->first()->price * $product->amount}}</div>
+                    <div class="col text-right">&yen; {{$totalPrice}}</div>
                 </div>
                 <hr>
+                @endif
                 <div class="row checkout">                    
                         <a href="/reservation/checkout" class="btn btn-primary">CHECKOUT</a>      
                 </div>

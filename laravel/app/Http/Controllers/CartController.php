@@ -16,19 +16,29 @@ class CartController extends Controller
     public function createCart()
     {
         $userId = 1; // TODO: get userid
-        $sessioncart = Sessioncart::where('user_id', '=', $userId)->first();
+        $sessioncart = $this->getSessionCart();
+        $totalItems = 0;
+        $totalPrice = 0;
 
         if ($sessioncart == null) {
             return redirect('/');
         }
 
         $sessionProducts = Sessioncart::where('user_id', '=', $userId)->first()->session_has_product()->get();
-        return view('cart.cart', ['sessionProducts' => $sessionProducts]);
+
+        // Get total sum of Products
+        foreach ($sessionProducts as $sessionProduct) {
+            $totalItems += $sessionProduct->amount;
+            $totalPrice += $sessionProduct->amount * $sessionProduct->product->price;
+        }
+
+        return view('cart.cart', ['sessionProducts' => $sessionProducts, 'totalItems' => $totalItems, 'totalPrice' => $totalPrice]);
     }
 
     public function storeCartIncrement($productId)
     {
-        $sessionProduct = Session_has_product::where('sessioncart_id', '=', $this->getSessionCart()->id)->where('product_id', '=', $productId)
+        $sessionProduct = Session_has_product::where('sessioncart_id', '=', $this->getSessionCart()->id)
+            ->where('product_id', '=', $productId)
             ->first();
 
         if ($sessionProduct != null) {
@@ -40,7 +50,8 @@ class CartController extends Controller
 
     public function storeCartDecrement($productId)
     {
-        $sessionProduct = Session_has_product::where('sessioncart_id', '=', $this->getSessionCart()->id)->where('product_id', '=', $productId)
+        $sessionProduct = Session_has_product::where('sessioncart_id', '=', $this->getSessionCart()->id)
+            ->where('product_id', '=', $productId)
             ->first();
 
         if ($sessionProduct != null) {
