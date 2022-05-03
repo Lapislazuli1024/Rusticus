@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use \App\Models\Main_category;
 use \App\Models\Sub_category;
+use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
