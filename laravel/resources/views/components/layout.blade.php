@@ -68,45 +68,59 @@
 </body>
 
 <footer>
-  <div class="footer-big">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-12">
+  <div class="container text-center text-sm-left mt-5">   
+    <div class="row">     
+      <div class="col-sm-5 mx-auto mb-4">       
+        <h6>RUSTICUS</h6>
+        <hr class="mb-4 mt-0 d-inline-block mx-auto">
+        <div class="container-fluid">
           <img class="pictures" src="{{asset('pictures/Rusticus-Logo.png')}}">
         </div>
-        <div class="col-md-3 col-sm-4">
-          <h4 class="text-center">Popular Category</h4>
-          <div class="d-grid gap-3">
-            <button class="btn btn-outline-link" type="button">KingDave23</button>
-            <button class="btn btn-outline-link" type="button">1IvoHD</button>
+      </div>      
+      <div class="col-sm-3 mx-auto mb-4">
+        <h6>JEDERZEIT INFORMIERT</h6>
+        <hr class="mb-4 mt-0 d-inline-block mx-auto">
+        <h5 class="mb-2 mt-2">Newsletter abonnieren?</h5>
+        <div class="formStyle needs-validation">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="name" id="name" placeholder="Name" required autofocus>
+            <label for="email">Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="email" id="email" placeholder="Email" required autofocus>
+            <label for="email">Email</label>
+          </div>
+          <div class="d-grid mx-auto">
+            <button type="button" id="signUpNewsletter" class="btn btn-outline-primary btn-rounded waves-effect">Absenden!</button>
           </div>
         </div>
-        <div class="col-md-3 col-sm-4">
-          <h4 class="text-center">Our Company</h4>
-          <div class="d-grid gap-3">
-            <button class="btn btn-outline-link" type="button">F for Lapis</button>
-            <button class="btn btn-outline-link" type="button">NALIS/ATLAS</button>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-4">
-          <h4 class="text-center">Help Support</h4>
-          <div class="d-grid gap-3">
-            <button class="btn btn-outline-link" type="button">GG</button>
-            <button class="btn btn-outline-link" type="button">DARIOOO</button>
-          </div>
-        </div>
+      </div>      
+      <div class="col-sm-4 mx-auto mb-4">
+        <h6>IMPRESSUM</h6>
+        <hr class="mb-4 mt-0 d-inline-block mx-auto">
+        <p><i class="fas fa-home mr-3"></i>Luzern, Zufallstrasse 4, Schweiz</p>
+        <p><i class="fas fa-envelope mr-3"></i> info@example.com</p>
+        <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+        <p><i class="fas fa-mobile mr-4"></i> + 01 234 567 88 </p>
       </div>
-    </div>
+    </div>   
   </div>
-  <div class="mini-footer">
-    <div class="container">
+  <div>
+    <div class="mini-footer">
       <div class="row">
-        <div class="col-md-12">
-          <div class="copyright-text">
-            <p>© 2022
-              <a href="#">Rusticus</a>. All rights reserved. Created by
-              <a href="#">Rusticus</a>
-            </p>
+        <div class="col-md-8">
+          <div class="text-center py-3">© 2022 Copyright:
+            <a href="#"> Rusticus.com</a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="text-center py-3">
+            <a href="#">Datenschutz</a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="text-center py-3">
+            <a href="#">Privacy Statement</a>
           </div>
         </div>
       </div>
