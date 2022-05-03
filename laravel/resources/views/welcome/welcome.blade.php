@@ -1,9 +1,7 @@
 <x-layout>
-    <div class="container content"></div>
-    <div class="container">
-
-    </div>
-    <div class="container search">
+  
+    
+    <div class="container-full search">
 
         <form method="post" action="{{ route('search.main.results' )}}" >
         @csrf
@@ -26,7 +24,6 @@
                 </div>    
             </div>
         </form>
-    </div>
     </div>
     <script src="{{asset('js/search.js')}}"></script>
 
