@@ -34,28 +34,30 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('products')}}">Produkte</a>
           </li>
-          @guest
+        </ul>
+        @guest
+        <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <a class="nav-link" href="{{ route('create.login') }}">Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('create.register') }}">Register</a>
           </li>
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Benutzer
+              <!-- <img class="navbar-icon" src="{{asset('pictures/User.png')}}"> -->
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Einstellungen</a></li>
+              <li><a class="dropdown-item" href="{{ route('cart') }}">Warenkorb</a></li>
+              <li><a class="dropdown-item" href="{{ route('destroy.session') }}">Logout</a></li>
+              <li><a class="dropdown-item" href="#">Hilfe</a></li>
+            </ul>
+          </li>
         </ul>
-
-        <li class="nav-item dropdown ms-auto">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Benutzer
-            <!-- <img class="navbar-icon" src="{{asset('pictures/User.png')}}"> -->
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Einstellungen</a></li>
-            <li><a class="dropdown-item" href="{{ route('cart') }}">Warenkorb</a></li>
-            <li><a class="dropdown-item" href="{{ route('destroy.session') }}">Logout</a></li>
-            <li><a class="dropdown-item" href="#">Hilfe</a></li>
-          </ul>
-        </li>
-
         @endguest
 
       </div>
@@ -67,34 +69,36 @@
   </div>
 </body>
 
+
 <footer>
-  <div class="container text-center text-sm-left mt-5">   
-    <div class="row">     
-      <div class="col-sm-5 mx-auto mb-4">       
+  <!-- Footer -->
+  <div class="container text-center text-sm-left mt-5">
+    <div class="row">
+      <div class="col-sm-5 mx-auto mb-4">
         <h6>RUSTICUS</h6>
         <hr class="mb-4 mt-0 d-inline-block mx-auto">
         <div class="container-fluid">
           <img class="pictures" src="{{asset('pictures/Rusticus-Logo.png')}}">
         </div>
-      </div>      
+      </div>
       <div class="col-sm-3 mx-auto mb-4">
         <h6>JEDERZEIT INFORMIERT</h6>
         <hr class="mb-4 mt-0 d-inline-block mx-auto">
         <h5 class="mb-2 mt-2">Newsletter abonnieren?</h5>
         <div class="formStyle needs-validation">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="name" id="name" placeholder="Name" required autofocus>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
             <label for="email">Name</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="email" id="email" placeholder="Email" required autofocus>
+            <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>
             <label for="email">Email</label>
           </div>
           <div class="d-grid mx-auto">
             <button type="button" id="signUpNewsletter" class="btn btn-outline-primary btn-rounded waves-effect">Absenden!</button>
           </div>
         </div>
-      </div>      
+      </div>
       <div class="col-sm-4 mx-auto mb-4">
         <h6>IMPRESSUM</h6>
         <hr class="mb-4 mt-0 d-inline-block mx-auto">
@@ -103,7 +107,7 @@
         <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
         <p><i class="fas fa-mobile mr-4"></i> + 01 234 567 88 </p>
       </div>
-    </div>   
+    </div>
   </div>
   <div>
     <div class="mini-footer">
