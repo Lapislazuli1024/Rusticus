@@ -90,8 +90,8 @@ h2 {
 /* FOOOTER */
 
 .pictures {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
 }
 
 footer {
@@ -107,10 +107,10 @@ footer {
 }
 
 .mini-footer {
-  background: #192027;
+  background: #898b96;
   color: aliceblue;
   text-align: center;
-  padding: 1% 0;
+  padding: 0.5% 0;
 }
 
 
@@ -118,6 +118,7 @@ footer {
 hr {
   margin-bottom: 1.25rem;
   margin-top: 1.25rem;
+  width: 60%;
 }
 
 .card {
