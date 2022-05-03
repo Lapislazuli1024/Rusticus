@@ -31,7 +31,7 @@ class ReservationController extends Controller
 
         if ($sessioncart === null) {
             // Throw Error because there is no session cart
-            return redirect('/');
+            return $this->createReservation();
         }
 
         $sessionHasProducts = $sessioncart->session_has_product()->get();

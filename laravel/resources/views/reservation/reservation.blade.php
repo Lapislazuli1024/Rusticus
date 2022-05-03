@@ -30,7 +30,7 @@
         @endforeach
         <hr>
         <div class="d-grid gap-2 col-6 mx-auto">
-            <button type="button" class="btn btn-dark btn-lg">BACK TO SHOP</button>
+            <a type="button" class="btn btn-dark btn-lg" href="/products">BACK TO SHOP</a>
         </div>
     </div>
 </x-layout>
