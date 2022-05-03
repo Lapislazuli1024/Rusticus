@@ -69,6 +69,20 @@ class SearchController extends Controller
             'search' => $input
         ]);
     }
+    public function filter(Request $request){
+        foreach($request->filters as $filter)
+        if(DB::table('main_category')::select('id')::where('description',$filter)->get()!=null){
+            $id=DB::table('main_category')::select()::where('description',$filter)->get();
+            foreach(Sub_category::select('id')->where('fk_main_category', $id) as $subcategory){
+                foreach($subcategory->find('fk_main_category',$id)->product as $product){
+                    array_push($result,$product);
+                }
+            }
+        }
+
+
+        return response()->json(['result'=>$result]);
+    }
 
 
 }

@@ -51,9 +51,10 @@ Route::get('/product/edit', [ProductController::class, 'createEditProduct'])->na
 Route::post('/product/edit', [ProductController::class, 'storeEditProduct'])->name('store.product.edit');
 
 //Search
-Route::post('/search', [SearchController::class, 'index'])->name('search.results');
-Route::post('/livesearch', [SearchController::class, 'livesearch'])->name('livesearch');
-
+Route::post('/search',[SearchController::class,'index'])->name('search.main.results');
+Route::get('/search',[SearchController::class, 'index'])->name('search.filters.results');
+Route::post('/livesearch',[SearchController::class, 'livesearch'])->name('livesearch');
+Route::post('/search/filters',[SearchController::class, 'filter'])->name('filters');
 //Cart
 Route::get('/cart/show', [CartController::class, 'createCart'])->name('cart');
 Route::get('/cart/add/{product:id}', [CartController::class, 'storeCartAdd'])->name('addtocart');

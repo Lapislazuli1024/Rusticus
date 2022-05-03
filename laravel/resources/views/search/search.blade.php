@@ -7,18 +7,29 @@
                 </div>
                 <div class="card-body">
                     <div id='main_categories'>
+                        <form onsubmit="filter(this.value)" id="categories"METHOD="post" >
+                            <ul class="list-group">
                         @foreach($main_categories as $main_category)
-                            <label for="{{$main_category->description}}">{{$main_category->description}}</label>
-                            <input type="checkbox" id="{{$main_category->description}}" onClick=filter()><br>
+                            <li class="list-group-item">
+                            <button type="button" class="btn btn-secondary mainfilter" data-bs-target="#main{{$main_category->id}}" data-bs-toggle="collapse">
+                                <label for="{{$main_category->id}}">{{$main_category->description}}</label>
+                                <input type="checkbox" name="main{{$main_category->id}}" value="{{$main_category->description}}" onclick='sum(), all(this.name)'>
+                            </button>
+                            <div id="main{{$main_category->id}}" class="collapse">
+                                <ul class="list-group">
+                            @foreach($main_category->sub_category as $sub_category)
+                                    <li class="list-group-item subfilter">
+                                        <label for="sub{{$sub_category->id}}">{{$sub_category->description}}</label>
+                                        <input type="checkbox" name="sub{{$sub_category->id}}" value="{{$main_category->description}}" onclick=sum()>
+                                    </li>
+                            @endforeach
+                                </ul>
+                            </div>
+                            </li>
                         @endforeach
-                    </div>
-
-                    <div id="sub_categories">
-                        @foreach($sub_categories as $sub_category)
-                            <label for="{{$sub_category->description}}">{{$sub_category->description}}</label>
-                            <input type="checkbox" name="{{$sub_category->description}}"
-                                   id="{{$sub_category->description}}" onClick=filter()><br>
-                        @endforeach
+                            </ul>
+                            <input type="submit" id='submit' value="submit">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -28,7 +39,7 @@
                 <div class="card-header">
                     <h3>Resultate zu '{{$search}}'</h3>
                 </div>
-                <div class="card-body">
+                <div class="card-body" id="class">
                     @foreach($result as $product)
                         <div class="card">
                             <div class="card-header">
@@ -58,5 +69,5 @@
             </div>
         </div>
     </div>
-    <script src="{{asset('js/search.js')}}"></script>
+    <script src="{{asset('js/filters.js')}}"></script>
 </x-layout>
