@@ -67,7 +67,9 @@
   </div>
 </body>
 
+
 <footer>
+  <!-- Footer -->
   <div class="container text-center text-sm-left mt-5">   
     <div class="row">     
       <div class="col-sm-5 mx-auto mb-4">       
@@ -83,11 +85,11 @@
         <h5 class="mb-2 mt-2">Newsletter abonnieren?</h5>
         <div class="formStyle needs-validation">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="name" id="name" placeholder="Name" required autofocus>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
             <label for="email">Name</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="email" id="email" placeholder="Email" required autofocus>
+            <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>
             <label for="email">Email</label>
           </div>
           <div class="d-grid mx-auto">
