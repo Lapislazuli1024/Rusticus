@@ -47,8 +47,8 @@ Route::get('/products', [ProductController::class, 'createAllProduct'])->name('p
 Route::get('/product/show/{product:id}', [ProductController::class, 'createOneProduct'])->name('product');
 
 Route::middleware(['isFarmer'])->group(function () {
-    Route::get('/product/register', [ProductController::class, 'createRegisterProduct'])->name('create.product');
-    Route::post('/product/register', [ProductController::class, 'storeRegisterProduct'])->name('store.product');
+    Route::get('/product/add', [ProductController::class, 'createAddProduct'])->name('create.product');
+    Route::post('/product/add', [ProductController::class, 'storeAddProduct'])->name('store.product');
     Route::get('/product/edit', [ProductController::class, 'createEditProduct'])->name('create.product.edit');
     Route::post('/product/edit', [ProductController::class, 'storeEditProduct'])->name('store.product.edit');
 });

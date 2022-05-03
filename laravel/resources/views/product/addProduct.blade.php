@@ -3,10 +3,10 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
-                    <h3 class="card-header text-center">Produkt Registrieren</h3>
+                    <h3 class="card-header text-center">Produkt Hinzufügen</h3>
                     <div class="card-body">
                         <div class="tabcontent" id="divCustomerForm">
-                            <form method="POST" action="{{ route('store.product') }}" class="formStyle">
+                            <form method="POST" action="{{ route('store.product') }}" class="formStyle" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-floating col mb-3">
                                     <input type="text" class="form-control" name="productname" id="productname" placeholder="Produktname" value="{{ old('productname') }}" required autofocus>
@@ -42,7 +42,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="file" class="custom-file-input form-control" id="product_image" name="product_image">
+                                    <input type="file" class="custom-file-input form-control" id="product_image" name="product_image" accept="image/*">
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" name="price" id="price" placeholder="Preis" value="{{ old('price') }}" required>
@@ -76,7 +76,7 @@
                                     @enderror
                                 </div>
                                 <div class="d-grid mx-auto">
-                                    <button type="submit" class="btn btn-dark btn-block">Produkt Registrieren</button>
+                                    <button type="submit" class="btn btn-dark btn-block">Produkt Hinzufügen</button>
                                 </div>
                             </form>
                         </div>
