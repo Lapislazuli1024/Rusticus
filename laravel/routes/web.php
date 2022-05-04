@@ -34,9 +34,14 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/user/login', [SessionController::class, 'create'])->name('create.login');
     Route::post('/user/login', [SessionController::class, 'store'])->name('store.login');
 });
+Route::middleware(['auth'])->group(function () {
+    // => Account-Settings
+    Route::get('/user/settings', [SessionController::class, 'settings'])->name('create.settings');
+    Route::get('/user/settings', [SessionController::class, 'settings'])->name('store.settings');
 
-// => Logout
-Route::get('/user/logout', [SessionController::class, 'destroy'])->name('destroy.session');
+    // => Logout
+    Route::get('/user/logout', [SessionController::class, 'destroy'])->name('destroy.session');
+});
 
 //Farmer Routes //create //store
 Route::get('/farmers', [FarmerController::class, 'createAllFarmer'])->name('farmers');
