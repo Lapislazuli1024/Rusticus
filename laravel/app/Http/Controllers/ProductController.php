@@ -87,6 +87,16 @@ class ProductController extends Controller
         return redirect('/');
     }
 
+    public function createFarmerRelatedProduct($farmerId)
+    {
+        // TODO: Get farmer specific products and pass them to View
+        $products = Product::get()->where('user.id', $farmerId);
+
+        return view('product.products', [
+            'products' => $products
+        ]);
+    }
+
     public function createEditProduct()
     {
         // TODO: get te product willing to be edited and load edit form

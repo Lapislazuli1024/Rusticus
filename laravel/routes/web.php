@@ -45,6 +45,7 @@ Route::get('/farmer/{farmer:id}', [FarmerController::class, 'createOneFarmer'])-
 //Product Routes
 Route::get('/products', [ProductController::class, 'createAllProduct'])->name('products');
 Route::get('/product/show/{product:id}', [ProductController::class, 'createOneProduct'])->name('product');
+Route::get('/products/show/{farmer:id}', [ProductController::class, 'createFarmerRelatedProduct'])->name('farmersProducts');
 
 Route::middleware(['isFarmer'])->group(function () {
     Route::get('/product/add', [ProductController::class, 'createAddProduct'])->name('create.product');
