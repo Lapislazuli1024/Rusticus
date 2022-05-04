@@ -13,7 +13,7 @@ class ReservationController extends Controller
 {
     public function createReservation()
     {
-        $userId = 1; // TODO: get userid
+        $userId = auth()->id();
         if (Reservation::where('user_id', '=', $userId)->first() != null) {
             $reservationProducts = Reservation::where('user_id', '=', $userId)->get();
             return view('reservation.reservation', ['reservationProducts' => $reservationProducts]);
@@ -24,7 +24,7 @@ class ReservationController extends Controller
     public function storeCheckout()
     {
         // 
-        $userId = 1; // TODO: Get userId
+        $userId = auth()->id();
         $confirmed = false; // TODO: get confirmed somehow
 
         $sessioncart = $this->getSessionCart();
@@ -62,13 +62,13 @@ class ReservationController extends Controller
 
     private function getSessionCart()
     {
-        $userId = 1; // TODO: get userid form Data
+        $userId = auth()->id();
         return Sessioncart::where('user_id', '=', $userId)->first();
     }
 
     private function getReservation()
     {
-        $userId = 1; // TODO: get userid form Data
+        $userId = auth()->id();
         return Reservation::where('user_id', '=', $userId)->first();
     }
 }

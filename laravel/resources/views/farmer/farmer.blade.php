@@ -34,7 +34,7 @@
                             <a href="{{URL::previous()}}" class="btn btn-dark float-start">Zurück</a>
                         </div>
                         <div class="btn-group me-2">
-                            <a href="#" class="btn btn-success float-end">Meine Produkte 🛒</a>
+                            <a href="/products/show/{{$user->id}}" class="btn btn-success float-end">Meine Produkte 🛒</a>
                         </div>
                     </div>
                 </div>

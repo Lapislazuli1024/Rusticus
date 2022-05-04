@@ -8,6 +8,7 @@ use App\Models\Sub_category;
 use App\Models\Unit_of_measure;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\Enum;
 
 class ProductController extends Controller
@@ -31,23 +32,23 @@ class ProductController extends Controller
         ]);
     }
 
-    public function createRegisterProduct()
+    public function createAddProduct()
     {
         // TODO: Check if user is allowed to create Product (user == farmer)
         // then if true, show form to register Product
         // else throw error message 
-        $userId = 21; // user 21 is a farmer, everything lower isnt (DONT ASK ME WHY)
+        $userId = auth()->id();
         $user = User::find($userId);
         $units = Unit_of_measure::get();
         $sub_categories = Sub_category::get();
 
         if ($user->farmer != null) {
-            return view('product.registerProduct', ['user' => $user, 'units' => $units, 'sub_categories' => $sub_categories]);
+            return view('product.addProduct', ['user' => $user, 'units' => $units, 'sub_categories' => $sub_categories]);
         }
         return redirect('/');
     }
 
-    public function storeRegisterProduct(Request $request)
+    public function storeAddProduct(Request $request)
     {
         // TODO: read Product data form Form and insert into DB
         $productData = $request->validate([
@@ -56,22 +57,20 @@ class ProductController extends Controller
             'description' => ['required', 'max:1000'],
             'product_hint' => ['required', 'in:vegan,vegetarian,neither'],
             'price' => ['required', 'numeric'],
-            'product_image' => [],
+            'product_image' => ['required', 'image'],
             'unit_of_measure' => ['exists:App\Models\Unit_of_measure,id'],
             'sub_category' => ['exists:App\Models\Sub_category,id'],
         ]);
 
-        $userId = 21; // Get Userid
+        $userId = auth()->id();
 
         $user = User::find($userId);
         if ($user->farmer == null) {
             return redirect('/user/login'); // Fehlernachticht, das nicht als bauer angemeldet
         }
 
-        $imagePath = '/pictures/products/product1.png';
-        if ($productData['product_image'] != null) {
-            $imagePath = $productData['product_image'];
-        }
+        $path = 'pictures/products';
+        $imagePath = Storage::disk('public')->put($path, $request->product_image);
 
         Product::create([
             'name' => $productData['productname'],
@@ -86,6 +85,16 @@ class ProductController extends Controller
         ]);
 
         return redirect('/');
+    }
+
+    public function createFarmerRelatedProduct($farmerId)
+    {
+        // TODO: Get farmer specific products and pass them to View
+        $products = Product::get()->where('user.id', $farmerId);
+
+        return view('product.products', [
+            'products' => $products
+        ]);
     }
 
     public function createEditProduct()

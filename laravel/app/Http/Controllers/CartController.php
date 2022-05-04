@@ -15,14 +15,14 @@ class CartController extends Controller
 {
     public function createCart()
     {
-        $userId = 1; // TODO: get userid
-        $sessioncart = $this->getSessionCart();
+        $userId = auth()->id();
+        // $sessioncart = $this->getSessionCart();
         $totalItems = 0;
         $totalPrice = 0;
 
-        if ($sessioncart == null) {
-            return redirect('/');
-        }
+        // if ($sessioncart == null) {
+        //     return redirect('/');
+        // }
 
         $sessionProducts = Sessioncart::where('user_id', '=', $userId)->first()->session_has_product()->get();
 
@@ -90,7 +90,7 @@ class CartController extends Controller
         }
 
         // Add Product to DB
-        $userId = 1; // TODO: get userid form Data auth()->userId
+        $userId = auth()->id();
 
         $sessioncart = $this->getSessionCart();
         if ($sessioncart === null) {
@@ -113,7 +113,7 @@ class CartController extends Controller
 
     private function getSessionCart()
     {
-        $userId = 1; // TODO: get userid form Data
+        $userId = auth()->id();
         return Sessioncart::where('user_id', '=', $userId)->first();
     }
 }
