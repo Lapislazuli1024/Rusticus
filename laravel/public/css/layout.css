@@ -3,9 +3,6 @@ html,body {
   
 }
 
-.content {
-  width: 80%;
-}
 
 .navbar-icon {
   width: 50px;
@@ -52,11 +49,11 @@ h2 {
   /* -webkit-text-stroke: 1px #1a1a1add; */
   /* text-shadow: 0 0 5px #000000dd; */
 }
-h3 {
+.welcome-side {
   font-size: 2vw;
   color: #ffffff;
   text-shadow: 0 0 5px #000000dd;
-  margin: 4rem;
+  margin: 1rem;
 }
 
 
@@ -91,9 +88,7 @@ h3 {
 .text-margin {
   font-size: 0.8vw;
 }
-.form-control {
-  
-}
+
 
 /* FOOOTER */
 
