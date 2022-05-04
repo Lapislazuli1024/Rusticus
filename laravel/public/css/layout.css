@@ -52,6 +52,12 @@ h2 {
   /* -webkit-text-stroke: 1px #1a1a1add; */
   /* text-shadow: 0 0 5px #000000dd; */
 }
+h3 {
+  font-size: 2vw;
+  color: #ffffff;
+  text-shadow: 0 0 5px #000000dd;
+  margin: 4rem;
+}
 
 
 #profiledivider {
@@ -85,13 +91,15 @@ h2 {
 .text-margin {
   font-size: 0.8vw;
 }
-
+.form-control {
+  
+}
 
 /* FOOOTER */
 
 .pictures {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
 }
 
 footer {
@@ -107,10 +115,10 @@ footer {
 }
 
 .mini-footer {
-  background: #192027;
+  background: #898b96;
   color: aliceblue;
   text-align: center;
-  padding: 1% 0;
+  padding: 0.5% 0;
 }
 
 
@@ -118,6 +126,7 @@ footer {
 hr {
   margin-bottom: 1.25rem;
   margin-top: 1.25rem;
+  width: 60%;
 }
 
 .card {
