@@ -109,20 +109,22 @@
   </div>
   <div>
     <div class="mini-footer">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="text-center py-3">© 2022 Copyright:
-            <a href="#"> Rusticus.com</a>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="text-center py-3">© 2022 Copyright:
+              <a href="#"> Rusticus.com</a>
+            </div>
           </div>
-        </div>
-        <div class="col-md-2">
-          <div class="text-center py-3">
-            <a href="#">Datenschutz</a>
+          <div class="col-md-2">
+            <div class="text-center py-3">
+              <a href="#">Datenschutz</a>
+            </div>
           </div>
-        </div>
-        <div class="col-md-2">
-          <div class="text-center py-3">
-            <a href="#">Privacy Statement</a>
+          <div class="col-md-2">
+            <div class="text-center py-3">
+              <a href="#">Privacy Statement</a>
+            </div>
           </div>
         </div>
       </div>

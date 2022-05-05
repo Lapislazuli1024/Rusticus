@@ -1,6 +1,7 @@
-html,body {
+html,
+body {
   height: 100%;
-  
+
 }
 
 
@@ -29,10 +30,11 @@ html,body {
   justify-content: center;
   align-items: center;
 }
+
 .container-full {
   position: relative;
   min-height: 80vh;
-    
+
 }
 
 
@@ -49,6 +51,7 @@ h2 {
   /* -webkit-text-stroke: 1px #1a1a1add; */
   /* text-shadow: 0 0 5px #000000dd; */
 }
+
 .welcome-side {
   font-size: 2vw;
   color: #ffffff;
@@ -89,6 +92,18 @@ h2 {
   font-size: 0.8vw;
 }
 
+/* FARMER LAYOUT */
+.container-flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.img-layout {
+  border-radius: 1rem 1rem 0rem 0rem;
+}
+.img-layout-detail {
+  border-radius: 0rem 1rem 1rem 0rem;
+}
 
 /* FOOOTER */
 
@@ -101,7 +116,7 @@ footer {
   background: #e7e8ed;
   color: #898b96;
   margin-top: auto;
-  
+
 }
 
 .footer-big {
@@ -163,6 +178,6 @@ hr {
   bottom: 2rem;
 }
 
-.warenkorb-img{
+.warenkorb-img {
   width: 8rem
 }

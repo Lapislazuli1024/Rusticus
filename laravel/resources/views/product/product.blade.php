@@ -48,7 +48,7 @@
 
             <div class="col-md-6">
                 <div class="img-fluid">
-                    <img src="{{asset($product->image)}}" class="img-fluid rounded-start">
+                    <img src="{{asset($product->image)}}" class="img-fluid img-layout-detail">
                 </div>
             </div>
         </div>
