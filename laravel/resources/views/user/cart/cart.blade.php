@@ -27,7 +27,9 @@
                 </div>
                 @endforeach
 
-                <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+                <div class="back-to-shop">
+                    <a href="{{ route('products') }}"><span class="text-muted"> &leftarrow; Back to shop</span></a>
+                </div>
             </div>
             <div class="col-md-4 summary">
                 <h5><b>Summary</b></h5>
@@ -36,7 +38,7 @@
                 <div class="row">
                     <div class="col text-left">ITEMS</div>
                     <div class="col text-right">{{$totalItems}}</div>
-                    
+
                 </div>
                 <div class="row">
                     <div class="col">TOTAL PRICE</div>
@@ -44,8 +46,8 @@
                 </div>
                 <hr>
                 @endif
-                <div class="row checkout">                    
-                        <a href="/reservation/checkout" class="btn btn-primary">CHECKOUT</a>      
+                <div class="row checkout">
+                    <a href="/reservation/checkout" class="btn btn-primary">CHECKOUT</a>
                 </div>
             </div>
         </div>

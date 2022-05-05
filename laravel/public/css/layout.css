@@ -25,11 +25,11 @@ body {
 
 }
 
-.container-mid {
+/* .container-mid {
   display: grid;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .container-full {
   position: relative;

@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
-                    <h3 class="card-header text-center">Produkt Hinzufügen</h3>
+                    <h3 class="card-header text-center">Produkt Bearbeiten</h3>
                     <div class="card-body">
                         <div class="tabcontent" id="divCustomerForm">
                             <form method="POST" action="{{ route('store.product.edit') }}" class="formStyle" enctype="multipart/form-data">

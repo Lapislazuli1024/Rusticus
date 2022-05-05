@@ -32,7 +32,7 @@ class CartController extends Controller
             $totalPrice += $sessionProduct->amount * $sessionProduct->product->price;
         }
 
-        return view('cart.cart', ['sessionProducts' => $sessionProducts, 'totalItems' => $totalItems, 'totalPrice' => $totalPrice]);
+        return view('user.cart.cart', ['sessionProducts' => $sessionProducts, 'totalItems' => $totalItems, 'totalPrice' => $totalPrice]);
     }
 
     public function storeCartIncrement($productId)
@@ -93,12 +93,6 @@ class CartController extends Controller
         $userId = auth()->id();
 
         $sessioncart = $this->getSessionCart();
-        if ($sessioncart === null) {
-            // Create Sessioncart and save it
-            $sessioncart = Sessioncart::create([
-                'user_id' => $userId,
-            ]);
-        }
 
         if (Session_has_product::where('sessioncart_id', '=', $sessioncart->id)->where('product_id', '=', $productId)->first() === null) {
             // Create Session_has_Product and save it
@@ -107,7 +101,11 @@ class CartController extends Controller
                 'product_id' => $productId,
                 'sessioncart_id' => $sessioncart->id,
             ]);
+        } else {
+            $this->storeCartIncrement($productId);
         }
+
+
         return $this->createCart();
     }
 
