@@ -76,7 +76,7 @@
         <h6>RUSTICUS</h6>
         <hr class="mb-4 mt-0 d-inline-block mx-auto">
         <div class="container-fluid">
-          <img class="pictures" src="{{asset('pictures/Rusticus-Logo.png')}}">
+          <img class="img-footer" src="{{asset('pictures/Rusticus-Logo.png')}}">
         </div>
       </div>
       <div class="col-sm-3 mx-auto mb-4">
