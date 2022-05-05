@@ -33,8 +33,7 @@ body {
 
 .container-full {
   position: relative;
-  min-height: 80vh;
-
+  min-height: 100vh;
 }
 
 
@@ -72,11 +71,7 @@ h2 {
   display: none;
 }
 
-/* input[type=text] {
-  padding:10px;
-  border:0;
-  box-shadow:0 0 15px 15px rgba(0,0,0,0.06);
-} */
+
 .formStyle input {
   padding: 10px;
   border: 0;
@@ -92,7 +87,7 @@ h2 {
   font-size: 0.8vw;
 }
 
-/* FARMER LAYOUT */
+/* FARMER/S | PRODUCT/S LAYOUT */
 .container-flex{
   display: flex;
   flex-direction: column;
@@ -103,11 +98,12 @@ h2 {
 }
 .img-layout-detail {
   border-radius: 0rem 1rem 1rem 0rem;
+  
 }
 
 /* FOOOTER */
 
-.pictures {
+.img-footer {
   width: 200px;
   height: 200px;
 }
@@ -178,6 +174,6 @@ hr {
   bottom: 2rem;
 }
 
-.warenkorb-img {
+.img-warenkorb {
   width: 8rem
 }

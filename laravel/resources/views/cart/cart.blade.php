@@ -10,7 +10,7 @@
                 @foreach($sessionProducts as $product)
                 <div class="row border-top border-bottom">
                     <div class="row items-border align-items-center">
-                        <div class="col-3"><img class="img-fluid warenkorb-img" src="{{asset($product->product()->first()->image)}}"></div>
+                        <div class="col-3"><img class="img-fluid img-warenkorb" src="{{asset($product->product()->first()->image)}}"></div>
                         <div class="col-3">
                             {{$product->product()->first()->name}}
                         </div>
