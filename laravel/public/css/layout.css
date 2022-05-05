@@ -1,11 +1,9 @@
-html,body {
+html,
+body {
   height: 100%;
-  
+
 }
 
-.content {
-  width: 80%;
-}
 
 .navbar-icon {
   width: 50px;
@@ -32,10 +30,10 @@ html,body {
   justify-content: center;
   align-items: center;
 }
+
 .container-full {
   position: relative;
-  min-height: 80vh;
-    
+  min-height: 100vh;
 }
 
 
@@ -52,11 +50,12 @@ h2 {
   /* -webkit-text-stroke: 1px #1a1a1add; */
   /* text-shadow: 0 0 5px #000000dd; */
 }
-h3 {
+
+.welcome-side {
   font-size: 2vw;
   color: #ffffff;
   text-shadow: 0 0 5px #000000dd;
-  margin: 4rem;
+  margin: 1rem;
 }
 
 
@@ -72,11 +71,7 @@ h3 {
   display: none;
 }
 
-/* input[type=text] {
-  padding:10px;
-  border:0;
-  box-shadow:0 0 15px 15px rgba(0,0,0,0.06);
-} */
+
 .formStyle input {
   padding: 10px;
   border: 0;
@@ -91,13 +86,24 @@ h3 {
 .text-margin {
   font-size: 0.8vw;
 }
-.form-control {
+
+/* FARMER/S | PRODUCT/S LAYOUT */
+.container-flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.img-layout {
+  border-radius: 1rem 1rem 0rem 0rem;
+}
+.img-layout-detail {
+  border-radius: 0rem 1rem 1rem 0rem;
   
 }
 
 /* FOOOTER */
 
-.pictures {
+.img-footer {
   width: 200px;
   height: 200px;
 }
@@ -106,7 +112,7 @@ footer {
   background: #e7e8ed;
   color: #898b96;
   margin-top: auto;
-  
+
 }
 
 .footer-big {
@@ -168,6 +174,6 @@ hr {
   bottom: 2rem;
 }
 
-.warenkorb-img{
+.img-warenkorb {
   width: 8rem
 }

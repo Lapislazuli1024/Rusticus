@@ -97,9 +97,22 @@ class ProductController extends Controller
         ]);
     }
 
-    public function createEditProduct()
+    public function createEditProduct($productId)
     {
         // TODO: get te product willing to be edited and load edit form
+        $userId = auth()->id();
+        $user = User::find($userId);
+        $product = Product::find($productId);
+        $units = Unit_of_measure::get();
+        $sub_categories = Sub_category::get();
+
+        if ($user->farmer != null || $product == null) {
+            if($product->user->id == $userId){
+                return view('product.editProduct', ['user' => $user, 'units' => $units, 'sub_categories' => $sub_categories, 'product' => $product]);
+            }
+            // TODO: error message -> not product of user
+        }
+        return redirect('/');
     }
 
     public function storeEditProduct()

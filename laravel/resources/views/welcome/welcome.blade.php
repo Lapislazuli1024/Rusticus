@@ -24,7 +24,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h3 class="text-center">Suchen Sie nach Bauern, Produkten und Orte.</h3>
+                        <h3 class="text-center welcome-side">Suchen Sie nach Bauern, Produkten oder Ortschaften.</h3>
                     </div>
                 </div>
             </div>

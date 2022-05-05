@@ -76,7 +76,7 @@
         <h6>RUSTICUS</h6>
         <hr class="mb-4 mt-0 d-inline-block mx-auto">
         <div class="container-fluid">
-          <img class="pictures" src="{{asset('pictures/Rusticus-Logo.png')}}">
+          <img class="img-footer" src="{{asset('pictures/Rusticus-Logo.png')}}">
         </div>
       </div>
       <div class="col-sm-3 mx-auto mb-4">
@@ -109,20 +109,22 @@
   </div>
   <div>
     <div class="mini-footer">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="text-center py-3">© 2022 Copyright:
-            <a href="#"> Rusticus.com</a>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="text-center py-3">© 2022 Copyright:
+              <a href="#"> Rusticus.com</a>
+            </div>
           </div>
-        </div>
-        <div class="col-md-2">
-          <div class="text-center py-3">
-            <a href="#">Datenschutz</a>
+          <div class="col-md-2">
+            <div class="text-center py-3">
+              <a href="#">Datenschutz</a>
+            </div>
           </div>
-        </div>
-        <div class="col-md-2">
-          <div class="text-center py-3">
-            <a href="#">Privacy Statement</a>
+          <div class="col-md-2">
+            <div class="text-center py-3">
+              <a href="#">Privacy Statement</a>
+            </div>
           </div>
         </div>
       </div>
