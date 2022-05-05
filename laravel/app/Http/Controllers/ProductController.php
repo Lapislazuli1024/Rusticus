@@ -115,8 +115,45 @@ class ProductController extends Controller
         return redirect('/');
     }
 
-    public function storeEditProduct()
+    public function storeEditProduct(Request $request)
     {
-        // TODO: read edited values form Form and update them
+        // TODO: read Product data form Form and insert into DB
+        $productData = $request->validate([
+            'productId' => [],
+            'productname' => ['required', 'alpha', 'min:3', 'max:255'],
+            'stock_quantity' => ['required', 'numeric'],
+            'description' => ['required', 'max:1000'],
+            'product_hint' => ['required', 'in:vegan,vegetarian,neither'],
+            'price' => ['required', 'numeric'],
+            'product_image' => ['required', 'image'],
+            'unit_of_measure' => ['exists:App\Models\Unit_of_measure,id'],
+            'sub_category' => ['exists:App\Models\Sub_category,id'],
+        ]);
+
+        $userId = auth()->id();
+
+        $user = User::find($userId);
+        if ($user->farmer == null) {
+            return redirect('/user/login'); // Fehlernachticht, da nicht als bauer angemeldet
+        }
+
+        $path = 'pictures/products';
+        $imagePath = Storage::disk('public')->put($path, $request->product_image);
+
+        Product::find($productData['productId'])->delete();
+
+        Product::create([
+            'name' => $productData['productname'],
+            'stock_quantity' => $productData['stock_quantity'],
+            'description' => $productData['description'],
+            'product_hint' => $productData['product_hint'],
+            'image' => $imagePath,
+            'price' => $productData['price'],
+            'user_id' => $user->id,
+            'sub_category_id' => $productData['sub_category'],
+            'unit_of_measure_id' => $productData['unit_of_measure']
+        ]);
+
+        return redirect('/'); // TODO: Redirect to Farmer Page
     }
 }
