@@ -46,8 +46,8 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="img-fluid">
-                        <img class="img-fluid img-layout-detail" src="{{asset('pictures/User.png')}}">
+                    <div class="">
+                        <img src="{{asset('pictures/User.png')}}" class="img-layout-detail">
                     </div>
                 </div>
             </div>

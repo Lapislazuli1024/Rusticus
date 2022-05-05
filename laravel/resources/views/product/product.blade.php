@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="img-fluid">
+                    <div class="">
                         <img src="{{asset($product->image)}}" class="img-layout-detail">
                     </div>
                 </div>
