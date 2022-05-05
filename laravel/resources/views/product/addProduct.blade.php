@@ -23,7 +23,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <textarea type="text" class="form-control" id="description" name="description" placeholder="Beschreibung" value="{{ old('description') }}" required></textarea>
+                                    <input type="text" class="form-control" id="description" name="description" placeholder="Beschreibung" value="{{ old('description') }}" required></input>
                                     <label for="description">Beschreibung</label>
                                     @error('description')
                                     <span class="text-danger">{{ $message }}</span>
@@ -32,9 +32,9 @@
                                 <div class=" form-floating mb-3">
                                     <select class="custom-select form-control" id="product_hint" name="product_hint" placeholder="Produkthinweis" value="{{ old('product_hint') }}" required>
                                         <option selected>Choose...</option>
-                                        <option value="vegan">Vegan</option>
-                                        <option value="vegetarian">Vegetarisch</option>
-                                        <option value="neither">Weder noch</option>
+                                        <option value="vegan" {{('vegan' == old('product_hint')) ? "selected" : ""}}>Vegan</option>
+                                        <option value="vegetarian" {{('vegetarian' == old('product_hint')) ? "selected" : ""}}>Vegetarisch</option>
+                                        <option value="neither" {{('neither' == old('product_hint')) ? "selected" : ""}}>Weder noch</option>
                                     </select>
                                     <label for="product_hint">Produkthinweis</label>
                                     @error('product_hint')
@@ -55,7 +55,7 @@
                                     <select class="custom-select form-control" id="unit_of_measure" name="unit_of_measure" placeholder="Masseinheit" value="{{ old('unit_of_measure') }}" required>
                                         <option selected>Choose...</option>
                                         @foreach($units as $unit)
-                                        <option value="{{$unit->id}}">{{$unit->description}}</option>
+                                        <option value="{{$unit->id}}" {{($unit->id == old('unit_of_measure')) ? "selected" : ""}}>{{$unit->description}}</option>
                                         @endforeach
                                     </select>
                                     <label for="unit_of_measure">Masseinheit</label>
@@ -64,10 +64,10 @@
                                     @enderror
                                 </div>
                                 <div class=" form-floating mb-3">
-                                    <select class="custom-select form-control" id="sub_category" name="sub_category" placeholder="Hauptkategorie" value="{{ old('sub_category') }}" required>
+                                    <select class="custom-select form-control" id="sub_category" name="sub_category" placeholder="Hauptkategorie" required>
                                         <option selected>Choose...</option>
                                         @foreach($sub_categories as $category)
-                                        <option value="{{$category->id}}">{{$category->description}}</option>
+                                        <option value="{{$category->id}}" {{($category->id == old('sub_category')) ? "selected" : ""}}>{{$category->description}}</option>
                                         @endforeach
                                     </select>
                                     <label for="sub_category">Uterkategorie</label>
