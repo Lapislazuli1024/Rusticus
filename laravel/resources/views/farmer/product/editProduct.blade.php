@@ -8,6 +8,7 @@
                         <div class="tabcontent" id="divCustomerForm">
                             <form method="POST" action="{{ route('store.product.edit') }}" class="formStyle" enctype="multipart/form-data">
                                 @csrf
+                                <input type="text" class="form-control" name="productId" id="productId" value="{{ $product->id }}" hidden>
                                 <div class="form-floating col mb-3">
                                     <input type="text" class="form-control" name="productname" id="productname" placeholder="Produktname" value="{{ (old('productname') !== null) ? old('productname') : $product->name }}" required autofocus>
                                     <label for="productname">Produktname</label>
