@@ -36,8 +36,8 @@ Route::middleware(['guest'])->group(function () {
 });
 Route::middleware(['auth'])->group(function () {
     // => Account-Settings
-    Route::get('/user/settings', [SessionController::class, 'settings'])->name('create.settings');
-    Route::get('/user/settings', [SessionController::class, 'settings'])->name('store.settings');
+    Route::get('/user/settings', [SessionController::class, 'destroy'])->name('create.settings');
+    Route::post('/user/settings', [SessionController::class, 'destroy'])->name('store.settings');
 
     // => Logout
     Route::get('/user/logout', [SessionController::class, 'destroy'])->name('destroy.session');

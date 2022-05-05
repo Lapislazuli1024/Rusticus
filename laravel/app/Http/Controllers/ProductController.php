@@ -18,7 +18,7 @@ class ProductController extends Controller
         // TODO: Get Products and pass them to View
         $products = Product::get();
 
-        return view('product.products', [
+        return view('farmer.product.products', [
             'products' => $products
         ]);
     }
@@ -27,7 +27,7 @@ class ProductController extends Controller
     {
         $product = Product::find($productId);
 
-        return view('product.product', [
+        return view('farmer.product.product', [
             'product' => $product
         ]);
     }
@@ -43,7 +43,7 @@ class ProductController extends Controller
         $sub_categories = Sub_category::get();
 
         if ($user->farmer != null) {
-            return view('product.addProduct', ['user' => $user, 'units' => $units, 'sub_categories' => $sub_categories]);
+            return view('farmer.product.addProduct', ['user' => $user, 'units' => $units, 'sub_categories' => $sub_categories]);
         }
         return redirect('/');
     }
@@ -92,7 +92,7 @@ class ProductController extends Controller
         // TODO: Get farmer specific products and pass them to View
         $products = Product::get()->where('user.id', $farmerId);
 
-        return view('product.products', [
+        return view('farmer.product.products', [
             'products' => $products
         ]);
     }
@@ -108,7 +108,7 @@ class ProductController extends Controller
 
         if ($user->farmer != null || $product == null) {
             if($product->user->id == $userId){
-                return view('product.editProduct', ['user' => $user, 'units' => $units, 'sub_categories' => $sub_categories, 'product' => $product]);
+                return view('farmer.product.editProduct', ['user' => $user, 'units' => $units, 'sub_categories' => $sub_categories, 'product' => $product]);
             }
             // TODO: error message -> not product of user
         }

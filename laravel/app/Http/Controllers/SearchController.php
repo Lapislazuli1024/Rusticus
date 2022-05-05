@@ -63,7 +63,7 @@ class SearchController extends Controller
             }
         }
 
-        return view('search.search', [
+        return view('components.search.search', [
             'main_categories'=>Main_category::all(),
             'sub_categories'=>Sub_category::all(),
             'result' => $hint,

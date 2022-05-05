@@ -8,7 +8,7 @@ class SessionController extends Controller
 {
     public function create()
     {
-        return view('login.form');
+        return view('auth.login.form');
     }
 
 
