@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="">
-                        <img src="{{asset('pictures/User.png')}}" class="img-layout-detail">
+                        <img src="{{asset($user->farmer->webpage->image)}}" class="img-layout-detail">
                     </div>
                 </div>
             </div>

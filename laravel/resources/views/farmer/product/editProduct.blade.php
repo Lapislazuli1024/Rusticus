@@ -1,5 +1,5 @@
 <x-layout>
-<main class="container">
+    <main class="container">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
@@ -77,7 +77,7 @@
                                     @enderror
                                 </div>
                                 <div class="d-grid mx-auto">
-                                    <button type="submit" class="btn btn-dark btn-block">Produkt Hinzufügen</button>
+                                    <button type="submit" class="btn btn-dark btn-block">Produkt bearbeiten</button>
                                 </div>
                             </form>
                         </div>
