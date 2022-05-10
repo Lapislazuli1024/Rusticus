@@ -27,8 +27,6 @@
                 </div>
             </div>
         </form>
-
-
         <div class="toast-style">
             @if (session('acc_created'))
             <div class="toast show bg-white">

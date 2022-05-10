@@ -133,15 +133,4 @@
   </div>
 </footer>
 
-<div x-data="{show: ture}" x-init="setTimout(() => show = false, 4000)" x-show="show" class="fixed bg-blue-500 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm">
-  <span>Lapis is gay dario not</span>
-</div>
-
-@if (session('acc_created'))
-<div class="fixed bg-blue-500 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm">
-  
-  Lapis is gay dario not
-</div>
-@endif
-
 </html>
