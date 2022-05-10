@@ -61,7 +61,6 @@ class RegisterController extends Controller
         $usrData = $request->validate([
             'surname' => ['required', 'alpha', 'min:3', 'max:255'],
             'name' => ['required', 'alpha', 'min:3', 'max:255'],
-            'username' => ['required', 'alpha', 'max:20'],
             'email' => ['required', 'email', 'unique:users,email'],
             'street' => ['required'],
             'place' => ['required', 'alpha'],

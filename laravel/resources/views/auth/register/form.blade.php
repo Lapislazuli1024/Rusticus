@@ -88,13 +88,6 @@
                                     </div>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="{{ old('username') }}" required>
-                                    <label for="username">Username</label>
-                                    @error('surname')
-                                    <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
                                     <label for="email">Email</label>
                                     @error('email')
