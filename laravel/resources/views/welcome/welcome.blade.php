@@ -1,6 +1,6 @@
 <x-layout>
 
-    <div class="container-full search">
+    <div class="container-full welcome-blade-style">
 
         <form method="post" action="{{ route('search.main.results' )}}">
             @csrf
@@ -27,7 +27,24 @@
                 </div>
             </div>
         </form>
+
+
+        <div class="toast-style">
+            @if (session('acc_created'))
+            <div class="toast show bg-white">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        <span>{{ session()->get('acc_created') }}</span>
+                    </div>
+                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+            @endif
+        </div>
+
     </div>
+
+
     <script src="{{asset('js/search.js')}}"></script>
 
 </x-layout>
