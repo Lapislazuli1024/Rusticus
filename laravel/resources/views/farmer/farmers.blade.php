@@ -5,7 +5,7 @@
             @foreach($farmers as $farmer)
             <div class="">
                 <div class="card h-100">
-                    <img src="{{asset('pictures/User.png')}}" class="img-layout ">
+                    <img src="{{asset($farmer->webpage->image)}}" class="img-layout">
                     <div class="card-header">
                         <h5 class="card-title">{{$farmer->user->name}} {{$farmer->user->surname}}</h5>
                     </div>

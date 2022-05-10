@@ -58,6 +58,9 @@ Route::middleware(['isFarmer'])->group(function () {
     Route::get('/product/edit/{product:id}', [ProductController::class, 'createEditProduct'])->name('create.product.edit');
     Route::post('/product/edit', [ProductController::class, 'storeEditProduct'])->name('store.product.edit');
     Route::get('/product/remove/{product:id}', [ProductController::class, 'storeRemoveProduct'])->name('store.product.remove');
+
+    Route::get('/webpage/edit', [FarmerController::class, 'createEditWebpage'])->name('create.webpage.edit');
+    Route::post('/webpage/edit', [FarmerController::class, 'storeEditWebpage'])->name('store.webpage.edit');
 });
 
 //Search

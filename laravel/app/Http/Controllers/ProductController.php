@@ -9,7 +9,6 @@ use App\Models\Unit_of_measure;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Validation\Rules\Enum;
 
 class ProductController extends Controller
 {
@@ -50,6 +49,12 @@ class ProductController extends Controller
 
     public function storeAddProduct(Request $request)
     {
+        $userId = auth()->id();
+
+        $user = User::find($userId);
+        if ($user->farmer == null) {
+            return redirect('/user/login'); // Fehlernachticht, das nicht als bauer angemeldet
+        }
         // TODO: read Product data form Form and insert into DB
         $productData = $request->validate([
             'productname' => ['required', 'alpha', 'min:3', 'max:255'],
@@ -61,13 +66,6 @@ class ProductController extends Controller
             'unit_of_measure' => ['exists:App\Models\Unit_of_measure,id'],
             'sub_category' => ['exists:App\Models\Sub_category,id'],
         ]);
-
-        $userId = auth()->id();
-
-        $user = User::find($userId);
-        if ($user->farmer == null) {
-            return redirect('/user/login'); // Fehlernachticht, das nicht als bauer angemeldet
-        }
 
         $path = 'pictures/products';
         $imagePath = Storage::disk('public')->put($path, $request->product_image);
@@ -106,8 +104,8 @@ class ProductController extends Controller
         $units = Unit_of_measure::get();
         $sub_categories = Sub_category::get();
 
-        if ($user->farmer != null || $product == null) {
-            if ($product->user->id == $userId) {
+        if ($user->farmer != null && $product != null) {
+            if ($product->user_id == $userId) {
                 return view('farmer.product.editProduct', ['user' => $user, 'units' => $units, 'sub_categories' => $sub_categories, 'product' => $product]);
             }
             // TODO: error message -> not product of user
@@ -117,6 +115,12 @@ class ProductController extends Controller
 
     public function storeEditProduct(Request $request)
     {
+        $userId = auth()->id();
+
+        $user = User::find($userId);
+        if ($user->farmer == null) {
+            return redirect(route('create.login')); // Fehlernachticht, da nicht als bauer angemeldet
+        }
         // TODO: read Product data form Form and insert into DB
         $productData = $request->validate([
             'productId' => [],
@@ -129,13 +133,6 @@ class ProductController extends Controller
             'unit_of_measure' => ['exists:App\Models\Unit_of_measure,id'],
             'sub_category' => ['exists:App\Models\Sub_category,id'],
         ]);
-
-        $userId = auth()->id();
-
-        $user = User::find($userId);
-        if ($user->farmer == null) {
-            return redirect('/user/login'); // Fehlernachticht, da nicht als bauer angemeldet
-        }
 
         $imagePath = Product::find($productData['productId'])->image;
         if (isset($productData['product_image'])) {
