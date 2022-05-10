@@ -31,13 +31,13 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/user/registerCustomer', [RegisterController::class, 'storeCustomer'])->name('storeCustomer.register');
     Route::post('/user/registerFarmer', [RegisterController::class, 'storeFarmer'])->name('storeFarmer.register');
     // => Login/Session
-    Route::get('/user/login', [SessionController::class, 'create'])->name('create.login');
-    Route::post('/user/login', [SessionController::class, 'store'])->name('store.login');
+    Route::get('/user/login', [SessionController::class, 'createLogin'])->name('create.login');
+    Route::post('/user/login', [SessionController::class, 'storeLogin'])->name('store.login');
 });
 Route::middleware(['auth'])->group(function () {
     // => Account-Settings
-    Route::get('/user/settings', [SessionController::class, 'destroy'])->name('create.settings');
-    Route::post('/user/settings', [SessionController::class, 'destroy'])->name('store.settings');
+    Route::get('/user/settings', [SessionController::class, 'createSettings'])->name('create.settings');
+    Route::post('/user/settings', [SessionController::class, 'storeSettings'])->name('store.settings');
 
     // => Logout
     Route::get('/user/logout', [SessionController::class, 'destroy'])->name('destroy.session');
