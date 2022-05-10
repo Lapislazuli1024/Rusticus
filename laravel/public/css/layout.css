@@ -10,12 +10,6 @@ body {
   height: 50px;
 }
 
-.search {
-  justify-content: center;
-  margin: 0 auto;
-  background-color: transparent;
-}
-
 .backgroundPictures {
   background-image: url('../pictures/background.png');
   background-position: bottom center;
@@ -34,6 +28,7 @@ body {
 .container-full {
   position: relative;
   min-height: 100vh;
+  
 }
 
 
@@ -88,17 +83,19 @@ h2 {
 }
 
 /* FARMER/S | PRODUCT/S LAYOUT */
-.container-flex{
+.container-flex {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 .img-layout {
   border-radius: 1rem 1rem 0rem 0rem;
 }
+
 .img-layout-detail {
   border-radius: 0rem 1rem 1rem 0rem;
- width: 50rem;
+  width: 50rem;
 }
 
 /* FOOOTER */
@@ -176,4 +173,14 @@ hr {
 
 .img-warenkorb {
   width: 8rem
+}
+
+/* WELCOME BLADE */
+.welcome-blade-style {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
 }
