@@ -57,6 +57,7 @@ Route::middleware(['isFarmer'])->group(function () {
     Route::post('/product/add', [ProductController::class, 'storeAddProduct'])->name('store.product');
     Route::get('/product/edit/{product:id}', [ProductController::class, 'createEditProduct'])->name('create.product.edit');
     Route::post('/product/edit', [ProductController::class, 'storeEditProduct'])->name('store.product.edit');
+    Route::get('/product/remove/{product:id}', [ProductController::class, 'storeRemoveProduct'])->name('store.product.remove');
 });
 
 //Search
