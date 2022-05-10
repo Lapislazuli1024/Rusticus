@@ -6,6 +6,7 @@ use \App\Http\Controllers\FarmerController;
 use \App\Http\Controllers\ProductController;
 use \App\Http\Controllers\SearchController;
 use \App\Http\Controllers\CartController;
+use App\Http\Controllers\HelpController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\SessionController;
 
@@ -41,6 +42,9 @@ Route::middleware(['auth'])->group(function () {
 
     // => Logout
     Route::get('/user/logout', [SessionController::class, 'destroy'])->name('destroy.session');
+
+    // => Help
+    Route::get('/user/help', [HelpController::class, 'userHelp'])->name('create.help');
 });
 
 //Farmer Routes //create //store
