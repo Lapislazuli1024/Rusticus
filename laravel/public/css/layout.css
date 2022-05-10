@@ -91,11 +91,13 @@ h2 {
 
 .img-layout {
   border-radius: 1rem 1rem 0rem 0rem;
+
 }
 
 .img-layout-detail {
   border-radius: 0rem 1rem 1rem 0rem;
-  width: 50rem;
+  max-width: 39rem;
+  max-height: 30rem;
 }
 
 /* FOOOTER */
