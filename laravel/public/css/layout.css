@@ -1,6 +1,6 @@
 html,
 body {
-  height: 100%;
+  /* height: 100%; */
 
 }
 
@@ -28,7 +28,7 @@ body {
 .container-full {
   position: relative;
   min-height: 100vh;
-  
+
 }
 
 
@@ -96,8 +96,20 @@ h2 {
 
 .img-layout-detail {
   border-radius: 0rem 1rem 1rem 0rem;
-  max-width: 39rem;
-  max-height: 30rem;
+  min-width: 1rem;
+  min-height: 1rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.container-center-detail {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  /* margin-top: -8rem; */
+
+  
 }
 
 /* FOOOTER */

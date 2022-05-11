@@ -1,8 +1,7 @@
 <x-layout>
-    <div class="container-full">
+    <div class="container-full container-center-detail">
         <div class="card md-3">
             <div class="row g-0">
-
                 <div class="col-md-6 container-flex">
                     <div class="card-header">
                         <h3> Name: {{$user->name}} {{$user->surname}}</h3>
