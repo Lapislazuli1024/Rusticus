@@ -1,4 +1,5 @@
 <x-layout>
+<div class="container p-5 my-5">
     <main class="container">
         <div class="row justify-content-center">
             <div class="col-md-4">
@@ -86,4 +87,5 @@
             </div>
         </div>
     </main>
+</div>
 </x-layout>

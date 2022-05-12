@@ -62,9 +62,9 @@
     </div>
   </nav>
 
-  <div class="container p-5 my-5">
+  <!-- <div class="container p-5 my-5"> -->
     {{ $slot }}
-  </div>
+  <!-- </div> -->
 </body>
 
 
