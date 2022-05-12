@@ -112,6 +112,6 @@ class RegisterController extends Controller
             return back()->withInput();
         }
 
-        return redirect('/');
+        return redirect('/')->with('acc_created', 'Dein Account wurde erstellt!');
     }
 }
