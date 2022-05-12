@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Reservation;
 use App\Models\Reservation_has_product;
 use App\Models\Sessioncart;
@@ -20,12 +21,12 @@ class ReservationController extends Controller
 
     public function storeCheckout()
     {
-
+        if ($this->getSessionCart()->session_has_product()->first() == null) {
+            return back();
+        }
         $userId = auth()->id();
         $confirmed = false;
-
         $sessioncart = $this->getSessionCart();
-
         $sessionHasProducts = $sessioncart->session_has_product()->get();
 
         $reservation = Reservation::create([
@@ -33,14 +34,19 @@ class ReservationController extends Controller
             'confirmation' => $confirmed,
         ]);
 
-        foreach ($sessionHasProducts as $product) {
+        foreach ($sessionHasProducts as $sessionProduct) {
+            $product = Product::find($sessionProduct->product_id);
+            if ($product->stock_quantity < $sessionProduct->amount) {
+                $sessionProduct->amount = $product->stock_quantity;
+            }
             Reservation_has_product::create([
-                'amount' => $product->amount,
+                'amount' => $sessionProduct->amount,
                 'pickup_date' => date('Y-m-d'),
-                'product_id' => $product->id,
+                'product_id' => $sessionProduct->product_id,
                 'reservation_id' => $reservation->id,
             ]);
-            $product->delete();
+            $product->decrement('stock_quantity', $sessionProduct->amount);
+            $sessionProduct->delete();
         }
 
         return $this->createReservation();
