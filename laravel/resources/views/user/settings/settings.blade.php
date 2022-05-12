@@ -1,9 +1,8 @@
 <x-layout>
-    <main class="container-full">
+    <main class="container p-5 my-5 container-full">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
-
 
                     <h3 class="card-header text-center">Registrierung</h3>
 
