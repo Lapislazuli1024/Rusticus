@@ -27,6 +27,10 @@ class CartController extends Controller
         $sessionProducts = Sessioncart::where('user_id', '=', $userId)->first()->session_has_product()->get();
 
         // Get total sum of Products
+
+        // WAY BETTER LG LAPIS
+        //$sessionProducts = auth()->user()->sessioncart->session_has_product()->get();
+
         foreach ($sessionProducts as $sessionProduct) {
             $totalItems += $sessionProduct->amount;
             $totalPrice += $sessionProduct->amount * $sessionProduct->product->price;

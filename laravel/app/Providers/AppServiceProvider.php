@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Customer;
 use App\Models\Farmer;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
@@ -36,8 +37,8 @@ class AppServiceProvider extends ServiceProvider
             return Customer::where('user_id', $user->id)->exists();
         });
 
-        Gate::define('IsOwner', function (User $user) {
-            return Farmer::where('user_id', $user->id)->exists();
+        Gate::define('IsProductOwner', function (User $user, Product $product) {
+            return $product->user_id === $user->id;
         });
     }
 }

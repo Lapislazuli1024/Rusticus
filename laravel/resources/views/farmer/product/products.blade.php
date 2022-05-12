@@ -11,8 +11,8 @@
                         <img src="{{asset($product->image)}}" class="img-layout">
                         <div class="card-header">
                             <h5 class="card-title">{{$product->name}}</h5>
-                            @can('isProductOwner')
-                            <a href="/product/edit/{{$product->id}}" class="btn btn-success float-end"> ✏ </a>
+                            @can('IsProductOwner', $product)
+                            <a href="/product/edit/{{$product->id}}" class="btn btn-success float-end">Bearbeiten</a>
                             @endcan
                         </div>
                         <div class="card-body container-flex">

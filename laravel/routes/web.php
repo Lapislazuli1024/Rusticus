@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user/settings', [SessionController::class, 'createSettings'])->name('create.settings');
     Route::post('/user/settings/customer', [SessionController::class, 'storeCustomerSettings'])->name('storeCustomer.settings');
     Route::post('/user/settings/farmer', [SessionController::class, 'storeFarmerSettings'])->name('storeFarmer.settings');
+    Route::post('/user/settings/pw', [SessionController::class, 'storePwSettings'])->name('storePW.settings');
 
     // => Logout
     Route::get('/user/logout', [SessionController::class, 'destroy'])->name('destroy.session');
