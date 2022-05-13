@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Address;
 use App\Models\Customer;
 use App\Models\Farmer;
+use App\Models\Sessioncart;
 use App\Models\Town;
 use App\Models\User;
 use App\Models\Webpage;
@@ -14,7 +15,7 @@ class RegisterController extends Controller
 {
     public function create()
     {
-        return view('register.form');
+        return view('auth.register.form');
     }
 
     public function storeCustomer(Request $request)
@@ -42,6 +43,10 @@ class RegisterController extends Controller
                 'username' => $usrData['username'],
             ]);
 
+            Sessioncart::create([
+                'user_id' =>  $user->id
+            ]);
+
             auth()->login($user);
         } else {
             session()->flash('pwd_customer', 'Die Passwörter stimmen nicht überein!');
@@ -56,7 +61,6 @@ class RegisterController extends Controller
         $usrData = $request->validate([
             'surname' => ['required', 'alpha', 'min:3', 'max:255'],
             'name' => ['required', 'alpha', 'min:3', 'max:255'],
-            'username' => ['required', 'alpha', 'max:20'],
             'email' => ['required', 'email', 'unique:users,email'],
             'street' => ['required'],
             'place' => ['required', 'alpha'],
@@ -98,12 +102,16 @@ class RegisterController extends Controller
                 'webpage_id' => $webpage->id,
             ]);
 
+            Sessioncart::create([
+                'user_id' =>  $user->id
+            ]);
+
             auth()->login($user);
         } else {
             session()->flash('pwd_farmer', 'Die Passwörter stimmen nicht überein!');
             return back()->withInput();
         }
 
-        return redirect('/');
+        return redirect('/')->with('acc_created', 'Dein Account wurde erstellt!');
     }
 }

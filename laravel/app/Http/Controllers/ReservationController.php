@@ -2,73 +2,59 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Reservation;
 use App\Models\Reservation_has_product;
-use App\Models\Session_has_product;
 use App\Models\Sessioncart;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
 class ReservationController extends Controller
 {
     public function createReservation()
     {
-        $userId = 1; // TODO: get userid
+        $userId = auth()->id();
         if (Reservation::where('user_id', '=', $userId)->first() != null) {
             $reservationProducts = Reservation::where('user_id', '=', $userId)->get();
-            return view('reservation.reservation', ['reservationProducts' => $reservationProducts]);
+            return view('user.reservation.reservation', ['reservationProducts' => $reservationProducts]);
         }
-        return view('reservation.reservation', ['reservationProducts' => null]);
+        return view('user.reservation.reservation', ['reservationProducts' => null]);
     }
 
     public function storeCheckout()
     {
-        // 
-        $userId = 1; // TODO: Get userId
-        $confirmed = false; // TODO: get confirmed somehow
-
-        $sessioncart = $this->getSessionCart();
-
-        if ($sessioncart === null) {
-            // Throw Error because there is no session cart
-            return redirect('/');
+        if ($this->getSessionCart()->session_has_product()->first() == null) {
+            return back();
         }
-
+        $userId = auth()->id();
+        $confirmed = false;
+        $sessioncart = $this->getSessionCart();
         $sessionHasProducts = $sessioncart->session_has_product()->get();
 
-
-        // $reservation = $this->getReservation();
-        // if ($reservation === null) {
         $reservation = Reservation::create([
             'user_id' => $userId,
             'confirmation' => $confirmed,
         ]);
-        // }
 
-        // dd($sessionHasProducts);
-        foreach ($sessionHasProducts as $product) {
+        foreach ($sessionHasProducts as $sessionProduct) {
+            $product = Product::find($sessionProduct->product_id);
+            if ($product->stock_quantity < $sessionProduct->amount) {
+                $sessionProduct->amount = $product->stock_quantity;
+            }
             Reservation_has_product::create([
-                'amount' => $product->amount,
+                'amount' => $sessionProduct->amount,
                 'pickup_date' => date('Y-m-d'),
-                'product_id' => $product->id,
+                'product_id' => $sessionProduct->product_id,
                 'reservation_id' => $reservation->id,
             ]);
+            $product->decrement('stock_quantity', $sessionProduct->amount);
+            $sessionProduct->delete();
         }
-
-        $sessioncart->delete();
 
         return $this->createReservation();
     }
 
     private function getSessionCart()
     {
-        $userId = 1; // TODO: get userid form Data
+        $userId = auth()->id();
         return Sessioncart::where('user_id', '=', $userId)->first();
-    }
-
-    private function getReservation()
-    {
-        $userId = 1; // TODO: get userid form Data
-        return Reservation::where('user_id', '=', $userId)->first();
     }
 }

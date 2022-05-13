@@ -17,7 +17,7 @@ class WebpageFactory extends Factory
     public function definition()
     {
         return [
-            'image' => $this->faker->url(),
+            'image' => '/pictures/webpages/user.png',
             'title' => $this->faker->title(),
             'webpage_url' => 'www.startpage.com',
             'description' => $this->faker->text(),

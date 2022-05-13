@@ -1,11 +1,15 @@
 <x-layout>
+
+
+    <!-- <div class="vr" id="profiledivider"></div> -->
     <div class="container p-5 my-5 container-full">
         <div class="container-full container-center-detail">
             <div class="card md-3">
                 <div class="row g-0">
+
                     <div class="col-md-6 container-flex">
                         <div class="card-header">
-                            <h3> Name: {{$user->name}} {{$user->surname}}</h3>
+                            <h3> Produkt: {{$product->name}}</h3>
                             @if(session()->has('error'))
                             <div class="alert alert-warning">
                                 <strong>Warnung!</strong> {{session()->get('error')}}
@@ -16,19 +20,20 @@
                             <div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">
-                                        Name: {{$user->name}} {{$user->surname}}
+                                        Anzahl: {{$product->stock_quantity}}
                                     </li>
                                     <li class="list-group-item">
-                                        Adresse: {{$user->farmer->address->street}} {{$user->farmer->address->house_number}}
-                                    </li>
-                                    @if($user->farmer->webpage->webpage_url != null)
-                                    <li class="list-group-item">
-                                        Website: <a href="https://{{$user->farmer->webpage->webpage_url}}">{{$user->name}}s Webpage</a>
+                                        Preis pro {{$product->unit_of_measure->description}}: {{$product->price}}
                                     </li>
                                     <li class="list-group-item">
-                                        Details: {{$user->farmer->webpage->description}}
+                                        Kategorie: {{$product->sub_category->description}} / {{$product->sub_category->main_category->description}}
+                                        u </li>
+                                    <li class="list-group-item">
+                                        Produkthinweise: {{$product->product_hint}}
                                     </li>
-                                    @endif
+                                    <li class="list-group-item">
+                                        Details: {{$product->description}}
+                                    </li>
                                 </ul>
                             </div>
                             <div class="row">
@@ -39,7 +44,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="d-grid gap-2">
-                                        <a href="/products/show/{{$user->id}}" class="btn btn-success float-end">Meine Produkte 🛒</a>
+                                        <a href="/cart/add/{{$product->id}}" class="btn btn-success float-end">In den Warenkorb 🛒</a>
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +52,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="">
-                            <img src="{{asset($user->farmer->webpage->image)}}" class="img-layout-detail">
+                            <img src="{{asset($product->image)}}" class="img-layout-detail">
                         </div>
                     </div>
                 </div>

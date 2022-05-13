@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use \App\Models\Main_category;
 use \App\Models\Sub_category;
+use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
@@ -60,9 +61,11 @@ class SearchController extends Controller
                         array_push($hint, $sproduct);
                 }
             }
+        } else {
+            $hint = Product::all();
         }
 
-        return view('search.search', [
+        return view('components.search.search', [
             'main_categories'=>Main_category::all(),
             'sub_categories'=>Sub_category::all(),
             'result' => $hint,

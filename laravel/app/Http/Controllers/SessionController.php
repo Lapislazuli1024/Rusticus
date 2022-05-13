@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SessionController extends Controller
 {
-    public function create()
+    public function createLogin()
     {
-        return view('login.form');
+        return view('auth.login.form');
     }
 
 
-    public function store(Request $request)
+    public function storeLogin(Request $request)
     {
 
         $attributes = $request->validate([
@@ -33,5 +35,87 @@ class SessionController extends Controller
         auth()->logout();
 
         return redirect('/');
+    }
+
+    public function createSettings()
+    {
+        return view('user.settings.settings', ['user' => auth()->user()]);
+    }
+
+    public function storeCustomersettings(Request $request)
+    {
+
+        $usrData = $request->validate([
+            'surname' => ['required', 'alpha', 'min:3', 'max:255'],
+            'name' => ['required', 'alpha', 'min:3', 'max:255'],
+            'username' => ['required', 'alpha', 'max:20'],
+            'email' => ['required', 'email', 'unique:users,email'],
+            'password' => ['required', 'min:6', 'max:255'],
+            'password_confirmation' => ['required', 'min:6', 'max:255'],
+        ]);
+
+        return view('user.settings.settings');
+
+
+        /*
+        User::updateOrCreate(
+            [
+                'id' => $productData['productId'],
+            ],
+            [
+                'name' => $productData['productname'],
+                'stock_quantity' => $productData['stock_quantity'],
+                'description' => $productData['description'],
+                'product_hint' => $productData['product_hint'],
+                'image' => $imagePath,
+                'price' => $productData['price'],
+                'user_id' => $user->id,
+                'sub_category_id' => $productData['sub_category'],
+                'unit_of_measure_id' => $productData['unit_of_measure']
+            ]
+        );
+        */
+    }
+
+    public function storeFarmerSettings(Request $request)
+    {
+
+        $usrData = $request->validate([
+            'surname' => ['required', 'alpha', 'min:3', 'max:255'],
+            'name' => ['required', 'alpha', 'min:3', 'max:255'],
+            'email' => ['required', 'email', 'unique:users,email'],
+            'street' => ['required'],
+            'place' => ['required', 'alpha'],
+            'postalcode' => ['required', 'numeric'],
+            'password' => ['required', 'min:6', 'max:255'],
+            'password_confirmation' => ['required', 'min:6', 'max:255'],
+        ]);
+
+        return view('user.settings.settings');
+
+
+        /*
+        User::updateOrCreate(
+            [
+                'id' => $productData['productId'],
+            ],
+            [
+                'name' => $productData['productname'],
+                'stock_quantity' => $productData['stock_quantity'],
+                'description' => $productData['description'],
+                'product_hint' => $productData['product_hint'],
+                'image' => $imagePath,
+                'price' => $productData['price'],
+                'user_id' => $user->id,
+                'sub_category_id' => $productData['sub_category'],
+                'unit_of_measure_id' => $productData['unit_of_measure']
+            ]
+        );
+        */
+    }
+
+    public function storePwSettings(Request $request)
+    {
+        return view('user.settings.settings');
     }
 }

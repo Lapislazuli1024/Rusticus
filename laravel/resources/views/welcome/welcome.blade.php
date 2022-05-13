@@ -1,33 +1,48 @@
 <x-layout>
-    <div class="container content"></div>
-    <div class="container">
+    <div class="container p-5 my-5 container-full">
+        <div class="container-full welcome-blade-style">
 
-    </div>
-    <div class="container search">
-
-        <form method="post" action="{{route('search.results')}}" >
-        @csrf
-            <div class="container-mid">
-                <div class="row">
-                    <div class="col">
-                        <h1 class="text-center">Rusticus</h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="input-group">
-                            <input type="search" autocomplete="off" class="form-control rounded" name="searchinput" id="searchinput" onkeyup="livesearch()" placeholder="Search" list="livesearch" aria-label="Search" aria-describedby="search-addon" />
-                            <datalist id="livesearch">
-                                <option id="hallo"> Hallo</option>
-                            </datalist>
-                            <input type="submit" class="btn btn-primary" value="Search">
+            <form method="post" action="{{ route('search.main.results' )}}">
+                @csrf
+                <div class="container-mid">
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="text-center">Rusticus</h1>
                         </div>
                     </div>
-                </div>    
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group  input-group-lg">
+                                <input type="search" autocomplete="off" class="form-control rounded" name="searchinput" id="searchinput" onkeyup="livesearch()" placeholder="Search" list="livesearch" autofocus />
+                                <datalist id="livesearch">
+                                </datalist>
+                                <input type="submit" class="btn btn-primary" value="Search">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="text-center welcome-side">Suchen Sie nach Bauern, Produkten oder Ortschaften.</h3>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="toast-style">
+                @if (session('acc_created'))
+                <div class="toast show bg-white">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            <span>{{ session()->get('acc_created') }}</span>
+                        </div>
+                        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+                @endif
             </div>
-        </form>
-    </div>
-    </div>
-    <script src="{{asset('js/search.js')}}"></script>
 
+        </div>
+
+
+        <script src="{{asset('js/search.js')}}"></script>
+    </div>
 </x-layout>

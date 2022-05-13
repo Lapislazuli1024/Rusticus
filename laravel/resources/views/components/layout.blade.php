@@ -12,7 +12,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="{{asset('js/app.js')}}"></script>
   <script src="{{asset('js/expandform.js')}}"></script>
-  <script src="{{asset('js/registerproduct.js')}}"></script>
+  <script src="{{asset('js/AddProduct.js')}}"></script>
 
   <title>Rusticus</title>
 
@@ -34,6 +34,8 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('products')}}">Produkte</a>
           </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
           @guest
           <li class="nav-item">
             <a class="nav-link" href="{{ route('create.login') }}">Login</a>
@@ -41,83 +43,94 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('create.register') }}">Register</a>
           </li>
+          @else
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Benutzer
+              <!-- <img class="navbar-icon" src="{{asset('pictures/User.png')}}"> -->
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+              <li><a class="dropdown-item" href="{{ route('create.settings') }}">Einstellungen</a></li>
+              <li><a class="dropdown-item" href="{{ route('cart') }}">Warenkorb</a></li>
+              <li><a class="dropdown-item" href="{{ route('destroy.session') }}">Logout</a></li>
+              <li><a class="dropdown-item" href="{{ route('create.help') }}">Hilfe</a></li>
+            </ul>
+          </li>
+          @endguest
         </ul>
-
-        <li class="nav-item dropdown ms-auto">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Benutzer
-            <!-- <img class="navbar-icon" src="{{asset('pictures/User.png')}}"> -->
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Einstellungen</a></li>
-            <li><a class="dropdown-item" href="{{ route('cart') }}">Warenkorb</a></li>
-            <li><a class="dropdown-item" href="{{ route('destroy.session') }}">Logout</a></li>
-            <li><a class="dropdown-item" href="#">Hilfe</a></li>
-          </ul>
-        </li>
-
-        @endguest
-
       </div>
     </div>
   </nav>
 
-  <div class="container p-5 my-5">
+  <!-- <div class="container p-5 my-5"> -->
     {{ $slot }}
-  </div>
+  <!-- </div> -->
 </body>
 
+
+
 <footer>
-  <div class="footer-big">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-12">
-          <img class="pictures" src="{{asset('pictures/Rusticus-Logo.png')}}">
+  <!-- Footer -->
+  <div class="container text-center text-sm-left mt-5">
+    <div class="row">
+      <div class="col-sm-5 mx-auto mb-4">
+        <h6>RUSTICUS</h6>
+        <hr class="mb-4 mt-0 d-inline-block mx-auto">
+        <div class="container-fluid">
+          <img class="img-footer" src="{{asset('pictures/Rusticus-Logo.png')}}">
         </div>
-        <div class="col-md-3 col-sm-4">
-          <h4>Popular Category</h4>
-          <div class="d-grid gap-3">
-            <button class="btn btn-outline-link" type="button">KingDave23</button>
-            <button class="btn btn-outline-link" type="button">1IvoHD</button>
+      </div>
+      <div class="col-sm-3 mx-auto mb-4">
+        <h6>JEDERZEIT INFORMIERT</h6>
+        <hr class="mb-4 mt-0 d-inline-block mx-auto">
+        <h5 class="mb-2 mt-2">Newsletter abonnieren?</h5>
+        <div class="formStyle needs-validation">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
+            <label for="email">Name</label>
           </div>
-        </div>
-        <div class="col-md-3 col-sm-4">
-          <h4>Our Company</h4>
-          <div class="d-grid gap-3">
-            <button class="btn btn-outline-link" type="button">F for Lapis</button>
-            <button class="btn btn-outline-link" type="button">NALIS/ATLAS</button>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>
+            <label for="email">Email</label>
           </div>
-        </div>
-        <div class="col-md-3 col-sm-4">
-          <h4>Help Support</h4>
-          <div class="d-grid gap-3">
-            <button class="btn btn-outline-link" type="button">GG</button>
-            <button class="btn btn-outline-link" type="button">DARIOOO</button>
+          <div class="d-grid mx-auto">
+            <button type="button" id="signUpNewsletter" class="btn btn-outline-primary btn-rounded waves-effect">Absenden!</button>
           </div>
         </div>
       </div>
+      <div class="col-sm-4 mx-auto mb-4">
+        <h6>IMPRESSUM</h6>
+        <hr class="mb-4 mt-0 d-inline-block mx-auto">
+        <p><i class="fas fa-home mr-3"></i>Luzern, Zufallstrasse 4, Schweiz</p>
+        <p><i class="fas fa-envelope mr-3"></i> info@example.com</p>
+        <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+        <p><i class="fas fa-mobile mr-4"></i> + 01 234 567 88 </p>
+      </div>
     </div>
   </div>
-  <div class="mini-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="copyright-text">
-            <p>© 2022
-              <a href="#">Rusticus</a>. All rights reserved. Created by
-              <a href="#">Rusticus</a>
-            </p>
+  <div>
+    <div class="mini-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="text-center py-3">© 2022 Copyright:
+              <a href="#"> Rusticus.com</a>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="text-center py-3">
+              <a href="#">Datenschutz</a>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="text-center py-3">
+              <a href="#">Privacy Statement</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </footer>
-
-@if (session('acc_created'))
-<div>
-  <span>{{ session()->get('acc_created') }}</span>
-</div>
-@endif
 
 </html>

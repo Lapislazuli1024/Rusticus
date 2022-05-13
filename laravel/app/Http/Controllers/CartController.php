@@ -15,20 +15,34 @@ class CartController extends Controller
 {
     public function createCart()
     {
-        $userId = 1; // TODO: get userid
-        $sessioncart = Sessioncart::where('user_id', '=', $userId)->first();
+        $userId = auth()->id();
+        // $sessioncart = $this->getSessionCart();
+        $totalItems = 0;
+        $totalPrice = 0;
 
-        if ($sessioncart == null) {
-            return redirect('/');
-        }
+        // if ($sessioncart == null) {
+        //     return redirect('/');
+        // }
 
         $sessionProducts = Sessioncart::where('user_id', '=', $userId)->first()->session_has_product()->get();
-        return view('cart.cart', ['sessionProducts' => $sessionProducts]);
+
+        // Get total sum of Products
+
+        // WAY BETTER LG LAPIS
+        //$sessionProducts = auth()->user()->sessioncart->session_has_product()->get();
+
+        foreach ($sessionProducts as $sessionProduct) {
+            $totalItems += $sessionProduct->amount;
+            $totalPrice += $sessionProduct->amount * $sessionProduct->product->price;
+        }
+
+        return view('user.cart.cart', ['sessionProducts' => $sessionProducts, 'totalItems' => $totalItems, 'totalPrice' => $totalPrice]);
     }
 
     public function storeCartIncrement($productId)
     {
-        $sessionProduct = Session_has_product::where('sessioncart_id', '=', $this->getSessionCart()->id)->where('product_id', '=', $productId)
+        $sessionProduct = Session_has_product::where('sessioncart_id', '=', $this->getSessionCart()->id)
+            ->where('product_id', '=', $productId)
             ->first();
 
         if ($sessionProduct != null) {
@@ -40,7 +54,8 @@ class CartController extends Controller
 
     public function storeCartDecrement($productId)
     {
-        $sessionProduct = Session_has_product::where('sessioncart_id', '=', $this->getSessionCart()->id)->where('product_id', '=', $productId)
+        $sessionProduct = Session_has_product::where('sessioncart_id', '=', $this->getSessionCart()->id)
+            ->where('product_id', '=', $productId)
             ->first();
 
         if ($sessionProduct != null) {
@@ -79,15 +94,9 @@ class CartController extends Controller
         }
 
         // Add Product to DB
-        $userId = 1; // TODO: get userid form Data auth()->userId
+        $userId = auth()->id();
 
         $sessioncart = $this->getSessionCart();
-        if ($sessioncart === null) {
-            // Create Sessioncart and save it
-            $sessioncart = Sessioncart::create([
-                'user_id' => $userId,
-            ]);
-        }
 
         if (Session_has_product::where('sessioncart_id', '=', $sessioncart->id)->where('product_id', '=', $productId)->first() === null) {
             // Create Session_has_Product and save it
@@ -96,13 +105,17 @@ class CartController extends Controller
                 'product_id' => $productId,
                 'sessioncart_id' => $sessioncart->id,
             ]);
+        } else {
+            $this->storeCartIncrement($productId);
         }
+
+
         return $this->createCart();
     }
 
     private function getSessionCart()
     {
-        $userId = 1; // TODO: get userid form Data
+        $userId = auth()->id();
         return Sessioncart::where('user_id', '=', $userId)->first();
     }
 }
