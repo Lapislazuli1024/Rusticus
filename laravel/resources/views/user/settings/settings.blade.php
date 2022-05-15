@@ -11,7 +11,7 @@
 
                         @can('IsFarmer')
                         <li><a href="{{ route('create.webpage.edit') }}">Webseite</a></li>
-                        <li><a href="{{ route('farmersProducts', 1 ) }}">Produkte</a></li>
+                        <li><a href="{{ route('farmersProducts', $user->id ) }}">Produkte</a></li>
                         @endcan
                     </ul>
 
@@ -98,7 +98,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-floating col mb-3">
-                                    <input type="text" class="form-control" id="postalcode" name="postalcode" placeholder="PLZ" value="{{ (old('place') !== null) ? old('place') : $user->farmer->address->town->postal_code }}" required>
+                                    <input type="text" class="form-control" id="postalcode" name="postalcode" placeholder="PLZ" value="{{ (old('postalcode') !== null) ? old('postalcode') : $user->farmer->address->town->postal_code }}" required>
                                     <label for="postalcode">PLZ</label>
                                     @error('postalcode')
                                     <span class="text-danger">{{ $message }}</span>
@@ -115,17 +115,17 @@
                         <form method="POST" action="{{ route('storePW.settings') }}" class="formStyle">
                             @csrf
                             <div class=" form-floating mb-3">
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Passwort" value="********" required>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Passwort" value="" required>
                                 <label for="password">Passwort</label>
                                 @error('password')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Passwort wiederholen" value="********" required>
+                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Passwort wiederholen" value="" required>
                                 <label for="password_confirmation">Passwort wiederholen</label>
-                                @if (session()->has('pwd_farmer'))
-                                <span class="text-danger">{{ session()->get('pwd_farmer') }}</span>
+                                @if (session()->has('pwd_change'))
+                                <span class="text-danger">{{ session()->get('pwd_change') }}</span>
                                 @endif
                                 <div class="form-text">
                                     Das Passwort muss mind. 6 Zeichen lang sein, sowie Buchstaben und Zahlen beinhalten.

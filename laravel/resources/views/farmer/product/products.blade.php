@@ -2,13 +2,15 @@
     <div class="container p-5 my-5">
         <div class="container-background">
             <h2 class="text-center">Produkte</h2>
+            @can('IsFarmer')
+            <a href="/product/add" class="btn btn-success float-end">Product Hinzufügen</a>
+            @endcan
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 @foreach($products as $product)
-                    @if($product->stock_quantity <= 0) 
-                    <div class="col no-quantity">
+                @if($product->stock_quantity <= 0) <div class="col no-quantity">
                     @else
                     <div class="col">
-                    @endif
+                        @endif
                         <div class="card h-100">
                             <img src="{{asset($product->image)}}" class="img-layout">
                             <div class="card-header">

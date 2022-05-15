@@ -82,7 +82,7 @@ class ProductController extends Controller
             'unit_of_measure_id' => $productData['unit_of_measure']
         ]);
 
-        return redirect('/');
+        return redirect()->route('farmersProducts', $userId);
     }
 
     public function createFarmerRelatedProduct($userId)
@@ -157,7 +157,7 @@ class ProductController extends Controller
             ]
         );
 
-        return redirect('/'); // TODO: Redirect to Farmer Page
+        return redirect()->route('farmersProducts', $userId);
     }
 
     public function storeRemoveProduct($productId)
