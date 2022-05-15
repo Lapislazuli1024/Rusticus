@@ -1,43 +1,21 @@
 <x-layout>
-<<<<<<< HEAD
-    <div class="container-background">
-        <h2 class="text-center">Produkte</h2>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            @foreach($products as $product)
-            @if($product->stock_quantity <= 0) <div class="col no-quantity">
-                @else
-                <div class="col">
-                    @endif
-                    <div class="card h-100">
-                        <img src="{{asset($product->image)}}" class="img-layout">
-                        <div class="card-header">
-                            <h5 class="card-title">{{$product->name}}</h5>
-                            @can('IsProductOwner', $product)
-                            <a href="/product/edit/{{$product->id}}" class="btn btn-success float-end">Bearbeiten</a>
-                            @endcan
-                        </div>
-                        <div class="card-body container-flex">
-                            <div class="list-group list-group-flush">
-                                <p> Menge: {{$product->stock_quantity}}</p>
-                                <p> Preis pro {{$product->unit_of_measure->description}}: {{$product->price}}</p>
-=======
     <div class="container p-5 my-5">
         <div class="container-background">
             <h2 class="text-center">Produkte</h2>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 @foreach($products as $product)
-                @if($product->stock_quantity <= 0) <div class="col no-quantity">
+                    @if($product->stock_quantity <= 0) 
+                    <div class="col no-quantity">
                     @else
                     <div class="col">
-                        @endif
+                    @endif
                         <div class="card h-100">
                             <img src="{{asset($product->image)}}" class="img-layout">
                             <div class="card-header">
                                 <h5 class="card-title">{{$product->name}}</h5>
-                                @can('isProductOwner')
-                                <a href="/product/edit/{{$product->id}}" class="btn btn-success float-end"> ✏ </a>
+                                @can('IsProductOwner', $product)
+                                <a href="/product/edit/{{$product->id}}" class="btn btn-success float-end">Bearbeiten</a>
                                 @endcan
->>>>>>> d5fbc05a2f9bd013c5047174ab72cb6456863bed
                             </div>
                             <div class="card-body container-flex">
                                 <div class="list-group list-group-flush">
