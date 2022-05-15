@@ -2,7 +2,7 @@
     <div class="container p-5 my-5 container-full">
         <div class="container-full welcome-blade-style">
 
-            <form method="post" action="{{ route('search.main.results' )}}">
+            <form method="post" action="{{ route('search.results' )}}">
                 @csrf
                 <div class="container-mid">
                     <div class="row">
