@@ -3,8 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
-
-                    <h3 class="card-header text-center">Registrierung</h3>
+                    <h3 class="card-header text-center">Einstellungen</h3>
 
                     <ul style="border: 2px solid black">
                         <li><a href="{{ route('create.settings') }}">Profil</a></li>

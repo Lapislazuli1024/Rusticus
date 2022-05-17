@@ -85,6 +85,17 @@ h2 {
 }
 
 /* FARMER/S | PRODUCT/S LAYOUT */
+.container-titel-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-titel-flex-end {
+  align-self: flex-end;
+}
+
+
 .container-flex {
   display: flex;
   flex-direction: column;
@@ -225,10 +236,11 @@ hr {
 @media screen and (max-width: 442px) {
 
   .card-responsive {
-    display: flex;  
+    display: flex;
     justify-content: center;
     border: 1rem;
   }
+
   .card-respnsive-center-button {
     width: 100%;
     display: flex;
