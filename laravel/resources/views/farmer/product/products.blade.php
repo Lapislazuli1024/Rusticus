@@ -11,8 +11,8 @@
                     @else
                     <div class="col">
                         @endif
-                        <div class="card h-100">
-                            <img src="{{asset($product->image)}}" class="img-layout">
+                        <div class="card h-100">                          
+                                <img src="{{asset($product->image)}}" class="img-layout">
                             <div class="card-header">
                                 <h5 class="card-title">{{$product->name}}</h5>
                                 @can('IsProductOwner', $product)

@@ -93,14 +93,15 @@ h2 {
 
 .img-layout {
   border-radius: 1rem 1rem 0rem 0rem;
+  height: 15rem;
+  width: 100%;
 
 }
 
 .img-layout-detail {
   border-radius: 0rem 1rem 1rem 0rem;
   width: 100%;
-  /* max-width: 100%; */
-  height: auto;
+  max-height: 50rem;
 }
 
 .container-center-detail {
