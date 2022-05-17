@@ -50,7 +50,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-lg-6">
                         <div class="">
                             <img src="{{asset($product->image)}}" class="img-layout-detail">
                         </div>

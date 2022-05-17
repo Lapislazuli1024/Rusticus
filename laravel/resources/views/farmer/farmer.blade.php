@@ -3,7 +3,7 @@
         <div class="container-full container-center-detail">
             <div class="card md-3">
                 <div class="row g-0">
-                    <div class="col-md-6 container-flex">
+                    <div class="col-lg-6 container-flex">
                         <div class="card-header">
                             <h3> Name: {{$user->name}} {{$user->surname}}</h3>
                             @if(session()->has('error'))
@@ -21,14 +21,9 @@
                                     <li class="list-group-item">
                                         Adresse: {{$user->farmer->address->street}} {{$user->farmer->address->house_number}}
                                     </li>
-                                    @if($user->farmer->webpage->webpage_url != null)
-                                    <li class="list-group-item">
-                                        Website: <a href="https://{{$user->farmer->webpage->webpage_url}}">{{$user->name}}s Webpage</a>
-                                    </li>
                                     <li class="list-group-item">
                                         Details: {{$user->farmer->webpage->description}}
-                                    </li>
-                                    @endif
+                                    </li>                                    
                                 </ul>
                             </div>
                             <div class="row">
@@ -45,7 +40,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-lg-6">
                         <div class="">
                             <img src="{{asset($user->farmer->webpage->image)}}" class="img-layout-detail">
                         </div>
