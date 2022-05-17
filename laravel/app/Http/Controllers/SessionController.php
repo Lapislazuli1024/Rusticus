@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SessionController extends Controller
 {
@@ -37,6 +38,10 @@ class SessionController extends Controller
         return redirect('/');
     }
 
+
+    // Setting Functions
+
+
     public function createSettings()
     {
         return view('user.settings.settings', ['user' => auth()->user()]);
@@ -49,32 +54,20 @@ class SessionController extends Controller
             'surname' => ['required', 'alpha', 'min:3', 'max:255'],
             'name' => ['required', 'alpha', 'min:3', 'max:255'],
             'username' => ['required', 'alpha', 'max:20'],
-            'email' => ['required', 'email', 'unique:users,email'],
-            'password' => ['required', 'min:6', 'max:255'],
-            'password_confirmation' => ['required', 'min:6', 'max:255'],
+            'email' => ['required', 'email'],
         ]);
 
-        return view('user.settings.settings');
+        Auth::user()->update([
+            'surname' => $usrData['surname'],
+            'name' => $usrData['name'],
+            'email' => $usrData['email'],
+        ]);
 
+        Auth::user()->customer->update([
+            'username' => $usrData['username'],
+        ]);
 
-        /*
-        User::updateOrCreate(
-            [
-                'id' => $productData['productId'],
-            ],
-            [
-                'name' => $productData['productname'],
-                'stock_quantity' => $productData['stock_quantity'],
-                'description' => $productData['description'],
-                'product_hint' => $productData['product_hint'],
-                'image' => $imagePath,
-                'price' => $productData['price'],
-                'user_id' => $user->id,
-                'sub_category_id' => $productData['sub_category'],
-                'unit_of_measure_id' => $productData['unit_of_measure']
-            ]
-        );
-        */
+        return view('user.settings.settings', ['user' => auth()->user()]);
     }
 
     public function storeFarmerSettings(Request $request)
@@ -83,39 +76,47 @@ class SessionController extends Controller
         $usrData = $request->validate([
             'surname' => ['required', 'alpha', 'min:3', 'max:255'],
             'name' => ['required', 'alpha', 'min:3', 'max:255'],
-            'email' => ['required', 'email', 'unique:users,email'],
+            'email' => ['required', 'email'],
             'street' => ['required'],
             'place' => ['required', 'alpha'],
             'postalcode' => ['required', 'numeric'],
-            'password' => ['required', 'min:6', 'max:255'],
-            'password_confirmation' => ['required', 'min:6', 'max:255'],
         ]);
 
-        return view('user.settings.settings');
+        Auth::user()->update([
+            'surname' => $usrData['surname'],
+            'name' => $usrData['name'],
+            'email' => $usrData['email'],
+        ]);
+
+        Auth::user()->farmer->address->update([
+            'street' => $usrData['street'],
+        ]);
+
+        Auth::user()->farmer->address->town->update([
+            'name' => $usrData['place'],
+            'postal_code' => $usrData['postalcode'],
+        ]);
 
 
-        /*
-        User::updateOrCreate(
-            [
-                'id' => $productData['productId'],
-            ],
-            [
-                'name' => $productData['productname'],
-                'stock_quantity' => $productData['stock_quantity'],
-                'description' => $productData['description'],
-                'product_hint' => $productData['product_hint'],
-                'image' => $imagePath,
-                'price' => $productData['price'],
-                'user_id' => $user->id,
-                'sub_category_id' => $productData['sub_category'],
-                'unit_of_measure_id' => $productData['unit_of_measure']
-            ]
-        );
-        */
+        return view('user.settings.settings', ['user' => auth()->user()]);
     }
 
     public function storePwSettings(Request $request)
     {
-        return view('user.settings.settings');
+        $usrData = $request->validate([
+            'password' => ['required', 'min:6', 'max:255'],
+            'password_confirmation' => ['required', 'min:6', 'max:255'],
+        ]);
+
+        if ($usrData['password'] === $usrData['password_confirmation']) {
+            Auth::user()->update([
+                'password' => $usrData['password'],
+            ]);
+        } else {
+            session()->flash('pwd_change', 'Die Passwörter stimmen nicht überein!');
+            return back()->withInput();
+        }
+
+        return view('user.settings.settings', ['user' => auth()->user()]);
     }
 }

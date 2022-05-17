@@ -93,7 +93,7 @@ class RegisterController extends Controller
                 'image' => 'dummy.jpg', //Change to actual Placeholder
                 'title' => 'Webseite von' . $usrData['name'] . " " . $usrData['surname'],
                 'description' => 'Platz für ein neuer Anfang',
-                'webpage_url' => 'http://www.ggasparri.net',
+                'webpage_url' => 'www.startpage.com',
             ]);
 
             Farmer::create([

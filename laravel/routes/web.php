@@ -6,7 +6,6 @@ use \App\Http\Controllers\FarmerController;
 use \App\Http\Controllers\ProductController;
 use \App\Http\Controllers\SearchController;
 use \App\Http\Controllers\CartController;
-use App\Http\Controllers\HelpController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\SessionController;
 
@@ -70,10 +69,9 @@ Route::middleware(['isFarmer'])->group(function () {
 });
 
 // => Search
-Route::post('/search',[SearchController::class,'index'])->name('search.main.results');
-Route::get('/search',[SearchController::class, 'index'])->name('search.filters.results');
-Route::post('/livesearch',[SearchController::class, 'livesearch'])->name('livesearch');
-Route::post('/search/filters',[SearchController::class, 'filter'])->name('filters');
+Route::post('/search', [SearchController::class, 'index'])->name('search.results');
+Route::post('/livesearch', [SearchController::class, 'livesearch'])->name('livesearch');
+Route::post('/search/filters', [SearchController::class, 'filter'])->name('filters');
 
 Route::middleware(['auth'])->group(function () {
     // => Cart

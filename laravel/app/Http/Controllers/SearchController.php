@@ -61,6 +61,8 @@ class SearchController extends Controller
                         array_push($hint, $sproduct);
                 }
             }
+        } else {
+            $hint = Product::all();
         }
 
         return view('components.search.search', [
