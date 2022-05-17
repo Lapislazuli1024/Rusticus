@@ -17,7 +17,6 @@ class ProductController extends Controller
         if (Product::first() == null) {
             return redirect('/');
         }
-        // TODO: Get Products and pass them to View
         $products = Product::get();
 
         return view('farmer.product.products', [
@@ -40,9 +39,6 @@ class ProductController extends Controller
 
     public function createAddProduct()
     {
-        // TODO: Check if user is allowed to create Product (user == farmer)
-        // then if true, show form to register Product
-        // else throw error message 
         $userId = auth()->id();
         $user = User::find($userId);
         $units = Unit_of_measure::get();
@@ -60,9 +56,9 @@ class ProductController extends Controller
 
         $user = User::find($userId);
         if ($user->farmer == null) {
-            return redirect('/user/login'); // Fehlernachticht, das nicht als bauer angemeldet
+            return redirect('/user/login');
         }
-        // TODO: read Product data form Form and insert into DB
+
         $productData = $request->validate([
             'productname' => ['required', 'alpha', 'min:3', 'max:255'],
             'stock_quantity' => ['required', 'numeric'],
@@ -94,7 +90,7 @@ class ProductController extends Controller
 
     public function createFarmerRelatedProduct($userId)
     {
-        // TODO: Get farmer specific products and pass them to View
+
         $products = Product::get()->where('user.id', $userId);
 
         return view('farmer.product.products', [
@@ -104,7 +100,7 @@ class ProductController extends Controller
 
     public function createEditProduct($productId)
     {
-        // TODO: get te product willing to be edited and load edit form
+
         $userId = auth()->id();
         $user = User::find($userId);
         $product = Product::find($productId);
@@ -115,7 +111,6 @@ class ProductController extends Controller
             if ($product->user_id == $userId) {
                 return view('farmer.product.editProduct', ['user' => $user, 'units' => $units, 'sub_categories' => $sub_categories, 'product' => $product]);
             }
-            // TODO: error message -> not product of user
         }
         return redirect('/');
     }
@@ -126,9 +121,9 @@ class ProductController extends Controller
 
         $user = User::find($userId);
         if ($user->farmer == null) {
-            return redirect(route('create.login')); // Fehlernachticht, da nicht als bauer angemeldet
+            return redirect(route('create.login'));
         }
-        // TODO: read Product data form Form and insert into DB
+
         $productData = $request->validate([
             'productId' => [],
             'productname' => ['alpha', 'min:3', 'max:255'],
@@ -163,7 +158,6 @@ class ProductController extends Controller
                 'unit_of_measure_id' => $productData['unit_of_measure']
             ]
         );
-
         return redirect()->route('farmersProducts', $userId);
     }
 
@@ -172,12 +166,11 @@ class ProductController extends Controller
         $userId = auth()->id();
         $user = User::find($userId);
         if ($user->farmer == null) {
-            return redirect('/user/login'); // Fehlernachticht, da nicht als bauer angemeldet
+            return redirect('/user/login');
         }
 
         $product = Product::find($productId);
 
-        // dd($product);
         if ($product == null) {
             return redirect('/');
         }

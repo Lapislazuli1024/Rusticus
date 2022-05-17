@@ -17,7 +17,6 @@ class FarmerController extends Controller
     }
     public function createOneFarmer($id)
     {
-        // TODO: get Farmer id From DB and pass to plade
         $farmer = User::find($id);
         return view('farmer.farmer', ['user' => $farmer]);
     }
@@ -38,7 +37,7 @@ class FarmerController extends Controller
         $userId = auth()->id();
         $user = User::find($userId);
         if ($user->farmer == null) {
-            return redirect(route('create.login')); // Fehlernachticht, da nicht als bauer angemeldet
+            return redirect(route('create.login'));
         }
 
         $webpageData = $request->validate([
