@@ -98,9 +98,8 @@ h2 {
 
 .img-layout-detail {
   border-radius: 0rem 1rem 1rem 0rem;
-  min-width: 1rem;
-  min-height: 1rem;
-  max-width: 100%;
+  width: 100%;
+  /* max-width: 100%; */
   height: auto;
 }
 
@@ -110,9 +109,8 @@ h2 {
   flex-wrap: wrap;
   align-content: center;
   /* margin-top: -8rem; */
-
-
 }
+
 
 /* FOOOTER */
 
@@ -146,7 +144,7 @@ footer {
 hr {
   margin-bottom: 1.25rem;
   margin-top: 1.25rem;
-  width: 60%;
+  width: 100%;
 }
 
 .card {
@@ -161,14 +159,12 @@ hr {
 .cart {
   background-color: #fff;
   padding: 4vh 5vh;
-  border-bottom-left-radius: 1rem;
-  border-top-left-radius: 1rem
+  border-radius: 1rem 0rem 0rem 1rem;
 }
 
 .summary {
   background-color: #ddd;
-  border-top-right-radius: 1rem;
-  border-bottom-right-radius: 1rem;
+  border-radius: 0rem 1rem 1rem 0rem;
   padding: 4vh;
   color: rgb(65, 65, 65)
 }
@@ -183,11 +179,6 @@ hr {
   margin-top: 4.5rem;
 }
 
-.checkout {
-  position: absolute;
-  bottom: 2rem;
-}
-
 .img-warenkorb {
   width: 8rem
 }
@@ -200,4 +191,49 @@ hr {
   justify-content: space-around;
   align-items: center;
   align-content: space-around;
+}
+
+@media screen and (max-width: 1200px) {
+  .img-layout-detail {
+    border-radius: 0rem 1rem 1rem 0rem;
+    width: 113%;
+
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .img-layout-detail {
+    border-radius: 0rem 0rem 1rem 1rem;
+    width: 100%;
+    height: auto;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+  .cart {
+    border-radius: 1rem 1rem 0rem 0rem;
+  }
+
+  .summary {
+    border-radius: 0rem 0rem 1rem 1rem;
+  }
+
+}
+
+@media screen and (max-width: 442px) {
+
+  .card-responsive {
+    display: flex;  
+    justify-content: center;
+    border: 1rem;
+  }
+  .card-respnsive-center-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #dc3545;
+    border-radius: 1rem 1rem 1rem 1rem;
+  }
+
 }
