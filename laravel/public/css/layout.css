@@ -75,6 +75,12 @@ h2 {
   box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.06);
 }
 
+.formStyle select {
+  padding: 10px;
+  border: 0;
+  box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.06);
+}
+
 .container-background {
   background-color: #e7e8ed9c;
   padding: 3%;
@@ -205,6 +211,23 @@ hr {
   align-content: space-around;
 }
 
+.container-flex-settings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.nav-link {
+  color: #000000;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+
+  background-color: #198754;
+}
+
 @media screen and (max-width: 1200px) {
   .img-layout-detail {
     border-radius: 0rem 1rem 1rem 0rem;
@@ -248,5 +271,18 @@ hr {
     background-color: #dc3545;
     border-radius: 1rem 1rem 1rem 1rem;
   }
+
+  .container-flex-settings {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-responsive-pills {
+    margin-bottom: 1.25rem;
+    width: 100%;
+    border-bottom:solid 1px gray;
+
+  }
+
 
 }
