@@ -36,11 +36,14 @@
                                         <a href="/product/edit/{{$product->id}}" class="btn btn-warning float-end">Bearbeiten</a>
                                     </div>
                                     @endcan
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                </div>
+                @endif
+                @endforeach
             </div>
         </div>
     </div>
