@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Sub_category;
+use App\Models\Unit_of_measure;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -44,7 +46,9 @@ class SessionController extends Controller
 
     public function createSettings()
     {
-        return view('user.settings.settings', ['user' => auth()->user()]);
+        $units = Unit_of_measure::get();
+        $sub_categories = Sub_category::get();
+        return view('user.settings.settings', ['user' => auth()->user(),'units' => $units, 'sub_categories' => $sub_categories]);
     }
 
     public function storeCustomersettings(Request $request)

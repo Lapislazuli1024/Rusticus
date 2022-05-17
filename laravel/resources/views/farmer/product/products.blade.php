@@ -9,8 +9,6 @@
                 </div>
                 @endcan
             </div>
-
-
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 @foreach($products as $product)
                 @if($product->stock_quantity <= 0) <div class="col no-quantity">

@@ -25,6 +25,4 @@ function selectRegisterForm(evt) {
     document.getElementById("divFarmerForm").style.display = "block";
     document.getElementById("farmerTab").classList.add("active");
   }
-} 
-
-
+}
