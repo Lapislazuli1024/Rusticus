@@ -5,10 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Session_has_product;
 use App\Models\Sessioncart;
-use App\Models\User;
-use Hamcrest\Type\IsNumeric;
-use Illuminate\Auth\Events\Validated;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
 class CartController extends Controller

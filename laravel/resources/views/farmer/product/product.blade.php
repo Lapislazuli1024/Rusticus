@@ -6,8 +6,8 @@
         <div class="container-full container-center-detail">
             <div class="card md-3">
                 <div class="row g-0">
-
-                    <div class="col-lg-6 container-flex">
+                    @if($product != null)
+                    <div class="col-md-6 container-flex">
                         <div class="card-header">
                             <h3> Produkt: {{$product->name}}</h3>
                             @if(session()->has('error'))
@@ -55,6 +55,7 @@
                             <img src="{{asset($product->image)}}" class="img-layout-detail">
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
