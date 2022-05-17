@@ -14,9 +14,6 @@ class ProductController extends Controller
 {
     public function createAllProduct()
     {
-        if (Product::first() == null) {
-            return redirect('/');
-        }
         $products = Product::get();
 
         return view('farmer.product.products', [
