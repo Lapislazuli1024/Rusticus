@@ -78,7 +78,7 @@
                                     @enderror
                                 </div>
                                 <div class="d-grid mx-auto">
-                                    <button type="submit" class="btn btn-dark btn-block">Produkt bearbeiten</button>
+                                    <button type="submit" class="btn btn-warning btn-block">Produkt Aktualisieren</button>
                                 </div>
                             </form>
                         </div>
