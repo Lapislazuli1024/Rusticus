@@ -14,8 +14,6 @@ class Address extends Model
         'town_id',
     ];
 
-    
-    //hasOne, hasMany, belongsTo, belongsToMany
     function farmer()
     {
         return $this->belongsTo(Farmer::class);

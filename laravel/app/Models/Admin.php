@@ -9,7 +9,6 @@ class Admin extends Authenticatable
 {
     use HasFactory;
 
-    //hasOne, hasMany, belongsTo, belongsToMany
     function user()
     {
         return $this->belongsTo(User::class);

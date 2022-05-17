@@ -16,20 +16,10 @@ class CartController extends Controller
     public function createCart()
     {
         $userId = auth()->id();
-        // $sessioncart = $this->getSessionCart();
         $totalItems = 0;
         $totalPrice = 0;
 
-        // if ($sessioncart == null) {
-        //     return redirect('/');
-        // }
-
-        $sessionProducts = Sessioncart::where('user_id', '=', $userId)->first()->session_has_product()->get();
-
-        // Get total sum of Products
-
-        // WAY BETTER LG LAPIS
-        //$sessionProducts = auth()->user()->sessioncart->session_has_product()->get();
+        $sessionProducts = auth()->user()->sessioncart->session_has_product()->get();
 
         foreach ($sessionProducts as $sessionProduct) {
             $totalItems += $sessionProduct->amount;
@@ -85,21 +75,15 @@ class CartController extends Controller
 
     public function storeCartAdd($productId)
     {
-        // Trim input from user
         $productId = trim($productId, " \t\n\r");
 
-        // Validate if ProductId is number and in DB
         if (is_numeric($productId) == false || Product::find($productId) == null) {
             return Redirect::back()->with('error', 'Dieses Produkt scheint nicht in der Datenbank vorhanden.');
         }
 
-        // Add Product to DB
-        $userId = auth()->id();
-
         $sessioncart = $this->getSessionCart();
 
         if (Session_has_product::where('sessioncart_id', '=', $sessioncart->id)->where('product_id', '=', $productId)->first() === null) {
-            // Create Session_has_Product and save it
             Session_has_product::create([
                 'amount' => 1,
                 'product_id' => $productId,

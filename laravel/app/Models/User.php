@@ -16,13 +16,11 @@ class User extends Authenticatable
         'password'
     ];
 
-    //Hash PW
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
     }
 
-    //hasOne, hasMany, belongsTo, belongsToMany
     function customer()
     {
         return $this->hasOne(Customer::class);

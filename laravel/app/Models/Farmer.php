@@ -15,7 +15,6 @@ class Farmer extends Authenticatable
         'address_id'
     ];
 
-    //hasOne, hasMany, belongsTo, belongsToMany
     function user()
     {
         return $this->belongsTo(User::class);
