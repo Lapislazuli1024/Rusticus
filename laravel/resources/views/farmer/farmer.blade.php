@@ -1,9 +1,9 @@
 <x-layout>
     <div class="container p-5 my-5 container-full">
         <div class="container-full container-center-detail">
-            <div class="card md-3">
+            <div class="card">
                 <div class="row g-0">
-                    <div class="col-lg-6 container-flex">
+                    <div class="col-lg container-flex">
                         <div class="card-header">
                             <h3> Name: {{$user->name}} {{$user->surname}}</h3>
                             @if(session()->has('error'))
@@ -40,8 +40,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="">
+                    <div class="col-lg">
+                        <div class="container">
                             <img src="{{asset($user->farmer->webpage->image)}}" class="img-layout-detail">
                         </div>
                     </div>

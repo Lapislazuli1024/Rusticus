@@ -1,7 +1,7 @@
 <x-layout>
     <main class="container p-5 my-5 container-full">
         <div class="row justify-content-center">
-            <div class="col-md-7">
+            <div class="col-md-10">
                 <div class="card">
                     <h3 class="card-header text-center">Einstellungen</h3>
                     <div class="card-body">
@@ -47,6 +47,9 @@
                                             <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
+                                        <div class="form-text" style="color:transparent">
+                                                Das Passwort muss mind. 6 Zeichen lang sein, sowie Buchstaben und Zahlen beinhalten.
+                                            </div>
                                         <div class="d-grid mx-auto">
                                             <button type="submit" class="btn btn-warning btn-block">Werte übernehmen</button>
                                         </div>
@@ -87,6 +90,9 @@
                                             <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
+                                        <div class="form-text" style="color:transparent">
+                                                Das Passwort muss mind. 6 Zeichen lang sein, sowie Buchstaben und Zahlen beinhalten.
+                                            </div>
                                         <div class="d-grid mx-auto">
                                             <button type="submit" class="btn btn-dark btn-block">Registrieren</button>
                                         </div>
@@ -144,6 +150,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="form-text" style="color:transparent">
+                                                Das Passwort muss mind. 6 Zeichen lang sein, sowie Buchstaben und Zahlen beinhalten.
+                                            </div>
                                         <div class="d-grid mx-auto">
                                             <button type="submit" class="btn btn-warning btn-block">Speichern</button>
                                         </div>
@@ -174,6 +183,9 @@
                                                 Das Passwort muss mind. 6 Zeichen lang sein, sowie Buchstaben und Zahlen beinhalten.
                                             </div>
                                         </div>
+                                        <div class="form-text" style="color:transparent">
+                                                Das Passwort muss mind. 6 Zeichen lang sein, sowie Buchstaben und Zahlen beinhalten.
+                                            </div>
                                         <div class="d-grid mx-auto">
                                             <button type="submit" class="btn btn-warning btn-block">Password speichern!</button>
                                         </div>
@@ -252,6 +264,9 @@
                                             <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
+                                        <div class="form-text" style="color:transparent">
+                                                Das Passwort muss mind. 6 Zeichen lang sein, sowie Buchstaben und Zahlen beinhalten.
+                                            </div>
                                         <div class="d-grid mx-auto">
                                             <button type="submit" class="btn btn-success btn-block">Produkt Hinzufügen</button>
                                         </div>
