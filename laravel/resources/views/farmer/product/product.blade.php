@@ -36,7 +36,7 @@
                             </ul>
                         </div>
                         <div class="container">
-                            <div class="row-md">
+                            <div class="row">
                                 <div class="p-1 col">
                                     <div class="d-grid gap-2">
                                         <a href="{{URL::previous()}}" class="btn btn-dark float-start">Zurück</a>
@@ -44,12 +44,12 @@
                                 </div>
                                 <div class="p-1 col">
                                     <div class="d-grid gap-2">
-                                        <a href="/cart/add/{{$product->id}}" class="btn btn-success float-end">Warenkorb 🛒</a>
+                                        <a href="/cart/add/{{$product->id}}" class="btn btn-success float-end">Warenkorb</a>
                                     </div>
                                 </div>
                             </div>
                             @can('IsProductOwner', $product)
-                            <div class="row-md">
+                            <div class="row">
                                 <div class="p-1 col">
                                     <div class="d-grid gap-2">
                                         <a href="{{ route('create.product.edit', $product->id) }}" class="btn btn-warning float-end">Bearbeiten</a>

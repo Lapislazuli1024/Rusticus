@@ -3,7 +3,9 @@
         <div class="container-background">
             <div class="row">
                 <div class="col">
-                    <h2>Bestellungsübersicht</h2>
+                    <div class="container-titel-flex">
+                        <h2>Bestellungsübersicht</h2>
+                    </div>
                 </div>
             </div>
             @if(isset($reservationProducts))
