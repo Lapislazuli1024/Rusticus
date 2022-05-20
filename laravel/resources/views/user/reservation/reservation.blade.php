@@ -6,6 +6,7 @@
                     <h2>Bestellungsübersicht</h2>
                 </div>
             </div>
+            @if(isset($reservationProducts))
             @foreach($reservationProducts as $reservation)
             <div class="card">
                 <div class="card-body">
@@ -29,6 +30,7 @@
                 </div>
             </div>
             @endforeach
+            @endif
             <hr>
             <div class="d-grid gap-2 col-6 mx-auto">
                 <a type="button" class="btn btn-dark btn-lg" href="/products">BACK TO SHOP</a>

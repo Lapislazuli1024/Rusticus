@@ -6,17 +6,19 @@ use App\Models\Product;
 use App\Models\Reservation;
 use App\Models\Reservation_has_product;
 use App\Models\Sessioncart;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
     public function createReservation()
     {
-        $userId = auth()->id();
-        if (Reservation::where('user_id', '=', $userId)->first() != null) {
-            $reservationProducts = Reservation::where('user_id', '=', $userId)->get();
-            return view('user.reservation.reservation', ['reservationProducts' => $reservationProducts]);
+
+        if (auth()->user()->reservation === null) {
+            return view('user.reservation.reservation', ['reservationProducts' => null]);
         }
-        return view('user.reservation.reservation', ['reservationProducts' => null]);
+
+        $reservationProducts = auth()->user()->reservation->reservation_has_product()->get();
+        return view('user.reservation.reservation', ['reservationProducts' => $reservationProducts]);
     }
 
     public function storeCheckout()
