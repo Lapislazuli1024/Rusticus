@@ -52,6 +52,7 @@
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
               <li><a class="dropdown-item" href="{{ route('create.settings') }}">Einstellungen</a></li>
               <li><a class="dropdown-item" href="{{ route('cart') }}">Warenkorb</a></li>
+              <li><a class="dropdown-item" href="{{ route('reservation') }}">Reservation</a></li>
               <li><a class="dropdown-item" href="{{ route('destroy.session') }}">Logout</a></li>
               <li><a class="dropdown-item" href="{{ route('create.help') }}">Hilfe</a></li>
             </ul>

@@ -5,7 +5,7 @@
                 <h2>Produkte</h2>
                 @can('IsFarmer')
                 <div class="container-titel-flex-end">
-                    <a href="/product/add" class="btn btn-success btn-lg float-end">Product Hinzufügen</a>
+                    <a href="{{ route('create.product') }}" class="btn btn-success btn-lg float-end">Product Hinzufügen</a>
                 </div>
                 @endcan
             </div>
@@ -31,7 +31,10 @@
                                     </div>
                                     @can('IsProductOwner', $product)
                                     <div class="p-1 row">
-                                        <a href="/product/edit/{{$product->id}}" class="btn btn-warning float-end">Bearbeiten</a>
+                                        <a href="{{ route('create.product.edit', $product->id) }}" class="btn btn-warning float-end">Bearbeiten</a>
+                                    </div>
+                                    <div class="p-1 row">
+                                        <a href="{{ route('store.product.remove', $product->id) }}" class="btn btn-warning float-end">Entfernen</a>
                                     </div>
                                     @endcan
                                 </div>

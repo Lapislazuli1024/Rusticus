@@ -71,7 +71,7 @@ class SessionController extends Controller
             'username' => $usrData['username'],
         ]);
 
-        return view('user.settings.settings', ['user' => auth()->user()]);
+        return $this->createSettings();
     }
 
     public function storeFarmerSettings(Request $request)
@@ -101,8 +101,7 @@ class SessionController extends Controller
             'postal_code' => $usrData['postalcode'],
         ]);
 
-
-        return view('user.settings.settings', ['user' => auth()->user()]);
+        return $this->createSettings();
     }
 
     public function storePwSettings(Request $request)
@@ -121,6 +120,6 @@ class SessionController extends Controller
             return back()->withInput();
         }
 
-        return view('user.settings.settings', ['user' => auth()->user()]);
+        return $this->createSettings();
     }
 }

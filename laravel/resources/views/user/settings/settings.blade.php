@@ -8,18 +8,22 @@
                         <div class="container-flex-settings">
                             <div class="nav flex-column nav-pills col-md-3 nav-responsive-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                 @can('IsFarmer')
-                                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</button>
+                                <button class="nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="false">Home</button>
                                 @endcan
-                                <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</button>
 
+                                <button class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="true">Profile</button>
                                 <button class="nav-link" id="v-pills-password-tab" data-bs-toggle="pill" data-bs-target="#v-pills-password" type="button" role="tab" aria-controls="v-pills-password" aria-selected="false">Password</button>
+                                
                                 @can('IsFarmer')
                                 <button class="nav-link" id="v-pills-addProduct-tab" data-bs-toggle="pill" data-bs-target="#v-pills-addProduct" type="button" role="tab" aria-controls="v-pills-addProduct" aria-selected="false">Add Product</button>
                                 @endcan
                             </div>
 
                             <div class="tab-content col-md-8" id="v-pills-tabContent">
-                                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+                                <!-- FARMER WEBPAGE CONTENT START -->
+                                @can('IsFarmer')
+                                <div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                     <form method="POST" action="{{ route('store.webpage.edit') }}" class="formStyle" enctype="multipart/form-data">
                                         @csrf
                                         <input type="text" class="form-control" name="webpageId" id="webpageId" value="{{ $user->farmer->webpage->id }}" hidden>
@@ -47,16 +51,16 @@
                                             <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                        <div class="form-text" style="color:transparent">
-                                                Das Passwort muss mind. 6 Zeichen lang sein, sowie Buchstaben und Zahlen beinhalten.
-                                            </div>
                                         <div class="d-grid mx-auto">
                                             <button type="submit" class="btn btn-warning btn-block">Werte übernehmen</button>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                @endcan
+                                <!-- FARMER WEBPAGE CONTENT START -->
 
+                                <!-- USER PROFILE CONTENT START -->
+                                <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                                     @can('IsCustomer')
                                     <form method="POST" action="{{ route('storeCustomer.settings') }}" class="formStyle">
                                         @csrf
@@ -90,9 +94,6 @@
                                             <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                        <div class="form-text" style="color:transparent">
-                                                Das Passwort muss mind. 6 Zeichen lang sein, sowie Buchstaben und Zahlen beinhalten.
-                                            </div>
                                         <div class="d-grid mx-auto">
                                             <button type="submit" class="btn btn-dark btn-block">Registrieren</button>
                                         </div>
@@ -150,17 +151,13 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-text" style="color:transparent">
-                                                Das Passwort muss mind. 6 Zeichen lang sein, sowie Buchstaben und Zahlen beinhalten.
-                                            </div>
                                         <div class="d-grid mx-auto">
                                             <button type="submit" class="btn btn-warning btn-block">Speichern</button>
                                         </div>
                                     </form>
                                     @endcan
                                 </div>
-
-                                <!-- PROFILE CONTENT ENDE -->
+                                <!-- USER PROFILE CONTENT ENDE -->
 
                                 <!-- PASSWORD CONTENT START -->
                                 <div class="tab-pane fade" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab">
@@ -184,8 +181,8 @@
                                             </div>
                                         </div>
                                         <div class="form-text" style="color:transparent">
-                                                Das Passwort muss mind. 6 Zeichen lang sein, sowie Buchstaben und Zahlen beinhalten.
-                                            </div>
+                                            Das Passwort muss mind. 6 Zeichen lang sein, sowie Buchstaben und Zahlen beinhalten.
+                                        </div>
                                         <div class="d-grid mx-auto">
                                             <button type="submit" class="btn btn-warning btn-block">Password speichern!</button>
                                         </div>
@@ -194,6 +191,7 @@
                                 <!-- PASSWORD CONTENT END -->
 
                                 <!-- ADD PRODUCT CONTENT START -->
+                                @can('IsFarmer')
                                 <div class="tab-pane fade" id="v-pills-addProduct" role="tabpanel" aria-labelledby="v-pills-addProduct-tab">
                                     <form method="POST" action="{{ route('store.product') }}" enctype="multipart/form-data" class="formStyle">
                                         @csrf
@@ -264,14 +262,12 @@
                                             <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                        <div class="form-text" style="color:transparent">
-                                                Das Passwort muss mind. 6 Zeichen lang sein, sowie Buchstaben und Zahlen beinhalten.
-                                            </div>
                                         <div class="d-grid mx-auto">
                                             <button type="submit" class="btn btn-success btn-block">Produkt Hinzufügen</button>
                                         </div>
                                     </form>
                                 </div>
+                                @endcan
                                 <!-- ADD PRODUCT CONTENT END -->
                             </div>
                         </div>
