@@ -32,7 +32,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: center;
-  justify-content: center
+  justify-content: center;
   
 }
 
@@ -222,6 +222,8 @@ hr {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  
+  align-items: center
 
 }
 
@@ -264,7 +266,9 @@ hr {
 }
 
 @media screen and (max-width: 442px) {
-
+  .container-full {  
+    min-height: 110%;    
+  }
   .img-layout-detail {
     border-radius: 0rem 0rem 1rem 1rem;
     width: 100%;

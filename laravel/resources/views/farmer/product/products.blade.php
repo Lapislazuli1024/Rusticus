@@ -34,7 +34,7 @@
                                         <a href="{{ route('create.product.edit', $product->id) }}" class="btn btn-warning float-end">Bearbeiten</a>
                                     </div>
                                     <div class="p-1 row">
-                                        <a href="{{ route('store.product.remove', $product->id) }}" class="btn btn-warning float-end">Entfernen</a>
+                                        <a href="{{ route('store.product.remove', $product->id) }}" class="btn btn-danger float-end">Entfernen</a>
                                     </div>
                                     @endcan
                                 </div>

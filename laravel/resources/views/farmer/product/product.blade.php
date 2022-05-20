@@ -35,17 +35,33 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="d-grid gap-2">
-                                    <a href="{{URL::previous()}}" class="btn btn-dark float-start">Zurück</a>
+                        <div class="container">
+                            <div class="row-md">
+                                <div class="p-1 col">
+                                    <div class="d-grid gap-2">
+                                        <a href="{{URL::previous()}}" class="btn btn-dark float-start">Zurück</a>
+                                    </div>
+                                </div>
+                                <div class="p-1 col">
+                                    <div class="d-grid gap-2">
+                                        <a href="/cart/add/{{$product->id}}" class="btn btn-success float-end">Warenkorb 🛒</a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="d-grid gap-2">
-                                    <a href="/cart/add/{{$product->id}}" class="btn btn-success float-end">In den Warenkorb 🛒</a>
+                            @can('IsProductOwner', $product)
+                            <div class="row-md">
+                                <div class="p-1 col">
+                                    <div class="d-grid gap-2">
+                                        <a href="{{ route('create.product.edit', $product->id) }}" class="btn btn-warning float-end">Bearbeiten</a>
+                                    </div>
+                                </div>
+                                <div class="p-1 col">
+                                    <div class="d-grid gap-2">
+                                        <a href="{{ route('store.product.remove', $product->id) }}" class="btn btn-danger float-end">Entfernen</a>
+                                    </div>
                                 </div>
                             </div>
+                            @endcan
                         </div>
                     </div>
                 </div>
