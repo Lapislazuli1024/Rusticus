@@ -34,7 +34,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4 card-responsive">
-                                            &yen; {{$product->product()->first()->price * $product->amount}}
+                                            CHF {{$product->product()->first()->price * $product->amount}}
                                         </div>
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@
                         </div>
                         <div class="row">
                             <div class="col">TOTAL PRICE</div>
-                            <div class="col text-right">&yen; {{$totalPrice}}</div>
+                            <div class="col text-right">CHF {{$totalPrice}}</div>
                         </div>
                         <hr>
                         @endif

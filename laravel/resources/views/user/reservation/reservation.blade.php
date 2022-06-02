@@ -25,7 +25,7 @@
                             <div class="col-3">
                                 <button type="button" class="btn btn-light">Kauf Menge: {{$product->amount}} </button>
                             </div>
-                            <div class="col-2">&yen; {{$product->product()->first()->price}}</div>
+                            <div class="col-2">CHF {{$product->product()->first()->price}}</div>
                         </div>
                     </div>
                     @endforeach
