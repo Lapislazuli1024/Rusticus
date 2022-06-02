@@ -8,6 +8,7 @@ use \App\Http\Controllers\SearchController;
 use \App\Http\Controllers\CartController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\HelpController;
 
 /*
 |--------------------------------------------------------------------------

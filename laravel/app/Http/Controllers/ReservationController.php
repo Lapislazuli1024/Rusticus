@@ -17,7 +17,7 @@ class ReservationController extends Controller
             return view('user.reservation.reservation', ['reservationProducts' => null]);
         }
 
-        $reservationProducts = auth()->user()->reservation->reservation_has_product()->get();
+        $reservationProducts = auth()->user()->reservation()->orderBy('created_at', 'desc')->get();
         return view('user.reservation.reservation', ['reservationProducts' => $reservationProducts]);
     }
 

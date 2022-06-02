@@ -94,7 +94,7 @@
                                         @enderror
                                     </div>
                                     <div class="d-grid mx-auto">
-                                        <button type="submit" class="btn btn-dark btn-block">Registrieren</button>
+                                        <button type="submit" class="btn btn-warning btn-block">Speichern</button>
                                     </div>
                                 </form>
                                 @endcan

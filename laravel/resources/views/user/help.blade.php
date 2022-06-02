@@ -1,18 +1,19 @@
 <x-layout>
-    <div class="container p-5 my-5">
-        <main class="container-full">
-            <div class="row justify-content-center">
-                <div class="row">
-                    <div class="col-sm-5 mx-auto mb-4">
-                        Wir sind Nicht verantwortlich für jegliche Ihrer Probleme
-                        FAQ
-                        <div>
-                            Frage: xxxxxxx??
-                            Antwort: NEIN
+        <div class="container p-5 my-5 container-full">
+                <div class="container-background">
+                        <div class="row">
+                                <div class="container-titel-flex">
+                                        <h2>Help</h2>
+                                        Wir sind Nicht verantwortlich für jegliche Ihrer Probleme
+                                        FAQ
+                                </div>
                         </div>
-                    </div>
+                        <div class="row">
+                                <div class="container-titel-flex">
+                                        Frage: xxxxxxx???
+                                        Antwort: NEIN
+                                </div>
+                        </div>
                 </div>
-            </div>
-        </main>
-    </div>
+        </div>
 </x-layout>
